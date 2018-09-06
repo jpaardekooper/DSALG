@@ -119,17 +119,17 @@ namespace DSALG_Tree
                 }
                 if (padding > 0)
                 {
-                    Debug.Write(" ".PadLeft(padding));
+                    Console.Write(" ".PadLeft(padding));
                 }
                 if (p.Right != null)
                 {
-                    Debug.Write("/\n");
-                    Debug.Write(" ".PadLeft(padding));
+                    Console.Write("/\n");
+                    Console.Write(" ".PadLeft(padding));
                 }
-                Debug.Write(p.Data.ToString() + "\n ");
+                Console.Write(p.Data.ToString() + "\n ");
                 if (p.Left != null)
                 {
-                    Debug.Write(" ".PadLeft(padding) + "\\\n");
+                    Console.Write(" ".PadLeft(padding) + "\\\n");
                     Print(p.Left, padding + 4);
                 }
             }
@@ -137,47 +137,64 @@ namespace DSALG_Tree
 
         public Node FindNode(int d)
         {
-            Queue queue = new Queue();
-            if (Root != null)
+            Node Nonode = new Node
             {
-                queue.Enqueue(Root);
-            }
+                Data = 0
+            };
 
-            while (queue.Count != 0)
+            Node current = Root;
+            Node parent;
+
+            while (true)
             {
-                int size = queue.Count;
-                for (int i = 0; i < size; i++)
+                parent = current;
+                if (d <= current.Data)
                 {
-                    Node current = (Node)queue.Dequeue();
-
-                    if (current.Data == d)
+                    current = current.Left;
+                    if (current == null)
                     {
+                        Console.WriteLine("No node found");
+                        return Nonode;
+                    }
+                    else if (current.Data == d)
+                    {
+                        Console.WriteLine("Found it");
+                        return current;
+                    }                   
+                }
+                else
+                {
+                    current = current.Right;
+                    if (current == null)
+                    {
+                        Console.WriteLine("No node found");
+                        return Nonode;
+                    }
+                    else if (current.Data == d)
+                    {
+                        Console.WriteLine("Found it");
                         return current;
                     }
-                    if (current.Left != null)
-                    {
-                        queue.Enqueue(current.Left);
-                    }
-
-                    if (current.Data == d)
-                    {
-                        return current;
-                    }
-                    if (current.Right != null)
-                    {
-                        queue.Enqueue(current.Right);
-                    }
-
                 }
 
+
+            }
+            
+        }
+        
+        public static BinaryTree GetTestTree(int AmountOfNodes)
+        {
+            BinaryTree tree = new BinaryTree();
+
+            int[] testTree = {90, 50, 150, 95, 175, 75, 20, 92, 111, 166, 200, 5, 25, 66, 80,
+                              4, 6, 20, 30, 60, 67, 79, 81, 90, 93, 110, 112, 165, 167, 200};
+
+            for (int i = 0; i < AmountOfNodes; i++)
+            {
+                tree.Insert(testTree[i]);
             }
 
-            Node Nonode = new Node();
-            Nonode.Data = 0;
-            Debug.WriteLine("There is no root node present");
-            return Nonode;
-
+            return tree;
         }
-     
     }
 }

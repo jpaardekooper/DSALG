@@ -13,7 +13,13 @@ namespace Tree
     {
         static void Main(string[] args)
         {
-            
+            BinaryTree tree = BinaryTree.GetTestTree(30);
+
+            tree.Print();
+
+            Console.WriteLine(tree.FindNode(1).Data);
+
+            Console.ReadKey();
         }
     }
 
