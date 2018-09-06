@@ -7,7 +7,11 @@ namespace UnitTestProject1
     [TestClass]
     public class UnitTest1
     {
-        
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="AmountOfNodes"></param>
+        /// <returns></returns>
         public static BinaryTree GetTestTree(int AmountOfNodes)
         {
             BinaryTree tree = new BinaryTree();
@@ -22,7 +26,6 @@ namespace UnitTestProject1
             
             return tree;
         }
-
 
         [TestMethod]
         public void BinaryTree_DepthTest_GiveTestThree_Get3Depth()
