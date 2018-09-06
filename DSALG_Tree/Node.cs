@@ -8,6 +8,11 @@ using System.Threading.Tasks;
 
 namespace DSALG_Tree
 {
+    /// <summary>
+    /// Upon creating a Node class we define int data for the Node and 
+    /// giving it the position left or right of the Node
+    /// A node can be a Parent, Leaf, Child or a Sibling
+    /// </summary>
     public class Node
     {
         public int Data;
@@ -16,7 +21,8 @@ namespace DSALG_Tree
     }
 
     /// <summary>
-    /// 
+    /// This class will define the Tree saving the root node and 
+    /// giving it the position either left or right
     /// </summary>
     public class BinaryTree
     {
@@ -24,8 +30,7 @@ namespace DSALG_Tree
 
         public BinaryTree()
         {
-            Root = null;
-            Console.WriteLine("root = null");
+            Root = null;           
         }
 
         public void Insert(int i)
@@ -69,7 +74,10 @@ namespace DSALG_Tree
                 }
             }
         }
-
+        /// <summary>
+        /// Defining the depth of the Tree
+        /// </summary>
+        /// <returns></returns>
         public int GetDepth()
         {
             return MaxDepth(Root);
