@@ -81,7 +81,60 @@ namespace UnitTestProject1
 
     }
 
+    [TestClass]
+    public class FindNodeTests
+    {
+        [TestMethod]
+        public void BinaryTree_FindNode_GiveTestThree_Get20()
+        {
+            // Arange
+            BinaryTree tree = BinaryTree.GetTestTree(7);
 
+            // call
+            FindNodeTestAreEqual(tree, 20, 20);
+        }
+
+        [TestMethod]
+        public void BinaryTree_FindNode_GiveTestThree_DontGet20()
+        {
+            // Arange
+            BinaryTree tree = BinaryTree.GetTestTree(7);
+
+            // call
+            FindNodeTestAreNotEqual(tree, 40, 20);
+        }
+
+
+
+
+
+
+
+
+
+        private void FindNodeTestAreNotEqual(BinaryTree tree, int expected, int given)
+        {
+            // act
+            Node gotten = tree.FindNode(given);
+
+            // assert
+            Assert.AreNotEqual(expected, gotten.Data);
+
+        }
+
+        private void FindNodeTestAreEqual(BinaryTree tree, int expected, int given)
+        {
+            // act
+            Node gotten = tree.FindNode(given);
+
+            // assert
+            Assert.AreEqual(expected, gotten.Data);
+            
+        }
+
+
+
+    }
 
 
 
