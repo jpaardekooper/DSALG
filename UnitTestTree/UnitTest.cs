@@ -11,22 +11,12 @@ namespace UnitTestProject1
         public static BinaryTree GetTestTree()
         {
             BinaryTree tree = new BinaryTree();
+            int[] testTree = { 90, 50, 150, 95, 175, 92, 111, 166, 200, 20, 75, 5, 25, 66, 80 };
 
-            tree.Insert(90);
-            tree.Insert(50);
-            tree.Insert(150);
-            tree.Insert(95);
-            tree.Insert(175);
-            tree.Insert(92);
-            tree.Insert(111);
-            tree.Insert(166);
-            tree.Insert(200);
-            tree.Insert(20);
-            tree.Insert(75);
-            tree.Insert(5);
-            tree.Insert(25);
-            tree.Insert(66);
-            tree.Insert(80);
+            for (int i = 0; i < testTree.Length; i++)
+            {
+                tree.Insert(testTree[i]);
+            }
 
             return tree;
         }
@@ -34,14 +24,12 @@ namespace UnitTestProject1
         public static BinaryTree GetTestTree2()
         {
             BinaryTree tree = new BinaryTree();
+            int[] testTree = { 5, 3, 7, 4, 2, 6, 8 };
 
-            tree.Insert(5);
-            tree.Insert(3);
-            tree.Insert(7);
-            tree.Insert(4);
-            tree.Insert(2);
-            tree.Insert(6);
-            tree.Insert(8);
+            for (int i = 0; i < testTree.Length; i++)
+            {
+                tree.Insert(testTree[i]);
+            }
 
             return tree;
         }
@@ -50,22 +38,14 @@ namespace UnitTestProject1
         {
             BinaryTree tree = new BinaryTree();
 
-            tree.Insert(90);
-            tree.Insert(50);
-            tree.Insert(150);
-            tree.Insert(95);
-            tree.Insert(175);
-            tree.Insert(92);
-            tree.Insert(111);
-            tree.Insert(166);
-            tree.Insert(200);
-            tree.Insert(20);
-            tree.Insert(75);
-            tree.Insert(5);
-            tree.Insert(25);
-            tree.Insert(66);
-            tree.Insert(80);
+            int[] testTree = {90, 50, 150, 95, 175, 92, 111, 166, 200, 20, 75, 5, 25, 66, 80,
+                              4, 6, 20, 30, 60, 67, 79, 81, 90, 93, 110, 112, 165, 167, 200};
 
+            for (int i = 0; i < testTree.Length; i++)
+            {
+                tree.Insert(testTree[i]);
+            }
+            
             return tree;
         }
 
@@ -98,7 +78,18 @@ namespace UnitTestProject1
             Assert.AreEqual(2, diepte);
         }
 
+        [TestMethod]
+        public void BinaryTree_DepthTest_GiveTestThree_Get4Depth()
+        {
+            // Arange
+            BinaryTree tree = GetTestTree3();
+            
+            // Act
+            int diepte = tree.GetDepth();
 
+            // Assert
+            Assert.AreEqual(4, diepte);
+        }
 
     }
 }
