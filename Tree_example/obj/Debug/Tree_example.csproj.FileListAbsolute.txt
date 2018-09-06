@@ -8,3 +8,13 @@ C:\Users\P_jaz\source\repos\Tree_example\Tree_example\obj\Debug\Tree_example.csp
 C:\Users\P_jaz\source\repos\Tree_example\Tree_example\obj\Debug\Tree_example.csproj.CopyComplete
 C:\Users\P_jaz\source\repos\Tree_example\Tree_example\obj\Debug\Tree_example.exe
 C:\Users\P_jaz\source\repos\Tree_example\Tree_example\obj\Debug\Tree_example.pdb
+C:\Users\marni\Documents\Marnix\Projects\DSALG\Tree_example\bin\Debug\Tree_example.exe.config
+C:\Users\marni\Documents\Marnix\Projects\DSALG\Tree_example\bin\Debug\Tree_example.exe
+C:\Users\marni\Documents\Marnix\Projects\DSALG\Tree_example\bin\Debug\Tree_example.pdb
+C:\Users\marni\Documents\Marnix\Projects\DSALG\Tree_example\bin\Debug\DSALG_Tree.dll
+C:\Users\marni\Documents\Marnix\Projects\DSALG\Tree_example\bin\Debug\DSALG_Tree.pdb
+C:\Users\marni\Documents\Marnix\Projects\DSALG\Tree_example\obj\Debug\Tree_example.csprojAssemblyReference.cache
+C:\Users\marni\Documents\Marnix\Projects\DSALG\Tree_example\obj\Debug\Tree_example.csproj.CoreCompileInputs.cache
+C:\Users\marni\Documents\Marnix\Projects\DSALG\Tree_example\obj\Debug\Tree_example.csproj.CopyComplete
+C:\Users\marni\Documents\Marnix\Projects\DSALG\Tree_example\obj\Debug\Tree_example.exe
+C:\Users\marni\Documents\Marnix\Projects\DSALG\Tree_example\obj\Debug\Tree_example.pdb

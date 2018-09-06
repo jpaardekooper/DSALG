@@ -178,29 +178,6 @@ namespace DSALG_Tree
             return Nonode;
 
         }
-
-        public static BinaryTree GetTestTree()
-        {
-            BinaryTree tree = new BinaryTree();
-
-            tree.Insert(90);
-            tree.Insert(50);
-            tree.Insert(150);
-            tree.Insert(95);
-            tree.Insert(175);
-            tree.Insert(92);
-            tree.Insert(111);
-            tree.Insert(166);
-            tree.Insert(200);
-            tree.Insert(20);
-            tree.Insert(75);
-            tree.Insert(5);
-            tree.Insert(25);
-            tree.Insert(66);
-            tree.Insert(80);
-
-            return tree;
-        }
-
+     
     }
 }
