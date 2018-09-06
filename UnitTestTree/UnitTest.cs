@@ -11,7 +11,7 @@ namespace UnitTestProject1
         /// Small tree test
         /// </summary>
         [TestMethod]
-        public void BinaryTree_DepthTest_GiveTestThree_Get2Depth()
+        public void BinaryTree_DepthTest_Get2Depth()
         {
             // Arange
             BinaryTree tree = BinaryTree.GetTestTree(7);
@@ -24,7 +24,7 @@ namespace UnitTestProject1
         /// mid tree test
         /// </summary>
         [TestMethod]
-        public void BinaryTree_DepthTest_GiveTestThree_Get3Depth()
+        public void BinaryTree_DepthTest_Get3Depth()
         {
             // Arange
             BinaryTree tree = BinaryTree.GetTestTree(15);
@@ -37,7 +37,7 @@ namespace UnitTestProject1
         /// Big tree test
         /// </summary>
         [TestMethod]
-        public void BinaryTree_DepthTest_GiveTestThree_Get4Depth()
+        public void BinaryTree_DepthTest_Get4Depth()
         {
             // Arange
             BinaryTree tree = BinaryTree.GetTestTree(30);
@@ -50,7 +50,7 @@ namespace UnitTestProject1
         /// Long tree test
         /// </summary>
         [TestMethod]
-        public void BinaryTree_DepthTest_GiveTestThree_Get10Depth()
+        public void BinaryTree_DepthTest_Get9Depth()
         {
             // Arange
             BinaryTree tree = new BinaryTree();
@@ -85,7 +85,7 @@ namespace UnitTestProject1
     public class FindNodeTests
     {
         [TestMethod]
-        public void BinaryTree_FindNode_GiveTestThree_Get20()
+        public void BinaryTree_FindNode_Get20()
         {
             // Arange
             BinaryTree tree = BinaryTree.GetTestTree(7);
@@ -95,33 +95,35 @@ namespace UnitTestProject1
         }
 
         [TestMethod]
-        public void BinaryTree_FindNode_GiveTestThree_DontGet20()
+        public void BinaryTree_FindNode_DontGet3000()
         {
             // Arange
             BinaryTree tree = BinaryTree.GetTestTree(7);
 
             // call
-            FindNodeTestAreNotEqual(tree, 40, 20);
+            FindNodeTestAreEqual(tree, 0, 3000);
         }
 
-
-
-
-
-
-
-
-
-        private void FindNodeTestAreNotEqual(BinaryTree tree, int expected, int given)
+        [TestMethod]
+        public void BinaryTree_FindNode_Get150()
         {
-            // act
-            Node gotten = tree.FindNode(given);
+            // Arange
+            BinaryTree tree = BinaryTree.GetTestTree(31);
 
-            // assert
-            Assert.AreNotEqual(expected, gotten.Data);
-
+            // call
+            FindNodeTestAreEqual(tree, 150, 150);
         }
 
+        [TestMethod]
+        public void BinaryTree_FindNode_Get3000()
+        {
+            // Arange
+            BinaryTree tree = BinaryTree.GetTestTree(31);
+
+            // call
+            FindNodeTestAreEqual(tree, 3000, 3000);
+        }
+        
         private void FindNodeTestAreEqual(BinaryTree tree, int expected, int given)
         {
             // act
@@ -136,7 +138,85 @@ namespace UnitTestProject1
 
     }
 
+    [TestClass]
+    public class InsertNodeTest
+    {
+        [TestMethod]
+        public void BinaryTree_InserNode_CheckTheRootNodeData10()
+        {
+            // Arange
+            BinaryTree tree = new BinaryTree();
 
+            Node node = new Node
+            {
+                Data = 10
+            };
 
+            // act
+            tree.Insert(node.Data);
 
+            // assert
+            Assert.AreEqual(node.Data, tree.Root.Data);
+
+        }
+
+        [TestMethod]
+        public void BinaryTree_InserNode_CheckTheRootNodeData25()
+        {
+            // Arange
+            BinaryTree tree = new BinaryTree();
+
+            Node node = new Node
+            {
+                Data = 25
+            };
+
+            // act
+            tree.Insert(node.Data);
+
+            // assert
+            Assert.AreEqual(node.Data, tree.Root.Data);
+
+        }
+
+        [TestMethod]
+        public void BinaryTree_InserNode_CheckNodeByFindNode95()
+        {           
+            // Arange
+            BinaryTree tree = BinaryTree.GetTestTree(7);
+
+            Node node = new Node
+            {
+                Data = 95
+            };
+
+            // Act
+            Node node2 = tree.FindNode(95);
+
+            // assert
+            Assert.AreEqual(node.Data, node2.Data);
+
+        }
+
+        [TestMethod]
+        public void BinaryTree_InserNode_CheckNodeByFindNode3000()
+        {
+            // Arange
+            BinaryTree tree = BinaryTree.GetTestTree(31);
+
+            Node node = new Node
+            {
+                Data = 3000
+            };
+
+            // Act
+            Node node2 = tree.FindNode(3000);
+
+            // assert
+            Assert.AreEqual(node.Data, node2.Data);
+
+        }
+        
+    }
+    
 }

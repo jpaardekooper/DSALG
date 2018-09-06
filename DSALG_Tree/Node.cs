@@ -40,11 +40,8 @@ namespace DSALG_Tree
 
         /// <summary>
         /// Now we want to fill the Complete BinaryTree with an insert method
-<<<<<<< HEAD
         /// for example i is 5
-=======
         /// O(Log(n))
->>>>>>> c16afd72357db98d9acbdcbc0fb36a54d2c24d75
         /// </summary>
         /// <param name="i">int i is the value of the Node</param>
         public void Insert(int i)
@@ -224,7 +221,7 @@ namespace DSALG_Tree
             BinaryTree tree = new BinaryTree();
 
             int[] testTree = {90, 50, 150, 95, 175, 75, 20, 92, 111, 166, 200, 5, 25, 66, 80,
-                              4, 6, 20, 30, 60, 67, 79, 81, 90, 93, 110, 112, 165, 167, 200};
+                              4, 6, 20, 30, 60, 67, 79, 81, 90, 93, 110, 112, 165, 167, 199, 3000};
 
             for (int i = 0; i < AmountOfNodes; i++)
             {
