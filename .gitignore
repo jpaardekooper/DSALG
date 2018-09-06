@@ -3,3 +3,7 @@
 vs/*
 vs
 *.cache
+Tree_example/obj/*
+Tree_example/bin/*
+.Tree_example/obj/*
+.Tree_example/bin/*

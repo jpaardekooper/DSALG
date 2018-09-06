@@ -10,45 +10,59 @@ namespace DSALG_Tree
 {
     /// <summary>
     /// Upon creating a Node class we define int data for the Node and 
-    /// giving it the position left or right of the Node
+    /// giving it the position left or right of the Node.
     /// A node can be a Parent, Leaf, Child or a Sibling
     /// </summary>
     public class Node
     {
+        //a Node has a integer with Data (0 - 300)
         public int Data;
+        //a Node can be placed on the Left or Right side. the left child should be lower than right child
         public Node Left;
         public Node Right;
     }
 
     /// <summary>
     /// This class will define the Tree saving the root node and 
-    /// giving it the position either left or right
+    /// giving it the position either left or right.
     /// </summary>
     public class BinaryTree
     {
+        //declaring the first Node and calling it Root
         public Node Root;
 
+        //when a Node Root is created it will be null (no value added)
         public BinaryTree()
         {
             Root = null;           
         }
 
+
+        /// <summary>
+        /// Now we want to fill the Complete BinaryTree with an insert method
+        /// </summary>
+        /// <param name="i">int i is the value of the Node</param>
         public void Insert(int i)
         {
+            //the new node has the Data of I
             Node newNode = new Node
             {
                 Data = i
             };
 
+            //if Root is null we create a new Node with data.
+            //This is used so our tree is always empty upon creating a new tree
             if (Root == null)
             {
                 Root = newNode;
             }
+            //if the root has a value we continue with the code and declaring a current Node and a parent node.
             else
             {
                 Node current = Root;
                 Node parent;
 
+                //this needs to be changed
                 while (true)
                 {
                     parent = current;
