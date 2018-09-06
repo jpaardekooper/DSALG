@@ -39,9 +39,18 @@ namespace DSALG_Tree
 
 
         /// <summary>
+        /// 
+        /// 
         /// Now we want to fill the Complete BinaryTree with an insert method
         /// for example i is 5
+        /// 
+        /// 
+        /// Binary insert method for finding the right place for the data
+        /// in the tree
         /// O(Log(n))
+        /// 
+        /// 
+        /// 
         /// </summary>
         /// <param name="i">int i is the value of the Node</param>
         public void Insert(int i)
@@ -104,6 +113,12 @@ namespace DSALG_Tree
             return MaxDepth(Root);
         }
 
+        /// <summary>
+        /// Line search for finding the max depth for the tree
+        /// O(n)???
+        /// </summary>
+        /// <param name="root"></param>
+        /// <returns></returns>
         private int MaxDepth(Node root)
         {
             int depth = -1;
@@ -165,7 +180,7 @@ namespace DSALG_Tree
         }
 
         /// <summary>
-        /// 
+        /// Binary search method for finding a givin data in the tree
         /// O(Log(n))
         /// </summary>
         /// <param name="d"></param>
