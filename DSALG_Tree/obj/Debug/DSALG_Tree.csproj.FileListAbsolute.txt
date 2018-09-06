@@ -4,3 +4,9 @@ C:\Users\P_jaz\source\repos\Tree_example\DSALG_Tree\obj\Debug\DSALG_Tree.csprojA
 C:\Users\P_jaz\source\repos\Tree_example\DSALG_Tree\obj\Debug\DSALG_Tree.csproj.CoreCompileInputs.cache
 C:\Users\P_jaz\source\repos\Tree_example\DSALG_Tree\obj\Debug\DSALG_Tree.dll
 C:\Users\P_jaz\source\repos\Tree_example\DSALG_Tree\obj\Debug\DSALG_Tree.pdb
+C:\Users\marni\Documents\Marnix\Projects\DSALG\DSALG_Tree\bin\Debug\DSALG_Tree.dll
+C:\Users\marni\Documents\Marnix\Projects\DSALG\DSALG_Tree\bin\Debug\DSALG_Tree.pdb
+C:\Users\marni\Documents\Marnix\Projects\DSALG\DSALG_Tree\obj\Debug\DSALG_Tree.csprojAssemblyReference.cache
+C:\Users\marni\Documents\Marnix\Projects\DSALG\DSALG_Tree\obj\Debug\DSALG_Tree.csproj.CoreCompileInputs.cache
+C:\Users\marni\Documents\Marnix\Projects\DSALG\DSALG_Tree\obj\Debug\DSALG_Tree.dll
+C:\Users\marni\Documents\Marnix\Projects\DSALG\DSALG_Tree\obj\Debug\DSALG_Tree.pdb
