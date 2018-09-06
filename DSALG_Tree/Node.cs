@@ -15,7 +15,7 @@ namespace DSALG_Tree
     /// </summary>
     public class Node
     {
-        //a Node has a integer with Data (0 - 300)
+        //a Node has a integer.
         public int Data;
         //a Node can be placed on the Left or Right side. the left child should be lower than right child
         public Node Left;
@@ -40,37 +40,44 @@ namespace DSALG_Tree
 
         /// <summary>
         /// Now we want to fill the Complete BinaryTree with an insert method
+        /// for example i is 5
         /// </summary>
         /// <param name="i">int i is the value of the Node</param>
         public void Insert(int i)
         {
-            //the new node has the Data of I
+            //the new node has the Data of I in this case 5
             Node newNode = new Node
             {
                 Data = i
             };
 
             //if Root is null we create a new Node with data.
-            //This is used so our tree is always empty upon creating a new tree
+            //This is used so our tree is always empty upon creating a new tree.
+            //in this case the Root isn't defined yet so root is indeed null
             if (Root == null)
             {
+                //our root will be a new Node and we go inside again but this time we skip the if
                 Root = newNode;
             }
-            //if the root has a value we continue with the code and declaring a current Node and a parent node.
+            //if we enter the insert method the second time we get by the else statement
             else
-            {
+            {  
+                //creating a new Node
                 Node current = Root;
 
+                //dangerous code is equal to microsoft I Like It.
                 while (true)
-                {
-                    
+                {       
+                    //if int i is smaller / lower than the current Node int data.
                     if (i < current.Data)
-                    {        
+                    {      
+                        //and if the current node left side is empty
                         if (current.Left == null)
                         {
                             current.Left = newNode;
                             break;
                         }
+                        //we assign the current Node to the left Side
                         current = current.Left;
                     }
                     else
