@@ -42,28 +42,27 @@ namespace DSALG_Tree
             else
             {
                 Node current = Root;
-                Node parent;
-
+              
                 while (true)
                 {
-                    parent = current;
+                    
                     if (i < current.Data)
-                    {
-                        current = current.Left;
-                        if (current == null)
+                    {        
+                        if (current.Left == null)
                         {
-                            parent.Left = newNode;
+                            current.Left = newNode;
                             break;
                         }
+                        current = current.Left;
                     }
                     else
-                    {
-                        current = current.Right;
-                        if (current == null)
+                    {                      
+                        if (current.Right == null)
                         {
-                            parent.Right = newNode;
+                            current.Right = newNode;
                             break;
                         }
+                        current = current.Right;
                     }
 
                 }
@@ -143,11 +142,10 @@ namespace DSALG_Tree
             };
 
             Node current = Root;
-            Node parent;
 
             while (true)
             {
-                parent = current;
+                
                 if (d <= current.Data)
                 {
                     current = current.Left;
