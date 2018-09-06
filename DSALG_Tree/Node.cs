@@ -25,6 +25,7 @@ namespace DSALG_Tree
         public BinaryTree()
         {
             Root = null;
+            Console.WriteLine("root = null");
         }
 
         public void Insert(int i)
