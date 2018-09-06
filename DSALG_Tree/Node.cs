@@ -40,6 +40,7 @@ namespace DSALG_Tree
 
         /// <summary>
         /// Now we want to fill the Complete BinaryTree with an insert method
+        /// O(Log(n))
         /// </summary>
         /// <param name="i">int i is the value of the Node</param>
         public void Insert(int i)
@@ -88,6 +89,7 @@ namespace DSALG_Tree
         }
         /// <summary>
         /// Defining the depth of the Tree
+        /// O(N)
         /// </summary>
         /// <returns></returns>
         public int GetDepth()
@@ -155,6 +157,12 @@ namespace DSALG_Tree
             }
         }
 
+        /// <summary>
+        /// 
+        /// O(Log(n))
+        /// </summary>
+        /// <param name="d"></param>
+        /// <returns></returns>
         public Node FindNode(int d)
         {
             Node Nonode = new Node
