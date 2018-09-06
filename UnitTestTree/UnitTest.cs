@@ -7,12 +7,8 @@ namespace UnitTestProject1
     [TestClass]
     public class UnitTest1
     {
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="AmountOfNodes"></param>
-        /// <returns></returns>
-        public static BinaryTree GetTestTree(int AmountOfNodes)
+        
+        private BinaryTree GetTestTree(int AmountOfNodes)
         {
             BinaryTree tree = new BinaryTree();
 
@@ -27,18 +23,13 @@ namespace UnitTestProject1
             return tree;
         }
 
-        [TestMethod]
-        public void BinaryTree_DepthTest_GiveTestThree_Get3Depth()
+        private void DepthTest(BinaryTree tree, int expected)
         {
-            // Arange
-            BinaryTree tree = GetTestTree(15);
-
             // Act
             int diepte = tree.GetDepth();
 
             // Assert
-            Assert.AreEqual(3, diepte);
-
+            Assert.AreEqual(expected, diepte);
         }
 
         [TestMethod]
@@ -46,13 +37,19 @@ namespace UnitTestProject1
         {
             // Arange
             BinaryTree tree = GetTestTree(7);
-            
 
-            // Act
-            int diepte = tree.GetDepth();
+            // call
+            DepthTest(tree, 2);
+        }
 
-            // Assert
-            Assert.AreEqual(2, diepte);
+        [TestMethod]
+        public void BinaryTree_DepthTest_GiveTestThree_Get3Depth()
+        {
+            // Arange
+            BinaryTree tree = GetTestTree(15);
+
+            // call
+            DepthTest(tree, 3);
         }
 
         [TestMethod]
@@ -60,12 +57,9 @@ namespace UnitTestProject1
         {
             // Arange
             BinaryTree tree = GetTestTree(30);
-            
-            // Act
-            int diepte = tree.GetDepth();
 
-            // Assert
-            Assert.AreEqual(4, diepte);
+            //call
+            DepthTest(tree, 4);
         }
 
     }
