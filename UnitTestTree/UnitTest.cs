@@ -58,7 +58,7 @@ namespace UnitTestProject1
             // Arange
             BinaryTree tree = GetTestTree(30);
 
-            //call
+            // call
             DepthTest(tree, 4);
         }
 
