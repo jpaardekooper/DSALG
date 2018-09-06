@@ -7,16 +7,9 @@ namespace UnitTestProject1
     [TestClass]
     public class DepthUnitTests
     {
-        
-        private void DepthTest(BinaryTree tree, int expected)
-        {
-            // Act
-            int diepte = tree.GetDepth();
-
-            // Assert
-            Assert.AreEqual(expected, diepte);
-        }
-
+        /// <summary>
+        /// Small tree test
+        /// </summary>
         [TestMethod]
         public void BinaryTree_DepthTest_GiveTestThree_Get2Depth()
         {
@@ -27,6 +20,9 @@ namespace UnitTestProject1
             DepthTest(tree, 2);
         }
 
+        /// <summary>
+        /// mid tree test
+        /// </summary>
         [TestMethod]
         public void BinaryTree_DepthTest_GiveTestThree_Get3Depth()
         {
@@ -56,6 +52,7 @@ namespace UnitTestProject1
         [TestMethod]
         public void BinaryTree_DepthTest_GiveTestThree_Get10Depth()
         {
+            // Arange
             BinaryTree tree = new BinaryTree();
 
             for (int i = 0; i < 10; i++)
@@ -63,9 +60,30 @@ namespace UnitTestProject1
                 tree.Insert(i);
             }
 
+            // call
             DepthTest(tree, 9);
+            
+        }
 
+        /// <summary>
+        /// Act and asert test for BinaryTree depth tests
+        /// </summary>
+        /// <param name="tree"></param>
+        /// <param name="expected"></param>
+        private void DepthTest(BinaryTree tree, int expected)
+        {
+            // Act
+            int diepte = tree.GetDepth();
+
+            // Assert
+            Assert.AreEqual(expected, diepte);
         }
 
     }
+
+
+
+
+
+
 }
