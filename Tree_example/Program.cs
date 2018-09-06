@@ -13,7 +13,17 @@ namespace Tree
     {
         static void Main(string[] args)
         {
+<<<<<<< HEAD
             Console.WriteLine("jasper commit");
+=======
+            BinaryTree tree = BinaryTree.GetTestTree(30);
+
+            tree.Print();
+
+            Console.WriteLine(tree.FindNode(1).Data);
+
+            Console.ReadKey();
+>>>>>>> 9623ec273cea1cb06990e329eea1a3e892e4e6da
         }
     }
 
