@@ -147,24 +147,24 @@ namespace DSALG_Tree
                 int size = queue.Count;
                 for (int i = 0; i < size; i++)
                 {
-                    Node currnt = (Node)queue.Dequeue();
+                    Node current = (Node)queue.Dequeue();
 
-                    if (currnt.Data == d)
+                    if (current.Data == d)
                     {
-                        return currnt;
+                        return current;
                     }
-                    if (currnt.Left != null)
+                    if (current.Left != null)
                     {
-                        queue.Enqueue(currnt.Left);
+                        queue.Enqueue(current.Left);
                     }
 
-                    if (currnt.Data == d)
+                    if (current.Data == d)
                     {
-                        return currnt;
+                        return current;
                     }
-                    if (currnt.Right != null)
+                    if (current.Right != null)
                     {
-                        queue.Enqueue(currnt.Right);
+                        queue.Enqueue(current.Right);
                     }
 
                 }
