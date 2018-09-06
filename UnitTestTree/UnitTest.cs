@@ -6,6 +6,7 @@ namespace UnitTestTree
     [TestClass]
     public class UnitTest
     {
+        // hoi 2
         [TestMethod]
         public void TestMethod1()
         {
