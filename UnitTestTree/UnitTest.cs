@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace UnitTestProject1
 {
     [TestClass]
-    public class UnitTest1
+    public class DepthUnitTests
     {
         
         private void DepthTest(BinaryTree tree, int expected)
@@ -37,6 +37,9 @@ namespace UnitTestProject1
             DepthTest(tree, 3);
         }
 
+        /// <summary>
+        /// Big tree test
+        /// </summary>
         [TestMethod]
         public void BinaryTree_DepthTest_GiveTestThree_Get4Depth()
         {
@@ -47,5 +50,22 @@ namespace UnitTestProject1
             DepthTest(tree, 4);
         }
         
+        /// <summary>
+        /// Long tree test
+        /// </summary>
+        [TestMethod]
+        public void BinaryTree_DepthTest_GiveTestThree_Get10Depth()
+        {
+            BinaryTree tree = new BinaryTree();
+
+            for (int i = 0; i < 10; i++)
+            {
+                tree.Insert(i);
+            }
+
+            DepthTest(tree, 9);
+
+        }
+
     }
 }
