@@ -184,9 +184,9 @@ namespace DSALG_Tree
         /// Binary search method for finding a givin data in the tree
         /// O(Log(n))
         /// </summary>
-        /// <param name="d"></param>
+        /// <param name="NodeData"></param>
         /// <returns></returns>
-        public Node FindNode(int d)
+        public Node FindNode(int NodeData)
         {
             // Crating Node to use in the loop
             Node Parrent = Root;
@@ -198,7 +198,7 @@ namespace DSALG_Tree
               
                 // Cheking if data <= to the parrant data
                 // if that is true it will go and look left
-                if (d <= Parrent.Data)
+                if (NodeData <= Parrent.Data)
                 {
                     // checking if the node exists
                     if (Parrent.Left == null)
@@ -211,7 +211,7 @@ namespace DSALG_Tree
                         // Possible to throw Application error
                         // throw new ApplicationException("The Requested Node does not excists");
                     }
-                    else if (Parrent.Left.Data == d)
+                    else if (Parrent.Left.Data == NodeData)
                     {
                         // Found the requested node
                         Console.WriteLine("Found it");
@@ -229,7 +229,7 @@ namespace DSALG_Tree
                         Console.WriteLine("No node found");
                         return null;
                     }
-                    else if (Parrent.Right.Data == d)
+                    else if (Parrent.Right.Data == NodeData)
                     {
                         Console.WriteLine("Found it");
                         return Parrent.Right;
