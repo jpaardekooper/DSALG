@@ -9,150 +9,269 @@ using System.Threading.Tasks;
 namespace DSALG_Tree
 {
     /// <summary>
-    /// Upon creating a Node class we define int data for the Node and 
-    /// giving it the position left or right of the Node.
-    /// A node can be a Parent, Leaf, Child or a Sibling
+    /// A node contains a piece of data (int)
+    /// A node alsso stores its left and right niegbor
     /// </summary>
     public class Node
-    {
-        //a Node has a integer.
-        public int Data;
-        //a Node can be placed on the Left or Right side. the left child should be lower than right child
+    {      
+        public int Data;   
         public Node Left;
         public Node Right;
     }
 
     /// <summary>
-    /// This class will define the Tree saving the root node and 
-    /// giving it the position either left or right.
+    /// a data structure in which a record is linked to two successor records, 
+    /// usually referred to as the left branch when greater 
+    /// and the right when less than the previous record.
     /// </summary>
     public class BinaryTree
     {
-        //declaring the first Node and calling it Root
+        /// <summary>
+        /// the Root note of the tree
+        /// </summary>
         public Node Root;
 
-        //when a Node Root is created it will be null (no value added)
+        /// <summary>
+        /// Creates a binay tree and declares Root Node to null
+        /// </summary>
         public BinaryTree()
         {
             Root = null;           
         }
 
-
         /// <summary>
-        /// 
-        /// 
-        /// Now we want to fill the Complete BinaryTree with an insert method
-        /// for example i is 5
-        /// 
-        /// 
+        /// Creates a binary tree and creates a root node 
+        /// </summary>
+        /// <param name="x"></param>
+        public BinaryTree(int RootNodeData)
+        {
+            Root = new Node
+            {
+                Data = RootNodeData
+            };
+        }
+
+        /// <summary>      
         /// Binary insert method for finding the right place for the data
         /// in the tree
         /// O(Log(n))
-        /// 
-        /// 
-        /// 
         /// </summary>
         /// <param name="i">int i is the value of the Node</param>
-        public void Insert(int i)
+        public void Insert(int NodeData)
         {
-            //the new node has the Data of I in this case 5
+            // Creates the New node to insert
             Node newNode = new Node
             {
-                Data = i
+                Data = NodeData
             };
 
-            //if Root is null we create a new Node with data.
-            //This is used so our tree is always empty upon creating a new tree.
-            //in this case the Root isn't defined yet so root is indeed null
+            // Check if a Root Node exists, if not it wel assign the newNode as Root
             if (Root == null)
             {
-                //our root will be a new Node and we go inside again but this time we skip the if
                 Root = newNode;
             }
-            //if we enter the insert method the second time we get by the else statement
+            // If a Root Node exists it will search for a spot in the tree
             else
             {  
-                //creating a new Node
-                Node current = Root;
+                // Create a temporary Node for the loop
+                Node parrent = Root;
 
-                //dangerous code is equal to microsoft I Like It.
+                // The binary search method
+                // Using a while(true) loop is dangerous
                 while (true)
                 {       
-                    //if int i is smaller / lower than the current Node int data.
-                    if (i < current.Data)
+                    // If the data is smaller than the parrent's data it wil go left
+                    if (NodeData < parrent.Data)
                     {      
-                        //and if the current node left side is empty
-                        if (current.Left == null)
+                        // Checking if There is Node present in that spot
+                        if (parrent.Left == null)
                         {
-                            current.Left = newNode;
+                            // Setting the new node as the parrent's left neighbor
+                            // and breaking the loop
+                            parrent.Left = newNode;
                             break;
                         }
-                        //we assign the current Node to the left Side
-                        current = current.Left;
+                        
+                        // Setting the parrent to it's left neighbor and redo the loop
+                        parrent = parrent.Left;
                     }
+                    // Else the new node will go right doing the same as left 
                     else
                     {                      
-                        if (current.Right == null)
+                        if (parrent.Right == null)
                         {
-                            current.Right = newNode;
+                            parrent.Right = newNode;
                             break;
                         }
-                        current = current.Right;
+                        parrent = parrent.Right;
                     }
 
                 }
             }
         }
+
         /// <summary>
-        /// Defining the depth of the Tree
-        /// O(N)
+        /// Linaire search for finding the depth of a tree?
+        /// O(N)?
         /// </summary>
         /// <returns></returns>
         public int GetDepth()
         {
-            return MaxDepth(Root);
-        }
-
-        /// <summary>
-        /// Line search for finding the max depth for the tree
-        /// O(n)???
-        /// </summary>
-        /// <param name="root"></param>
-        /// <returns></returns>
-        private int MaxDepth(Node root)
-        {
+            // setting
             int depth = -1;
+
+            // Making a queue for storing temp
             Queue queue = new Queue();
-            if (root != null) queue.Enqueue(root);
 
-            while (queue.Count != 0)
+            // Checking if the tree has root
+            // if not it will return the set depth of -1
+            if (Root != null)
             {
-                int size = queue.Count;
-                depth++;
-                for (int i = 0; i < size; i++)
-                {
-                    Node top = (Node)queue.Dequeue();
+                queue.Enqueue(Root);
+            }
 
-                    if (top.Left != null)
+            // Linaire search method for finding the depht
+            // it checks if there is a child underneth the parrent Node
+            // and adds them to the Queue to be searched
+            while (queue.Count != 0)
+            {      
+                // If there are children in the queue
+                // it means there is a +1 in depth
+                depth++;
+
+                //the for loop to empty the queue and all new children
+                for (int i = 0; i < queue.Count; i++)
+                {
+                    Node parrent = (Node)queue.Dequeue();
+
+                    if (parrent.Left != null)
                     {
-                        queue.Enqueue(top.Left);
+                        queue.Enqueue(parrent.Left);
                     }
 
-                    if (top.Right != null)
+                    if (parrent.Right != null)
                     {
-                        queue.Enqueue(top.Right);
+                        queue.Enqueue(parrent.Right);
                     }
                 }
             }
 
             return depth;
+            
         }
 
+        /// <summary>
+        /// Printing method for the console window
+        /// for vizulization of the whole tree
+        /// Read from left to right
+        /// </summary>
         public void Print()
-        {
+        {           
             Print(Root, 4);
         }
 
+        /// <summary>
+        /// Printing method for the console window
+        /// for vizulization of a sub tree
+        /// </summary>
+        /// <param name="NodeData"></param>
+        public void PrintFromNode(int NodeData)
+        {
+            Print(FindNode(NodeData), 4);
+        }
+        
+        /// <summary>
+        /// Binary search method for finding a givin data in the tree
+        /// O(Log(n))
+        /// </summary>
+        /// <param name="d"></param>
+        /// <returns></returns>
+        public Node FindNode(int d)
+        {
+            // Crating Node to use in the loop
+            Node Parrent = Root;
+
+            // The binary search method
+            // Using a while(true) loop is dangerous
+            while (true)
+            {
+              
+                // Cheking if data <= to the parrant data
+                // if that is true it will go and look left
+                if (d <= Parrent.Data)
+                {
+                    // checking if the node exists
+                    if (Parrent.Left == null)
+                    {
+                        
+                        // Geving a no Node found message
+                        Console.WriteLine("No node found");
+                        return null;
+
+                        // Possible to throw Application error
+                        // throw new ApplicationException("The Requested Node does not excists");
+                    }
+                    else if (Parrent.Left.Data == d)
+                    {
+                        // Found the requested node
+                        Console.WriteLine("Found it");
+                        return Parrent.Left;
+                    }
+
+                    // The Node has not been found yet and the loop will continue
+                    Parrent = Parrent.Left;
+                }
+                else
+                {
+                    
+                    if (Parrent.Right == null)
+                    {
+                        Console.WriteLine("No node found");
+                        return null;
+                    }
+                    else if (Parrent.Right.Data == d)
+                    {
+                        Console.WriteLine("Found it");
+                        return Parrent.Right;
+                    }
+                    Parrent = Parrent.Right;
+                }
+
+
+            }
+            
+        }
+
+        /// <summary>
+        /// Debuging and unit testing method.
+        /// for getting a pre generated tree with a varible in size.
+        /// Ballenced when AmountOfNodes  is 7, 15 or 31.
+        /// </summary>
+        /// <param name="AmountOfNodes"></param>
+        /// <returns></returns>
+        public static BinaryTree GetTestTree(int AmountOfNodes)
+        {
+            BinaryTree tree = new BinaryTree();
+
+            // self made data set that will genrate a tree
+            int[] testTree = {90, 50, 150, 95, 175, 75, 20, 92, 111, 166, 200, 5, 25, 66, 80,
+                              4, 6, 20, 30, 60, 67, 79, 81, 90, 93, 110, 112, 165, 167, 199, 3000};
+
+            // filing the tree
+            for (int i = 0; i < AmountOfNodes; i++)
+            {
+                tree.Insert(testTree[i]);
+            }
+
+            return tree;
+        }
+
+        /// <summary>
+        /// Recursive method for printing a tree in the console
+        /// source: https://stackoverflow.com/questions/36311991/c-sharp-display-a-binary-search-tree-in-console/36313190
+        /// </summary>
+        /// <param name="p"></param>
+        /// <param name="padding"></param>
         private void Print(Node p, int padding)
         {
             if (p != null)
@@ -179,71 +298,5 @@ namespace DSALG_Tree
             }
         }
 
-        /// <summary>
-        /// Binary search method for finding a givin data in the tree
-        /// O(Log(n))
-        /// </summary>
-        /// <param name="d"></param>
-        /// <returns></returns>
-        public Node FindNode(int d)
-        {
-            Node Nonode = new Node
-            {
-                Data = 0
-            };
-
-            Node current = Root;
-
-            while (true)
-            {
-                
-                if (d <= current.Data)
-                {
-                    current = current.Left;
-                    if (current == null)
-                    {
-                        Console.WriteLine("No node found");
-                        return Nonode;
-                    }
-                    else if (current.Data == d)
-                    {
-                        Console.WriteLine("Found it");
-                        return current;
-                    }                   
-                }
-                else
-                {
-                    current = current.Right;
-                    if (current == null)
-                    {
-                        Console.WriteLine("No node found");
-                        return Nonode;
-                    }
-                    else if (current.Data == d)
-                    {
-                        Console.WriteLine("Found it");
-                        return current;
-                    }
-                }
-
-
-            }
-            
-        }
-        
-        public static BinaryTree GetTestTree(int AmountOfNodes)
-        {
-            BinaryTree tree = new BinaryTree();
-
-            int[] testTree = {90, 50, 150, 95, 175, 75, 20, 92, 111, 166, 200, 5, 25, 66, 80,
-                              4, 6, 20, 30, 60, 67, 79, 81, 90, 93, 110, 112, 165, 167, 199, 3000};
-
-            for (int i = 0; i < AmountOfNodes; i++)
-            {
-                tree.Insert(testTree[i]);
-            }
-
-            return tree;
-        }
     }
 }

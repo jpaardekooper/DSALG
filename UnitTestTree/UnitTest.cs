@@ -100,8 +100,11 @@ namespace UnitTestProject1
             // Arange
             BinaryTree tree = BinaryTree.GetTestTree(7);
 
-            // call
-            FindNodeTestAreEqual(tree, 0, 3000);
+            // act
+            Node gotten = tree.FindNode(3000);
+
+            // assert
+            Assert.AreEqual(null, gotten);
         }
 
         [TestMethod]
@@ -185,16 +188,11 @@ namespace UnitTestProject1
             // Arange
             BinaryTree tree = BinaryTree.GetTestTree(7);
 
-            Node node = new Node
-            {
-                Data = 95
-            };
-
             // Act
             Node node2 = tree.FindNode(95);
 
             // assert
-            Assert.AreEqual(node.Data, node2.Data);
+            Assert.AreEqual(95, node2.Data);
 
         }
 
@@ -203,17 +201,13 @@ namespace UnitTestProject1
         {
             // Arange
             BinaryTree tree = BinaryTree.GetTestTree(31);
-
-            Node node = new Node
-            {
-                Data = 3000
-            };
+            
 
             // Act
             Node node2 = tree.FindNode(3000);
 
             // assert
-            Assert.AreEqual(node.Data, node2.Data);
+            Assert.AreEqual(3000, node2.Data);
 
         }
         
