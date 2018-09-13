@@ -32,15 +32,13 @@ namespace Tree
             graph.AddNode(f5);
             graph.AddNode(f6);
             graph.AddNode(f7);
+            
+            graph.AddDirectedEdge(f1, f2, 5);
+            graph.AddDirectedEdge('A', 'C', 10);
+            graph.AddDirectedEdge('A', 'D', 20);
 
-            graph.RemoveNode('A');
-            graph.RemoveNode(f4);
-
-            for (int i = 0; i < graph.NodeList.Count; i++)
-            {
-                Console.WriteLine(graph.NodeList[i].Identifier);
-                
-            }
+            graph.PrintAllNodes();
+            f1.PrintAllEdgeds();
 
             Console.ReadKey();
         }

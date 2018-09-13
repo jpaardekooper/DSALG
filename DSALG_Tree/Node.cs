@@ -11,15 +11,31 @@ namespace DSALG_Tree
 {  
     public class Node
     {
-        public char Identifier;
-        public List<Node> Neighbors;
+        public char Identifier;      
         public Dictionary<Node, int> DirectedEdge;
+
+        public Node()
+        {
+            if (DirectedEdge == null)
+            {
+                DirectedEdge = new Dictionary<Node, int>();
+            }           
+        }
+
+        public void PrintAllEdgeds()
+        {
+            foreach (KeyValuePair<Node, int> keyValuePair in DirectedEdge)
+            {
+                Console.WriteLine("Connected from = {0}, Conectednode = {1}, weight = {2}", Identifier, keyValuePair.Key.Identifier, keyValuePair.Value);
+            }
+        }
+
     }
 
 
     public class Graph
     {
-        public List<Node> NodeList;
+        private List<Node> NodeList;
 
         public Graph()
         {
@@ -30,31 +46,51 @@ namespace DSALG_Tree
         }
 
         public void AddNode(Node newNode)
-        {           
-            if (!NodeList.Any())
-            {
-                newNode.Identifier = 'A';
-            }
-            else
+        {
+            if (NodeList.Any())
             {
                 int tempIdentifier = NodeList.Last().Identifier;
 
                 tempIdentifier++;
 
-                newNode.Identifier = (char)tempIdentifier;               
+                newNode.Identifier = (char)tempIdentifier;
+            }
+            else
+            {
+                newNode.Identifier = 'A';
             }
 
             NodeList.Add(newNode);
         }
 
-        public void RemoveNode(char NodeIdentifier)
+        public void RemoveNode(char NodeIdentifier) => RemoveNodeFunction(NodeIdentifier);
+
+        public void RemoveNode(Node node) => RemoveNodeFunction(node.Identifier);
+
+        public void AddDirectedEdge(Node firstNode, Node secondNode, int weight) => AddDirectedEdgeFunction(firstNode, secondNode, weight);
+
+        public void AddDirectedEdge(char firstNodeId, char secondNodeId, int weight)
         {
-            RemoveNodeFunction(NodeIdentifier);
+            AddDirectedEdgeFunction(NodeList.Find(x => x.Identifier == firstNodeId), NodeList.Find(x => x.Identifier == secondNodeId), weight);
         }
 
-        public void RemoveNode(Node node)
+        
+
+
+
+
+        public void PrintAllNodes()
         {
-            RemoveNodeFunction(node.Identifier);
+            foreach (Node node in NodeList)
+            {
+                Console.WriteLine(node.Identifier);
+            }
+        }
+
+
+        private void AddDirectedEdgeFunction(Node firstNode, Node secondNode, int weight)
+        {
+            firstNode.DirectedEdge.Add(secondNode, weight);
         }
 
         private void RemoveNodeFunction(char identifier)
