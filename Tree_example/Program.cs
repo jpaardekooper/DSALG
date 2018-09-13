@@ -37,6 +37,11 @@ namespace Tree
             graph.AddDirectedEdge('A', 'C', 10);
             graph.AddDirectedEdge('A', 'D', 20);
 
+            graph.RemoveDirectedEdge(f1, f2, 5);
+            graph.RemoveDirectedEdge('A', 'C', 10);
+            graph.RemoveDirectedEdge('A', 'D', 30);
+
+
             graph.PrintAllNodes();
             f1.PrintAllEdgeds();
 

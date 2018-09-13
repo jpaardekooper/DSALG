@@ -26,13 +26,12 @@ namespace DSALG_Tree
         {
             foreach (KeyValuePair<Node, int> keyValuePair in DirectedEdge)
             {
-                Console.WriteLine("Connected from = {0}, Conectednode = {1}, weight = {2}", Identifier, keyValuePair.Key.Identifier, keyValuePair.Value);
+                Console.WriteLine("Connected from = {0}, to = {1}, weight = {2}", Identifier, keyValuePair.Key.Identifier, keyValuePair.Value);
             }
         }
 
     }
-
-
+    
     public class Graph
     {
         private List<Node> NodeList;
@@ -71,10 +70,12 @@ namespace DSALG_Tree
 
         public void AddDirectedEdge(char firstNodeId, char secondNodeId, int weight)
         {
-            AddDirectedEdgeFunction(NodeList.Find(x => x.Identifier == firstNodeId), NodeList.Find(x => x.Identifier == secondNodeId), weight);
+            AddDirectedEdgeFunction(FindNode(firstNodeId), FindNode(secondNodeId), weight);
         }
 
-        
+        public void RemoveDirectedEdge(Node from, Node to, int weight) => RemoveDirectedEdgeFunction(from, to, weight);
+
+        public void RemoveDirectedEdge(char from, char to, int weight) => RemoveDirectedEdgeFunction(FindNode(from), FindNode(to), weight);
 
 
 
@@ -87,6 +88,13 @@ namespace DSALG_Tree
             }
         }
 
+        private void RemoveDirectedEdgeFunction(Node from, Node to, int weight)
+        {
+            if (from.DirectedEdge[to] == weight)
+            {
+                from.DirectedEdge.Remove(to);
+            }          
+        }
 
         private void AddDirectedEdgeFunction(Node firstNode, Node secondNode, int weight)
         {
@@ -95,10 +103,13 @@ namespace DSALG_Tree
 
         private void RemoveNodeFunction(char identifier)
         {
-            NodeList.Remove(NodeList.Find(x => x.Identifier == identifier));
+            NodeList.Remove(FindNode(identifier));
         }
 
-
+        private Node FindNode(char NodeId)
+        {
+            return NodeList.Find(x => x.Identifier == NodeId);
+        }
 
     }
 
