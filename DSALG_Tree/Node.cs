@@ -44,11 +44,11 @@ namespace DSALG_Tree
             }
         }
 
-        public static DirectedGraph GetTestGraph(int Verzion)
+        public static DirectedGraph GetTestGraph(int verion)
         {
-
-
-
+            if (verion == 1) return TestGraph1();
+            else if (verion == 2) return TestGraph2();
+            else if (verion == 3) return TestGraph3();
 
 
             return null;
@@ -92,6 +92,14 @@ namespace DSALG_Tree
             foreach (GraphNode node in NodeList)
             {
                 Console.WriteLine(node.Identifier);
+            }
+        }
+
+        public void PrintAllNodeEdges()
+        {
+            foreach (GraphNode node in NodeList)
+            {
+                node.PrintAllEdgeds();
             }
         }
 
@@ -146,9 +154,15 @@ namespace DSALG_Tree
             }          
         }
 
-        private void AddDirectedEdgeFunction(GraphNode firstNode, GraphNode secondNode, int weight)
+        private void AddDirectedEdgeFunction(GraphNode from, GraphNode to, int weight)
         {
-            firstNode.DirectedEdge.Add(secondNode, weight);
+            // no dubble edges
+            if (from.DirectedEdge.ContainsKey(to) && from.DirectedEdge[to].Equals(weight))
+            {
+                return;
+            }
+
+            from.DirectedEdge.Add(to, weight);
         }
 
         private void RemoveNodeFunction(char identifier)
@@ -159,6 +173,37 @@ namespace DSALG_Tree
         private GraphNode FindNode(char NodeId)
         {
             return NodeList.Find(x => x.Identifier == NodeId);
+        }
+
+        private static DirectedGraph TestGraph1()
+        {
+            DirectedGraph graph = new DirectedGraph();
+
+            for (int i = 0; i < 6; i++)
+            {
+                graph.AddNode(new GraphNode());
+            }
+
+            graph.AddDirectedEdge('A', 'D', 6);
+            graph.AddDirectedEdge('A', 'E', 2);
+            graph.AddDirectedEdge('E', 'D', 2);
+            graph.AddDirectedEdge('B', 'D', 1);
+            graph.AddDirectedEdge('C', 'E', 4);
+            graph.AddDirectedEdge('F', 'A', 3);
+            graph.AddDirectedEdge('F', 'C', 2);
+            graph.AddDirectedEdge('F', 'B', 6);
+
+            return null;
+        }
+
+        private static DirectedGraph TestGraph2()
+        {
+            return null;
+        }
+
+        private static DirectedGraph TestGraph3()
+        {
+            return null;
         }
 
     }
