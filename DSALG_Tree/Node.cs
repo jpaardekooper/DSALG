@@ -193,7 +193,7 @@ namespace DSALG_Tree
             graph.AddDirectedEdge('F', 'C', 2);
             graph.AddDirectedEdge('F', 'B', 6);
 
-            return null;
+            return graph;
         }
 
         private static DirectedGraph TestGraph2()

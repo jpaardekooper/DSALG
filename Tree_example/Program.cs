@@ -20,7 +20,7 @@ namespace Tree
             graph.PrintAllNodes();
             graph.PrintAllNodeEdges();
 
-            Console.WriteLine();
+            Console.WriteLine(graph.DoesPathExist('F', 'D'));
 
             
 
