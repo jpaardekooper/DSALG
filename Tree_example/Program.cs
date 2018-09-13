@@ -15,15 +15,15 @@ namespace Tree
         {
             Console.WriteLine("New Graph project");
 
-            Graph graph = new Graph();
+            DirectedGraph graph = new DirectedGraph();
 
-            Node f1 = new Node();
-            Node f2 = new Node();
-            Node f3 = new Node();
-            Node f4 = new Node();
-            Node f5 = new Node();
-            Node f6 = new Node();
-            Node f7 = new Node();
+            GraphNode f1 = new GraphNode();
+            GraphNode f2 = new GraphNode();
+            GraphNode f3 = new GraphNode();
+            GraphNode f4 = new GraphNode();
+            GraphNode f5 = new GraphNode();
+            GraphNode f6 = new GraphNode();
+            GraphNode f7 = new GraphNode();
 
             graph.AddNode(f1);
             graph.AddNode(f2);
