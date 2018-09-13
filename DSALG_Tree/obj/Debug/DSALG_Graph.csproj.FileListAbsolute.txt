@@ -1,0 +1,6 @@
+C:\Users\P_jaz\source\repos\Tree_example\DSALG_Tree\bin\Debug\DSALG_Tree.dll
+C:\Users\P_jaz\source\repos\Tree_example\DSALG_Tree\bin\Debug\DSALG_Tree.pdb
+C:\Users\P_jaz\source\repos\Tree_example\DSALG_Tree\obj\Debug\DSALG_Graph.csprojAssemblyReference.cache
+C:\Users\P_jaz\source\repos\Tree_example\DSALG_Tree\obj\Debug\DSALG_Graph.csproj.CoreCompileInputs.cache
+C:\Users\P_jaz\source\repos\Tree_example\DSALG_Tree\obj\Debug\DSALG_Tree.dll
+C:\Users\P_jaz\source\repos\Tree_example\DSALG_Tree\obj\Debug\DSALG_Tree.pdb

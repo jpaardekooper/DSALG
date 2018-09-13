@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2016
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tree_example", "Tree_example\Tree_example.csproj", "{A589E666-F8BF-447D-B825-8479D70FF0BF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graph_DSALG", "Tree_example\Graph_DSALG.csproj", "{A589E666-F8BF-447D-B825-8479D70FF0BF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DSALG_Tree", "DSALG_Tree\DSALG_Tree.csproj", "{8CE036B8-7300-496D-9435-4F357C5BCAB3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DSALG_Graph", "DSALG_Tree\DSALG_Graph.csproj", "{8CE036B8-7300-496D-9435-4F357C5BCAB3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestTree", "UnitTestTree\UnitTestTree.csproj", "{DA3E452B-1763-425A-AAD3-B1B99A6B3ECC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestGraph", "UnitTestTree\UnitTestGraph.csproj", "{DA3E452B-1763-425A-AAD3-B1B99A6B3ECC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

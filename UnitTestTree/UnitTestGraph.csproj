@@ -56,9 +56,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DSALG_Tree\DSALG_Tree.csproj">
+    <ProjectReference Include="..\DSALG_Tree\DSALG_Graph.csproj">
       <Project>{8ce036b8-7300-496d-9435-4f357c5bcab3}</Project>
-      <Name>DSALG_Tree</Name>
+      <Name>DSALG_Graph</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
