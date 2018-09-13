@@ -80,7 +80,7 @@ namespace DSALG_Tree
                 int tempIdentifier = NodeList.Last().Identifier;
 
                 tempIdentifier++;
-
+                
                 newNode.Identifier = (char)tempIdentifier;
             }
             else
@@ -95,11 +95,11 @@ namespace DSALG_Tree
 
         public void RemoveNode(GraphNode node) => RemoveNodeFunction(node.Identifier);
 
-        public void AddDirectedEdge(GraphNode firstNode, GraphNode secondNode, int weight) => AddDirectedEdgeFunction(firstNode, secondNode, weight);
+        public void AddDirectedEdge(GraphNode from, GraphNode to, int weight) => AddDirectedEdgeFunction(from, to, weight);
 
-        public void AddDirectedEdge(char firstNodeId, char secondNodeId, int weight)
+        public void AddDirectedEdge(char from, char to, int weight)
         {
-            AddDirectedEdgeFunction(FindNode(firstNodeId), FindNode(secondNodeId), weight);
+           AddDirectedEdgeFunction(FindNode(from), FindNode(to), weight);
         }
 
         public void RemoveDirectedEdge(GraphNode from, GraphNode to, int weight) => RemoveDirectedEdgeFunction(from, to, weight);
@@ -126,8 +126,31 @@ namespace DSALG_Tree
 
         public bool DoesPathExist(char from, char to) => DoesPathExistFunction(FindNode(from), FindNode(to));
         
+        /// <summary>
+        /// Does Requested Node Exist
+        /// </summary>
+        /// <returns></returns>
+        private bool DRNE(char identifier)
+        {
+            char tempId = NodeList.Last().Identifier;
+
+            if (identifier > tempId || identifier < 65)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
         private bool DoesPathExistFunction(GraphNode from, GraphNode to)
         {
+            if (DRNE(from.Identifier) && DRNE(to.Identifier))
+            {
+                Console.WriteLine("1 or more of the requested nodes do not exist");
+                return false;
+            }
+
+
             List<GraphNode> visited = new List<GraphNode>();
 
             if (from.DirectedEdge.ContainsKey(to))
@@ -167,6 +190,12 @@ namespace DSALG_Tree
 
         private void RemoveDirectedEdgeFunction(GraphNode from, GraphNode to, int weight)
         {
+            if (DRNE(from.Identifier) && DRNE(to.Identifier))
+            {
+                Console.WriteLine("1 or more of the requested nodes do not exist");
+                return;
+            }
+
             if (from.DirectedEdge[to].Equals(weight))
             {
                 from.DirectedEdge.Remove(to);
@@ -175,6 +204,12 @@ namespace DSALG_Tree
 
         private void AddDirectedEdgeFunction(GraphNode from, GraphNode to, int weight)
         {
+            if (DRNE(from.Identifier) && DRNE(to.Identifier))
+            {
+                Console.WriteLine("1 or more of the requested nodes do not exist");
+                return;
+            }
+
             // no dubble edges
             if (from.DirectedEdge.ContainsKey(to) && from.DirectedEdge[to].Equals(weight))
             {
@@ -186,6 +221,12 @@ namespace DSALG_Tree
 
         private void RemoveNodeFunction(char identifier)
         {
+            if (DRNE(identifier))
+            {
+                Console.WriteLine("the requested node does not exist");
+                return;
+            }
+
             NodeList.Remove(FindNode(identifier));
         }
 
