@@ -15,12 +15,12 @@ namespace Tree
         {
             Console.WriteLine("New Graph project");
 
-            DirectedGraph graph = DirectedGraph.GetTestGraph(1);
+            DirectedGraph graph = DirectedGraph.GetTestGraph(2);
 
             graph.PrintAllNodes();
             graph.PrintAllNodeEdges();
 
-            Console.WriteLine(graph.DoesPathExist('F', 'D'));
+            Console.WriteLine(graph.DoesPathExist('E', 'F'));
 
             
 

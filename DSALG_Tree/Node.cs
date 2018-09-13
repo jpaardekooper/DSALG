@@ -198,12 +198,55 @@ namespace DSALG_Tree
 
         private static DirectedGraph TestGraph2()
         {
-            return null;
+            DirectedGraph graph = new DirectedGraph();
+
+            for (int i = 0; i < 9; i++)
+            {
+                graph.AddNode(new GraphNode());
+            }
+
+            graph.AddDirectedEdge('H', 'A', 1);
+            graph.AddDirectedEdge('H', 'C', 5);
+            graph.AddDirectedEdge('H', 'B', 4);
+            graph.AddDirectedEdge('G', 'I', 1);
+            //graph.AddDirectedEdge('E', 'I', 8);
+            graph.AddDirectedEdge('G', 'E', 3);
+            graph.AddDirectedEdge('F', 'G', 2);
+            graph.AddDirectedEdge('D', 'F', 3);
+            graph.AddDirectedEdge('A', 'D', 7);
+            graph.AddDirectedEdge('C', 'E', 4);
+            graph.AddDirectedEdge('B', 'C', 2);
+            graph.AddDirectedEdge('B', 'D', 5);
+
+
+            return graph;
         }
 
         private static DirectedGraph TestGraph3()
         {
-            return null;
+            DirectedGraph graph = new DirectedGraph();
+
+            for (int i = 0; i < 9; i++)
+            {
+                graph.AddNode(new GraphNode());
+            }
+
+            graph.AddDirectedEdge('H', 'A', 3);
+            graph.AddDirectedEdge('H', 'C', 2);
+            graph.AddDirectedEdge('H', 'B', 6);
+            graph.AddDirectedEdge('D', 'I', 12);
+            graph.AddDirectedEdge('G', 'I', 5);
+            graph.AddDirectedEdge('D', 'F', 4);
+            graph.AddDirectedEdge('F', 'G', 4);
+            graph.AddDirectedEdge('E', 'G', 9);
+            graph.AddDirectedEdge('E', 'D', 2);
+            graph.AddDirectedEdge('B', 'D', 1);
+            graph.AddDirectedEdge('A', 'D', 3);
+            graph.AddDirectedEdge('A', 'E', 4);
+            graph.AddDirectedEdge('C', 'E', 6);
+            graph.AddDirectedEdge('G', 'D', 4);
+
+            return graph;
         }
 
     }
