@@ -36,14 +36,21 @@ namespace Tree
             graph.AddDirectedEdge(f1, f2, 5);
             graph.AddDirectedEdge('A', 'C', 10);
             graph.AddDirectedEdge('A', 'D', 20);
+            graph.AddDirectedEdge(f2, f3, 5);
+            graph.AddDirectedEdge(f1, f5, 5);
 
-            graph.RemoveDirectedEdge(f1, f2, 5);
+            graph.RemoveDirectedEdge(f1, f5, 5);
             graph.RemoveDirectedEdge('A', 'C', 10);
             graph.RemoveDirectedEdge('A', 'D', 30);
 
+            
 
             graph.PrintAllNodes();
             f1.PrintAllEdgeds();
+            f2.PrintAllEdgeds();
+            Console.WriteLine(graph.DoesPathExist(f1, f6));
+            Console.WriteLine(graph.DoesPathExist(f1, f3));
+            Console.WriteLine(graph.DoesPathExist('A', 'B'));
 
             Console.ReadKey();
         }

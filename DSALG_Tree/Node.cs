@@ -44,6 +44,16 @@ namespace DSALG_Tree
             }
         }
 
+        public static DirectedGraph GetTestGraph(int Verzion)
+        {
+
+
+
+
+
+            return null;
+        }
+
         public void AddNode(GraphNode newNode)
         {
             if (NodeList.Any())
@@ -85,9 +95,52 @@ namespace DSALG_Tree
             }
         }
 
+        public bool DoesPathExist(GraphNode from, GraphNode to) => DoesPathExistFunction(from, to);
+
+        public bool DoesPathExist(char from, char to) => DoesPathExistFunction(FindNode(from), FindNode(to));
+        
+        private bool DoesPathExistFunction(GraphNode from, GraphNode to)
+        {
+            List<GraphNode> visited = new List<GraphNode>();
+
+            if (from.DirectedEdge.ContainsKey(to))
+            {
+                return true;
+            }
+
+
+            Queue<GraphNode> queue = new Queue<GraphNode>();
+            queue.Enqueue(from);
+
+            while (queue.Count > 0)
+            {
+                GraphNode Current = queue.Dequeue();
+
+                if (visited.Contains(Current))
+                    continue;
+
+                visited.Add(Current);
+
+                foreach (GraphNode neighbor in Current.DirectedEdge.Keys)
+                {
+                    if (!visited.Contains(neighbor))
+                    {
+                        queue.Enqueue(neighbor);
+                    }
+                    if (neighbor.Equals(to))
+                    {
+                        return true;
+                    }
+                }
+                
+            }
+            
+            return false;
+        }
+
         private void RemoveDirectedEdgeFunction(GraphNode from, GraphNode to, int weight)
         {
-            if (from.DirectedEdge[to] == weight)
+            if (from.DirectedEdge[to].Equals(weight))
             {
                 from.DirectedEdge.Remove(to);
             }          
