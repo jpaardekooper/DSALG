@@ -21,9 +21,7 @@ namespace Tree
             graph.PrintAllNodeEdges();
 
             Console.WriteLine(graph.DoesPathExist('E', 'F'));
-
             
-
             Console.ReadKey();
         }
     }

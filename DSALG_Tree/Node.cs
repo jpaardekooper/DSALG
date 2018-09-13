@@ -54,6 +54,25 @@ namespace DSALG_Tree
             return null;
         }
 
+        public static DirectedGraph GetRandomGraph(int amountOfNodes)
+        {
+            Random rng = new Random();
+
+            DirectedGraph graph = new DirectedGraph();
+
+            for (int i = 0; i < amountOfNodes; i++)
+            {
+                graph.AddNode(new GraphNode());
+            }
+
+            for (int i = 0; i < amountOfNodes * 3; i++)
+            {
+                graph.AddDirectedEdge((char)rng.Next(65, 90), (char)rng.Next(65, 90), rng.Next(1, 25));
+            }
+            
+            return graph;
+        }
+
         public void AddNode(GraphNode newNode)
         {
             if (NodeList.Any())
@@ -209,7 +228,7 @@ namespace DSALG_Tree
             graph.AddDirectedEdge('H', 'C', 5);
             graph.AddDirectedEdge('H', 'B', 4);
             graph.AddDirectedEdge('G', 'I', 1);
-            //graph.AddDirectedEdge('E', 'I', 8);
+            graph.AddDirectedEdge('E', 'I', 8);
             graph.AddDirectedEdge('G', 'E', 3);
             graph.AddDirectedEdge('F', 'G', 2);
             graph.AddDirectedEdge('D', 'F', 3);
