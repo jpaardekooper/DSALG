@@ -23,7 +23,7 @@ namespace Node
         {
             foreach (KeyValuePair<GraphNode, int> keyValuePair in DirectedEdge)
             {
-                Console.WriteLine("Connected from = {0}, to = {1}, weight = {2}", Identifier, keyValuePair.Key.Identifier, keyValuePair.Value);
+                Console.WriteLine($"Connected from = {Identifier}, to = {keyValuePair.Key.Identifier}, weight = {keyValuePair.Value}");
             }
         }
 
