@@ -1,0 +1,14 @@
+C:\Users\marni\Documents\Marnix\Projects\DSALG\VisualizeGraphDijkstra\UnitTestVisualizeGraph\bin\Debug\UnitTestVisualizeGraph.dll
+C:\Users\marni\Documents\Marnix\Projects\DSALG\VisualizeGraphDijkstra\UnitTestVisualizeGraph\bin\Debug\UnitTestVisualizeGraph.pdb
+C:\Users\marni\Documents\Marnix\Projects\DSALG\VisualizeGraphDijkstra\UnitTestVisualizeGraph\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\Users\marni\Documents\Marnix\Projects\DSALG\VisualizeGraphDijkstra\UnitTestVisualizeGraph\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\Users\marni\Documents\Marnix\Projects\DSALG\VisualizeGraphDijkstra\UnitTestVisualizeGraph\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+C:\Users\marni\Documents\Marnix\Projects\DSALG\VisualizeGraphDijkstra\UnitTestVisualizeGraph\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\Users\marni\Documents\Marnix\Projects\DSALG\VisualizeGraphDijkstra\UnitTestVisualizeGraph\obj\Debug\UnitTestVisualizeGraph.csprojAssemblyReference.cache
+C:\Users\marni\Documents\Marnix\Projects\DSALG\VisualizeGraphDijkstra\UnitTestVisualizeGraph\obj\Debug\UnitTestVisualizeGraph.csproj.CoreCompileInputs.cache
+C:\Users\marni\Documents\Marnix\Projects\DSALG\VisualizeGraphDijkstra\UnitTestVisualizeGraph\obj\Debug\UnitTestVisualizeGraph.csproj.CopyComplete
+C:\Users\marni\Documents\Marnix\Projects\DSALG\VisualizeGraphDijkstra\UnitTestVisualizeGraph\obj\Debug\UnitTestVisualizeGraph.dll
+C:\Users\marni\Documents\Marnix\Projects\DSALG\VisualizeGraphDijkstra\UnitTestVisualizeGraph\obj\Debug\UnitTestVisualizeGraph.pdb
+C:\Users\marni\Documents\Marnix\Projects\DSALG\VisualizeGraphDijkstra\UnitTestVisualizeGraph\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\marni\Documents\Marnix\Projects\DSALG\VisualizeGraphDijkstra\UnitTestVisualizeGraph\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\marni\Documents\Marnix\Projects\DSALG\VisualizeGraphDijkstra\UnitTestVisualizeGraph\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll

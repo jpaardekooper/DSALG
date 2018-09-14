@@ -1,0 +1,6 @@
+C:\Users\marni\Documents\Marnix\Projects\DSALG\VisualizeGraphDijkstra\Node\bin\Debug\Node.dll
+C:\Users\marni\Documents\Marnix\Projects\DSALG\VisualizeGraphDijkstra\Node\bin\Debug\Node.pdb
+C:\Users\marni\Documents\Marnix\Projects\DSALG\VisualizeGraphDijkstra\Node\obj\Debug\Node.csprojAssemblyReference.cache
+C:\Users\marni\Documents\Marnix\Projects\DSALG\VisualizeGraphDijkstra\Node\obj\Debug\Node.csproj.CoreCompileInputs.cache
+C:\Users\marni\Documents\Marnix\Projects\DSALG\VisualizeGraphDijkstra\Node\obj\Debug\Node.dll
+C:\Users\marni\Documents\Marnix\Projects\DSALG\VisualizeGraphDijkstra\Node\obj\Debug\Node.pdb

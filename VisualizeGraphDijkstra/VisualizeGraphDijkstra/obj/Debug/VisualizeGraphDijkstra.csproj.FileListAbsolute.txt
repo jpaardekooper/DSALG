@@ -1,0 +1,16 @@
+C:\Users\marni\Documents\Marnix\Projects\DSALG\VisualizeGraphDijkstra\VisualizeGraphDijkstra\bin\Debug\VisualizeGraphDijkstra.exe.config
+C:\Users\marni\Documents\Marnix\Projects\DSALG\VisualizeGraphDijkstra\VisualizeGraphDijkstra\bin\Debug\VisualizeGraphDijkstra.exe
+C:\Users\marni\Documents\Marnix\Projects\DSALG\VisualizeGraphDijkstra\VisualizeGraphDijkstra\bin\Debug\VisualizeGraphDijkstra.pdb
+C:\Users\marni\Documents\Marnix\Projects\DSALG\VisualizeGraphDijkstra\VisualizeGraphDijkstra\bin\Debug\Node.dll
+C:\Users\marni\Documents\Marnix\Projects\DSALG\VisualizeGraphDijkstra\VisualizeGraphDijkstra\bin\Debug\UnitTestVisualizeGraph.dll
+C:\Users\marni\Documents\Marnix\Projects\DSALG\VisualizeGraphDijkstra\VisualizeGraphDijkstra\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\Users\marni\Documents\Marnix\Projects\DSALG\VisualizeGraphDijkstra\VisualizeGraphDijkstra\bin\Debug\Node.pdb
+C:\Users\marni\Documents\Marnix\Projects\DSALG\VisualizeGraphDijkstra\VisualizeGraphDijkstra\bin\Debug\UnitTestVisualizeGraph.pdb
+C:\Users\marni\Documents\Marnix\Projects\DSALG\VisualizeGraphDijkstra\VisualizeGraphDijkstra\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+C:\Users\marni\Documents\Marnix\Projects\DSALG\VisualizeGraphDijkstra\VisualizeGraphDijkstra\obj\Debug\VisualizeGraphDijkstra.csprojAssemblyReference.cache
+C:\Users\marni\Documents\Marnix\Projects\DSALG\VisualizeGraphDijkstra\VisualizeGraphDijkstra\obj\Debug\VisualizeGraphDijkstra.Properties.Resources.resources
+C:\Users\marni\Documents\Marnix\Projects\DSALG\VisualizeGraphDijkstra\VisualizeGraphDijkstra\obj\Debug\VisualizeGraphDijkstra.csproj.GenerateResource.cache
+C:\Users\marni\Documents\Marnix\Projects\DSALG\VisualizeGraphDijkstra\VisualizeGraphDijkstra\obj\Debug\VisualizeGraphDijkstra.csproj.CoreCompileInputs.cache
+C:\Users\marni\Documents\Marnix\Projects\DSALG\VisualizeGraphDijkstra\VisualizeGraphDijkstra\obj\Debug\VisualizeGraphDijkstra.csproj.CopyComplete
+C:\Users\marni\Documents\Marnix\Projects\DSALG\VisualizeGraphDijkstra\VisualizeGraphDijkstra\obj\Debug\VisualizeGraphDijkstra.exe
+C:\Users\marni\Documents\Marnix\Projects\DSALG\VisualizeGraphDijkstra\VisualizeGraphDijkstra\obj\Debug\VisualizeGraphDijkstra.pdb
