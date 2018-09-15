@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Node
 {
+
     public class GraphNode
     {
         public char Identifier;
@@ -97,6 +98,7 @@ namespace Node
         public void AddDirectedEdge(char from, char to, int weight)
         {
             AddDirectedEdgeFunction(FindNode(from), FindNode(to), weight);
+        
         }
 
         public void RemoveDirectedEdge(GraphNode from, GraphNode to, int weight) => RemoveDirectedEdgeFunction(from, to, weight);
@@ -253,6 +255,7 @@ namespace Node
             return graph;
         }
 
+
         private static DirectedGraph TestGraph2()
         {
             DirectedGraph graph = new DirectedGraph();
@@ -274,7 +277,6 @@ namespace Node
             graph.AddDirectedEdge('C', 'E', 4);
             graph.AddDirectedEdge('B', 'C', 2);
             graph.AddDirectedEdge('B', 'D', 5);
-
 
             return graph;
         }
