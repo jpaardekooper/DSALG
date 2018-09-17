@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 namespace Node
 {
 
+
     public class GraphNode
     {
         public char Identifier;
