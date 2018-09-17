@@ -84,10 +84,6 @@
       <Project>{f56c09bd-48ec-4f48-a839-8c45dd06e1a4}</Project>
       <Name>Node</Name>
     </ProjectReference>
-    <ProjectReference Include="..\UnitTestVisualizeGraph\UnitTestVisualizeGraph.csproj">
-      <Project>{fd8a84f8-2707-4982-8200-3f19362456e8}</Project>
-      <Name>UnitTestVisualizeGraph</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -106,12 +106,16 @@ namespace Node
 
         public void RemoveDirectedEdge(char from, char to, int weight) => RemoveDirectedEdgeFunction(FindNode(from), FindNode(to), weight);
 
-        public void PrintAllNodes()
+        public string PrintAllNodes()
         {
+            string nodeRepresentation = "";
+
             foreach (GraphNode node in NodeList)
             {
-                Console.WriteLine(node.Identifier);
+                nodeRepresentation += node.Identifier.ToString();
             }
+
+            return nodeRepresentation;
         }
 
         public void PrintAllNodeEdges()
@@ -125,6 +129,15 @@ namespace Node
         public bool DoesPathExist(GraphNode from, GraphNode to) => DoesPathExistFunction(from, to);
 
         public bool DoesPathExist(char from, char to) => DoesPathExistFunction(FindNode(from), FindNode(to));
+
+        public List<char> GetShortestPath(char fromChar, char toChar)
+        {
+           
+
+            return null;
+            
+        }
+
 
         /// <summary>
         /// Does Requested Node Exist
