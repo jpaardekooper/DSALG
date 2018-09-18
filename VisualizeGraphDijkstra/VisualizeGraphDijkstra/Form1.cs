@@ -11,12 +11,17 @@ using Node;
 
 namespace VisualizeGraphDijkstra
 {
-   
 
     public partial class Form1 : Form
     {
-        Point lastPoint = Point.Empty;//Point.Empty represents null for a Point object
+
         Random rng = new Random();
+        PictureBox Node;
+        List<PictureBox> ListOfPB = new List<PictureBox>();
+
+        List<Point> polyPoints = new List<Point>();
+
+
         public Form1()
         {
             InitializeComponent();
@@ -29,65 +34,105 @@ namespace VisualizeGraphDijkstra
             graph.PrintAllNodeEdges();
 
             Console.WriteLine(graph.DoesPathExist('E', 'F'));
+            //a
+            polyPoints.Add(new Point(50, 50));
+            //b
+            polyPoints.Add(new Point(150, 70));
+            //c
+            polyPoints.Add(new Point(40, 170));
+            //d
+            polyPoints.Add(new Point(100, 280));
+            //e
+            polyPoints.Add(new Point(280, 110));
+            //f
+            polyPoints.Add(new Point(250, 210));
+            //g
+            polyPoints.Add(new Point(200, 300));
+            //h
+            polyPoints.Add(new Point(410, 290));
+            //i
+            polyPoints.Add(new Point(480, 175));
 
-         
-
-            for (int i = 0; i < 9; i++)
+            for (int i = 0; i < graph.NodeList.Count(); i++)
             {
-                DrawPictureBoxToForm(rng.Next(100,400), rng.Next(100,400), i);
+                //  Console.WriteLine(i + "");
+                DrawPictureBoxToForm(polyPoints[i], 65 + i, i);
+
+            }
+            foreach (PictureBox p in ListOfPB)
+            {
+                Console.WriteLine(p.Tag + "een" + p.Location);
             }
 
         }
-      
-        public void DrawPictureBoxToForm(int pointX, int pointY, int i)
-        {           
-                PictureBox Node = new PictureBox();
-                Node.Tag = "Node_" + i;
-                Node.Width = 10;
-                Node.Height = 10;
-                Node.Location = new Point(pointX, pointY);
-                Node.BackColor = Color.Red;
 
-                this.Controls.Add(Node);
+        public void DrawPictureBoxToForm(Point number, int i, int x)
+        {
+            char c = Convert.ToChar(i);
+
+            Node = new PictureBox();
+            Label label = new Label();
+
+            label.Text = "" + c;
+            label.Location = number;
+            label.Width = 15;
+            label.Height = 15;
+            label.BringToFront();
+            Node.Tag = c;
+            Node.Width = 10;
+            Node.Height = 10;
+            Node.Location = number;
+            
+          
+            Node.BackColor = Color.Red;
+
+            ListOfPB.Add(Node);
+          //  this.Controls.Add(Node);
+            this.Controls.Add(label);
+
+            Console.WriteLine(ListOfPB[x]);
         }
 
-     
+
 
         private void Form1_Paint_1(object sender, PaintEventArgs e)
         {
-          
+
             //Create graphic object for the current form
             Graphics gs = this.CreateGraphics();
 
             //Create brush object   
-            Brush br2 = new SolidBrush(Color.Black);
+            Brush br1 = new SolidBrush(Color.Black);
+            Brush br2 = new SolidBrush(Color.Red);
 
             //Create pen objects
-            Pen p1 = new Pen(br2);
+            Pen p1 = new Pen(br1);
             Pen p2 = new Pen(br2);
-            Pen p3 = new Pen(br2);
-            Pen p4 = new Pen(br2);
-            Pen p5 = new Pen(br2);
-            Pen p6 = new Pen(br2);
-            Pen p7 = new Pen(br2);
-            Pen p8 = new Pen(br2);
+
 
             //Draw lines
-            gs.DrawLine(p1, new Point(rng.Next(100, 400), rng.Next(100, 400)), new Point(rng.Next(100, 400), rng.Next(100, 400)));
-            gs.DrawLine(p1, new Point(rng.Next(100, 400), rng.Next(100, 400)), new Point(rng.Next(100, 400), rng.Next(100, 400)));
-            gs.DrawLine(p2, new Point(rng.Next(100, 400), rng.Next(100, 400)), new Point(rng.Next(100, 400), rng.Next(100, 400)));
-            gs.DrawLine(p2, new Point(rng.Next(100, 400), rng.Next(100, 400)), new Point(rng.Next(100, 400), rng.Next(100, 400)));
-            gs.DrawLine(p3, new Point(rng.Next(100, 400), rng.Next(100, 400)), new Point(rng.Next(100, 400), rng.Next(100, 400)));
-            gs.DrawLine(p3, new Point(rng.Next(100, 400), rng.Next(100, 400)), new Point(rng.Next(100, 400), rng.Next(100, 400)));
-            gs.DrawLine(p4, new Point(rng.Next(100, 400), rng.Next(100, 400)), new Point(rng.Next(100, 400), rng.Next(100, 400)));
-            gs.DrawLine(p4, new Point(rng.Next(100, 400), rng.Next(100, 400)), new Point(rng.Next(100, 400), rng.Next(100, 400)));
-            gs.DrawLine(p5, new Point(rng.Next(100, 400), rng.Next(100, 400)), new Point(rng.Next(100, 400), rng.Next(100, 400)));
-            gs.DrawLine(p5, new Point(rng.Next(100, 400), rng.Next(100, 400)), new Point(rng.Next(100, 400), rng.Next(100, 400)));
-            gs.DrawLine(p6, new Point(rng.Next(100, 400), rng.Next(100, 400)), new Point(rng.Next(100, 400), rng.Next(100, 400)));
-            gs.DrawLine(p6, new Point(rng.Next(100, 400), rng.Next(100, 400)), new Point(rng.Next(100, 400), rng.Next(100, 400)));
+
+            gs.DrawLine(p1, new Point(ListOfPB.ElementAt(0).Location.X, ListOfPB.ElementAt(0).Location.Y), new Point(ListOfPB.ElementAt(1).Location.X, ListOfPB.ElementAt(1).Location.Y));
+            gs.DrawLine(p1, new Point(ListOfPB.ElementAt(0).Location.X, ListOfPB.ElementAt(0).Location.Y), new Point(ListOfPB[2].Location.X, ListOfPB[2].Location.Y));
+
+            gs.DrawLine(p1, new Point(ListOfPB.ElementAt(1).Location.X, ListOfPB.ElementAt(1).Location.Y), new Point(ListOfPB.ElementAt(4).Location.X, ListOfPB.ElementAt(4).Location.Y));
+         
+
+            gs.DrawLine(p1, new Point(ListOfPB.ElementAt(1).Location.X, ListOfPB.ElementAt(1).Location.Y), new Point(ListOfPB.ElementAt(3).Location.X, ListOfPB.ElementAt(3).Location.Y));
+            gs.DrawLine(p1, new Point(ListOfPB.ElementAt(2).Location.X, ListOfPB.ElementAt(2).Location.Y), new Point(ListOfPB[3].Location.X, ListOfPB[3].Location.Y));
+
+            gs.DrawLine(p1, new Point(ListOfPB.ElementAt(3).Location.X, ListOfPB.ElementAt(3).Location.Y), new Point(ListOfPB.ElementAt(4).Location.X, ListOfPB.ElementAt(4).Location.Y));
+            gs.DrawLine(p1, new Point(ListOfPB.ElementAt(3).Location.X, ListOfPB.ElementAt(3).Location.Y), new Point(ListOfPB[5].Location.X, ListOfPB[5].Location.Y));
+
+            gs.DrawLine(p1, new Point(ListOfPB.ElementAt(5).Location.X, ListOfPB.ElementAt(5).Location.Y), new Point(ListOfPB.ElementAt(6).Location.X, ListOfPB.ElementAt(6).Location.Y));
+            gs.DrawLine(p1, new Point(ListOfPB.ElementAt(6).Location.X, ListOfPB.ElementAt(6).Location.Y), new Point(ListOfPB[7].Location.X, ListOfPB[7].Location.Y));
+
+            gs.DrawLine(p1, new Point(ListOfPB.ElementAt(6).Location.X, ListOfPB.ElementAt(6).Location.Y), new Point(ListOfPB.ElementAt(8).Location.X, ListOfPB.ElementAt(8).Location.Y));
+            gs.DrawLine(p1, new Point(ListOfPB.ElementAt(4).Location.X, ListOfPB.ElementAt(4).Location.Y), new Point(ListOfPB[8].Location.X, ListOfPB[8].Location.Y));
+
         }
 
-   
+
 
     }
 }

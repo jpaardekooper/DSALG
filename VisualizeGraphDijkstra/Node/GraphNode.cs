@@ -6,8 +6,6 @@ using System.Threading.Tasks;
 
 namespace Node
 {
-
-
     public class GraphNode
     {
         public char Identifier;
@@ -33,10 +31,10 @@ namespace Node
 
     public class DirectedGraph
     {
-        private List<GraphNode> NodeList;
+        public List<GraphNode> NodeList;
 
         public DirectedGraph()
-        {
+        {   
             if (NodeList == null)
             {
                 NodeList = new List<GraphNode>();
@@ -248,7 +246,7 @@ namespace Node
             return NodeList.Find(x => x.Identifier == NodeId);
         }
 
-        private static DirectedGraph TestGraph1()
+        public static DirectedGraph TestGraph1()
         {
             DirectedGraph graph = new DirectedGraph();
 

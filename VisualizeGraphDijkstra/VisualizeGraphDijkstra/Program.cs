@@ -25,9 +25,9 @@ namespace VisualizeGraphDijkstra
             //act
 
 
-            List<char> Path = Richard.GetShortestPath('H', 'I');
+            //List<char> Path = Richard.GetShortestPath('H', 'I');
 
-            Path.ToString();
+            //Path.ToString();
 
         }
     }

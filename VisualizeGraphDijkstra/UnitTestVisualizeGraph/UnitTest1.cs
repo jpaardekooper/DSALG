@@ -60,6 +60,22 @@ namespace UnitTestVisualizeGraph
 
         }
 
+        [TestMethod]
+        public void SendMailData()
+        {
+            //arrange
+          
+            //act
+
+            //assert     
+
+        }
+
+        public interface ImailSender
+        {
+            bool SendMail(string to, string from, string body);
+        }
+
 
     }
 }
