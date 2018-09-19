@@ -62,11 +62,13 @@ namespace VisualizeGraphDijkstra
             {
                 for (int x = -15; x <= 15 && i < 300; x++)
                 {
+
                     var c = Math.Sqrt(x * x + y * y);
                     if (10 <= c && c <= 15)
                     {
                         points[i++] = new Point(x, y);
                     }
+
                 }
             }
                 
