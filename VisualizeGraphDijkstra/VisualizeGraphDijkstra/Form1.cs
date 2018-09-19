@@ -12,21 +12,8 @@ using Node;
 
 namespace VisualizeGraphDijkstra
 {
-   
-    class Vertex
-    {
-        public GraphNode From { get; set; }
-        public GraphNode To { get; set; }
-        public int Distance { get; set; }
 
-        public Vertex(GraphNode from, GraphNode to, int distance)
-        {
-            From = from;
-            To = to;
-            Distance = distance;
-        }
 
-    }
 
 
     public partial class Form1 : Form
@@ -47,15 +34,12 @@ namespace VisualizeGraphDijkstra
 
             Console.WriteLine("New Graph project");
 
-            DirectedGraph graph = DirectedGraph.GetTestGraph(2);
-            
+            DirectedGraph graph = DirectedGraph.GetRandomGraph(100);
+
             graph.PrintAllNodes();
             graph.PrintAllNodeEdges();
 
             Console.WriteLine(graph.DoesPathExist('E', 'F'));
-
-
-
 
 
             List<Vertex> allShit = new List<Vertex>();
@@ -65,60 +49,73 @@ namespace VisualizeGraphDijkstra
                 foreach (var h in item.DirectedEdge)
                 {
                     allShit.Add(new Vertex(graph.FindNode(item.Identifier), h.Key, h.Value));
+
                 }
+            }
+
+            Random rndLocGen = new Random();
+
+            for (int row = 0; row < graph.NodeList.Count(); row++)
+            {
+                
+              
+
+                int PositionX = rndLocGen.Next(1, 35) * 10;
+                int PositionY = rndLocGen.Next(1, 35) * 10;
+
+                polyPoints.Add(new Point(PositionX, PositionY));
+                polyPoints2.Add(new Point(PositionX, PositionY));
+           
+
             }
 
 
 
-            //a
-            polyPoints.Add(new Point(50, 50));
-            //b
-            polyPoints.Add(new Point(150, 70));
-            //c
-            polyPoints.Add(new Point(40, 170));
-            //d
-            polyPoints.Add(new Point(100, 280));
-            //e
-            polyPoints.Add(new Point(280, 110));
-            //f
-            polyPoints.Add(new Point(250, 210));
-            //g
-            polyPoints.Add(new Point(200, 300));
-            //h
-            polyPoints.Add(new Point(410, 290));
-            //i
-            polyPoints.Add(new Point(480, 175));
+            ////a
+            //polyPoints.Add(new Point(50, 50));
+            ////b
+            //polyPoints.Add(new Point(150, 70));
+            ////c
+            //polyPoints.Add(new Point(40, 170));
+            ////d
+            //polyPoints.Add(new Point(100, 280));
+            ////e
+            //polyPoints.Add(new Point(280, 110));
+            ////f
+            //polyPoints.Add(new Point(250, 210));
+            ////g
+            //polyPoints.Add(new Point(200, 300));
+            ////h
+            //polyPoints.Add(new Point(410, 290));
+            ////i
+            //polyPoints.Add(new Point(480, 175));
 
             //a
-            polyPoints2.Add(new Point(50, 30));
-            //b
-            polyPoints2.Add(new Point(150, 50));
-            //c
-            polyPoints2.Add(new Point(20, 170));
-            //d
-            polyPoints2.Add(new Point(100, 290));
-            //e
-            polyPoints2.Add(new Point(280, 90));
-            //f
-            polyPoints2.Add(new Point(250, 180));
-            //g
-            polyPoints2.Add(new Point(200, 320));
-            //h
-            polyPoints2.Add(new Point(410, 270));
-            //i
-            polyPoints2.Add(new Point(480, 140));
+            //polyPoints2.Add(new Point(50, 30));
+            ////b
+            //polyPoints2.Add(new Point(150, 50));
+            ////c
+            //polyPoints2.Add(new Point(20, 170));
+            ////d
+            //polyPoints2.Add(new Point(100, 290));
+            ////e
+            //polyPoints2.Add(new Point(280, 90));
+            ////f
+            //polyPoints2.Add(new Point(250, 180));
+            ////g
+            //polyPoints2.Add(new Point(200, 320));
+            ////h
+            //polyPoints2.Add(new Point(410, 270));
+            ////i
+            //polyPoints2.Add(new Point(480, 140));
 
 
 
             for (int i = 0; i < graph.NodeList.Count(); i++)
-            {       
-                DrawPictureBoxToForm(polyPoints[i], polyPoints2[i], 65 + i, i);
-
-            }
-            foreach (PictureBox p in ListOfPB)
             {
-                Console.WriteLine(p.Tag + "een" + p.Location);
+                DrawPictureBoxToForm(polyPoints[i], polyPoints2[i], 65 + i, i);
             }
+
 
         }
 
@@ -139,15 +136,13 @@ namespace VisualizeGraphDijkstra
             Node.Width = 10;
             Node.Height = 10;
             Node.Location = number;
-            
-          
+
+
             Node.BackColor = Color.Red;
 
             ListOfPB.Add(Node);
-          this.Controls.Add(Node);
+            //  this.Controls.Add(Node);
             this.Controls.Add(label);
-
-            Console.WriteLine(ListOfPB[x]);
         }
 
 
@@ -173,7 +168,7 @@ namespace VisualizeGraphDijkstra
             gs.DrawLine(p1, new Point(ListOfPB.ElementAt(0).Location.X, ListOfPB.ElementAt(0).Location.Y), new Point(ListOfPB[2].Location.X, ListOfPB[2].Location.Y));
 
             gs.DrawLine(p1, new Point(ListOfPB.ElementAt(1).Location.X, ListOfPB.ElementAt(1).Location.Y), new Point(ListOfPB.ElementAt(4).Location.X, ListOfPB.ElementAt(4).Location.Y));
-         
+
 
             gs.DrawLine(p1, new Point(ListOfPB.ElementAt(1).Location.X, ListOfPB.ElementAt(1).Location.Y), new Point(ListOfPB.ElementAt(3).Location.X, ListOfPB.ElementAt(3).Location.Y));
             gs.DrawLine(p1, new Point(ListOfPB.ElementAt(2).Location.X, ListOfPB.ElementAt(2).Location.Y), new Point(ListOfPB[3].Location.X, ListOfPB[3].Location.Y));
@@ -186,6 +181,21 @@ namespace VisualizeGraphDijkstra
 
             gs.DrawLine(p1, new Point(ListOfPB.ElementAt(6).Location.X, ListOfPB.ElementAt(6).Location.Y), new Point(ListOfPB.ElementAt(8).Location.X, ListOfPB.ElementAt(8).Location.Y));
             gs.DrawLine(p1, new Point(ListOfPB.ElementAt(4).Location.X, ListOfPB.ElementAt(4).Location.Y), new Point(ListOfPB[8].Location.X, ListOfPB[8].Location.Y));
+
+        }
+
+        class Vertex
+        {
+            public GraphNode From { get; set; }
+            public GraphNode To { get; set; }
+            public int Distance { get; set; }
+
+            public Vertex(GraphNode from, GraphNode to, int distance)
+            {
+                From = from;
+                To = to;
+                Distance = distance;
+            }
 
         }
 
