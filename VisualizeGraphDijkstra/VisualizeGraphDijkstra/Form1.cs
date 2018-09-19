@@ -65,6 +65,7 @@ namespace VisualizeGraphDijkstra
                 foreach (var h in item.DirectedEdge)
                 {
                     allShit.Add(new Vertex(graph.FindNode(item.Identifier), h.Key, h.Value));
+                    Debug.WriteLine($"{item.Identifier}{h.Key.Identifier}{h.Value}");
                 }
             }
 
