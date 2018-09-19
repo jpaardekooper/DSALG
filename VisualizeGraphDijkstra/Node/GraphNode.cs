@@ -241,7 +241,7 @@ namespace Node
             NodeList.Remove(FindNode(identifier));
         }
 
-        private GraphNode FindNode(char NodeId)
+        public GraphNode FindNode(char NodeId)
         {
             return NodeList.Find(x => x.Identifier == NodeId);
         }

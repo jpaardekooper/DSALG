@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -11,6 +12,22 @@ using Node;
 
 namespace VisualizeGraphDijkstra
 {
+   
+    class Vertex
+    {
+        public GraphNode From { get; set; }
+        public GraphNode To { get; set; }
+        public int Distance { get; set; }
+
+        public Vertex(GraphNode from, GraphNode to, int distance)
+        {
+            From = from;
+            To = to;
+            Distance = distance;
+        }
+
+    }
+
 
     public partial class Form1 : Form
     {
@@ -31,11 +48,27 @@ namespace VisualizeGraphDijkstra
             Console.WriteLine("New Graph project");
 
             DirectedGraph graph = DirectedGraph.GetTestGraph(2);
-
+            
             graph.PrintAllNodes();
             graph.PrintAllNodeEdges();
 
             Console.WriteLine(graph.DoesPathExist('E', 'F'));
+
+
+
+
+
+            List<Vertex> allShit = new List<Vertex>();
+
+            foreach (var item in graph.NodeList)
+            {
+                foreach (var h in item.DirectedEdge)
+                {
+                    allShit.Add(new Vertex(graph.FindNode(item.Identifier), h.Key, h.Value));
+                }
+            }
+
+
 
             //a
             polyPoints.Add(new Point(50, 50));
