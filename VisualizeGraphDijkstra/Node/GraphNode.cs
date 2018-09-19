@@ -222,7 +222,7 @@ namespace Node
             }
 
             // no dubble edges
-            if (from.DirectedEdge.ContainsKey(to) && from.DirectedEdge[to].Equals(weight))
+            if (from.DirectedEdge.ContainsKey(to))
             {
                 return;
             }
