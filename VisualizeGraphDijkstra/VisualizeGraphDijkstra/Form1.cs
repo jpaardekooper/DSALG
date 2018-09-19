@@ -20,6 +20,8 @@ namespace VisualizeGraphDijkstra
         List<PictureBox> ListOfPB = new List<PictureBox>();
 
         List<Point> polyPoints = new List<Point>();
+        List<Point> polyPoints2 = new List<Point>();
+
 
 
         public Form1()
@@ -34,6 +36,7 @@ namespace VisualizeGraphDijkstra
             graph.PrintAllNodeEdges();
 
             Console.WriteLine(graph.DoesPathExist('E', 'F'));
+
             //a
             polyPoints.Add(new Point(50, 50));
             //b
@@ -53,10 +56,30 @@ namespace VisualizeGraphDijkstra
             //i
             polyPoints.Add(new Point(480, 175));
 
+            //a
+            polyPoints2.Add(new Point(50, 30));
+            //b
+            polyPoints2.Add(new Point(150, 50));
+            //c
+            polyPoints2.Add(new Point(20, 170));
+            //d
+            polyPoints2.Add(new Point(100, 290));
+            //e
+            polyPoints2.Add(new Point(280, 90));
+            //f
+            polyPoints2.Add(new Point(250, 180));
+            //g
+            polyPoints2.Add(new Point(200, 320));
+            //h
+            polyPoints2.Add(new Point(410, 270));
+            //i
+            polyPoints2.Add(new Point(480, 140));
+
+
+
             for (int i = 0; i < graph.NodeList.Count(); i++)
-            {
-                //  Console.WriteLine(i + "");
-                DrawPictureBoxToForm(polyPoints[i], 65 + i, i);
+            {       
+                DrawPictureBoxToForm(polyPoints[i], polyPoints2[i], 65 + i, i);
 
             }
             foreach (PictureBox p in ListOfPB)
@@ -66,7 +89,7 @@ namespace VisualizeGraphDijkstra
 
         }
 
-        public void DrawPictureBoxToForm(Point number, int i, int x)
+        public void DrawPictureBoxToForm(Point number, Point distance, int i, int x)
         {
             char c = Convert.ToChar(i);
 
@@ -74,10 +97,11 @@ namespace VisualizeGraphDijkstra
             Label label = new Label();
 
             label.Text = "" + c;
-            label.Location = number;
+            label.Location = distance;
             label.Width = 15;
             label.Height = 15;
             label.BringToFront();
+
             Node.Tag = c;
             Node.Width = 10;
             Node.Height = 10;
@@ -87,7 +111,7 @@ namespace VisualizeGraphDijkstra
             Node.BackColor = Color.Red;
 
             ListOfPB.Add(Node);
-          //  this.Controls.Add(Node);
+          this.Controls.Add(Node);
             this.Controls.Add(label);
 
             Console.WriteLine(ListOfPB[x]);
