@@ -12,10 +12,6 @@ using Node;
 
 namespace VisualizeGraphDijkstra
 {
-
-
-
-
     public partial class Form1 : Form
     {
 
@@ -26,7 +22,10 @@ namespace VisualizeGraphDijkstra
         List<Point> polyPoints = new List<Point>();
         List<Point> polyPoints2 = new List<Point>();
 
+        DirectedGraph graph = DirectedGraph.GetTestGraph(2);
 
+
+        Random rndLocGen = new Random();
 
         public Form1()
         {
@@ -34,7 +33,7 @@ namespace VisualizeGraphDijkstra
 
             Console.WriteLine("New Graph project");
 
-            DirectedGraph graph = DirectedGraph.GetRandomGraph(100);
+
 
             graph.PrintAllNodes();
             graph.PrintAllNodeEdges();
@@ -42,81 +41,20 @@ namespace VisualizeGraphDijkstra
             Console.WriteLine(graph.DoesPathExist('E', 'F'));
 
 
-            List<Vertex> allShit = new List<Vertex>();
-
-            foreach (var item in graph.NodeList)
-            {
-                foreach (var h in item.DirectedEdge)
-                {
-                    allShit.Add(new Vertex(graph.FindNode(item.Identifier), h.Key, h.Value));
-
-                }
-            }
-
-            Random rndLocGen = new Random();
-
             for (int row = 0; row < graph.NodeList.Count(); row++)
             {
-                
-              
-
                 int PositionX = rndLocGen.Next(1, 35) * 10;
                 int PositionY = rndLocGen.Next(1, 35) * 10;
 
                 polyPoints.Add(new Point(PositionX, PositionY));
                 polyPoints2.Add(new Point(PositionX, PositionY));
-           
-
             }
-
-
-
-            ////a
-            //polyPoints.Add(new Point(50, 50));
-            ////b
-            //polyPoints.Add(new Point(150, 70));
-            ////c
-            //polyPoints.Add(new Point(40, 170));
-            ////d
-            //polyPoints.Add(new Point(100, 280));
-            ////e
-            //polyPoints.Add(new Point(280, 110));
-            ////f
-            //polyPoints.Add(new Point(250, 210));
-            ////g
-            //polyPoints.Add(new Point(200, 300));
-            ////h
-            //polyPoints.Add(new Point(410, 290));
-            ////i
-            //polyPoints.Add(new Point(480, 175));
-
-            //a
-            //polyPoints2.Add(new Point(50, 30));
-            ////b
-            //polyPoints2.Add(new Point(150, 50));
-            ////c
-            //polyPoints2.Add(new Point(20, 170));
-            ////d
-            //polyPoints2.Add(new Point(100, 290));
-            ////e
-            //polyPoints2.Add(new Point(280, 90));
-            ////f
-            //polyPoints2.Add(new Point(250, 180));
-            ////g
-            //polyPoints2.Add(new Point(200, 320));
-            ////h
-            //polyPoints2.Add(new Point(410, 270));
-            ////i
-            //polyPoints2.Add(new Point(480, 140));
-
 
 
             for (int i = 0; i < graph.NodeList.Count(); i++)
             {
                 DrawPictureBoxToForm(polyPoints[i], polyPoints2[i], 65 + i, i);
             }
-
-
         }
 
         public void DrawPictureBoxToForm(Point number, Point distance, int i, int x)
@@ -163,24 +101,31 @@ namespace VisualizeGraphDijkstra
 
 
             //Draw lines
+            List<Vertex> allShit = new List<Vertex>();
+            int i = 0;
+            
+            foreach (var item in graph.NodeList)
+            { 
+                foreach (var h in item.DirectedEdge)
+                {
+                    // a -> b lengte 8
+                    allShit.Add(new Vertex(graph.FindNode(item.Identifier), h.Key, h.Value));
+                   
+                    if (item.Identifier.ToString() == ListOfPB[i].Tag.ToString() )
+                    {
+                        for (int x = 0; x < ListOfPB.Count(); x++)
+                        {
+                            if (ListOfPB[x].Tag.ToString() == h.Key.Identifier.ToString())
+                            {
+                                gs.DrawLine(p1, new Point(ListOfPB[i].Location.X, ListOfPB[i].Location.Y), new Point(ListOfPB[x].Location.X, ListOfPB[x].Location.Y));
 
-            gs.DrawLine(p1, new Point(ListOfPB.ElementAt(0).Location.X, ListOfPB.ElementAt(0).Location.Y), new Point(ListOfPB.ElementAt(1).Location.X, ListOfPB.ElementAt(1).Location.Y));
-            gs.DrawLine(p1, new Point(ListOfPB.ElementAt(0).Location.X, ListOfPB.ElementAt(0).Location.Y), new Point(ListOfPB[2].Location.X, ListOfPB[2].Location.Y));
-
-            gs.DrawLine(p1, new Point(ListOfPB.ElementAt(1).Location.X, ListOfPB.ElementAt(1).Location.Y), new Point(ListOfPB.ElementAt(4).Location.X, ListOfPB.ElementAt(4).Location.Y));
-
-
-            gs.DrawLine(p1, new Point(ListOfPB.ElementAt(1).Location.X, ListOfPB.ElementAt(1).Location.Y), new Point(ListOfPB.ElementAt(3).Location.X, ListOfPB.ElementAt(3).Location.Y));
-            gs.DrawLine(p1, new Point(ListOfPB.ElementAt(2).Location.X, ListOfPB.ElementAt(2).Location.Y), new Point(ListOfPB[3].Location.X, ListOfPB[3].Location.Y));
-
-            gs.DrawLine(p1, new Point(ListOfPB.ElementAt(3).Location.X, ListOfPB.ElementAt(3).Location.Y), new Point(ListOfPB.ElementAt(4).Location.X, ListOfPB.ElementAt(4).Location.Y));
-            gs.DrawLine(p1, new Point(ListOfPB.ElementAt(3).Location.X, ListOfPB.ElementAt(3).Location.Y), new Point(ListOfPB[5].Location.X, ListOfPB[5].Location.Y));
-
-            gs.DrawLine(p1, new Point(ListOfPB.ElementAt(5).Location.X, ListOfPB.ElementAt(5).Location.Y), new Point(ListOfPB.ElementAt(6).Location.X, ListOfPB.ElementAt(6).Location.Y));
-            gs.DrawLine(p1, new Point(ListOfPB.ElementAt(6).Location.X, ListOfPB.ElementAt(6).Location.Y), new Point(ListOfPB[7].Location.X, ListOfPB[7].Location.Y));
-
-            gs.DrawLine(p1, new Point(ListOfPB.ElementAt(6).Location.X, ListOfPB.ElementAt(6).Location.Y), new Point(ListOfPB.ElementAt(8).Location.X, ListOfPB.ElementAt(8).Location.Y));
-            gs.DrawLine(p1, new Point(ListOfPB.ElementAt(4).Location.X, ListOfPB.ElementAt(4).Location.Y), new Point(ListOfPB[8].Location.X, ListOfPB[8].Location.Y));
+                                Debug.WriteLine($"{item.Identifier}{h.Key.Identifier}{h.Value}" + " " + ListOfPB[i].Tag + " " + ListOfPB[x].Tag);
+                            }
+                        }
+                    }  
+                }
+                i++;
+            }     
 
         }
 
@@ -196,11 +141,7 @@ namespace VisualizeGraphDijkstra
                 To = to;
                 Distance = distance;
             }
-
         }
-
-
-
     }
 }
 
