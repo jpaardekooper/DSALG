@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestVisualizeGraph", "U
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Node", "Node\Node.csproj", "{F56C09BD-48EC-4F48-A839-8C45DD06E1A4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dijkstra_JM", "Dijkstra_JM\Dijkstra_JM.csproj", "{1F587731-B0A5-4DBC-9808-056296F877A3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{F56C09BD-48EC-4F48-A839-8C45DD06E1A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F56C09BD-48EC-4F48-A839-8C45DD06E1A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F56C09BD-48EC-4F48-A839-8C45DD06E1A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F587731-B0A5-4DBC-9808-056296F877A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F587731-B0A5-4DBC-9808-056296F877A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F587731-B0A5-4DBC-9808-056296F877A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F587731-B0A5-4DBC-9808-056296F877A3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
