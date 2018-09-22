@@ -8,8 +8,12 @@ namespace Node
 {
     public class GraphNode
     {
-        public char Identifier;
-        public Dictionary<GraphNode, int> DirectedEdge;
+        public char Identifier { get; set; }
+        public Dictionary<GraphNode, int> DirectedEdge { get; set; }
+        public bool Visited { get; set; } = false;
+        public double? MinCostToStart { get; set; }
+        public GraphNode NearestToStart { get; set; }
+
 
         public GraphNode()
         {
@@ -257,7 +261,7 @@ namespace Node
 
             graph.AddDirectedEdge('A', 'D', 6);
             graph.AddDirectedEdge('A', 'E', 2);
-            graph.AddDirectedEdge('E', 'D', 2);
+            graph.AddDirectedEdge('E', 'D', 3);
             graph.AddDirectedEdge('B', 'D', 1);
             graph.AddDirectedEdge('C', 'E', 4);
             graph.AddDirectedEdge('F', 'A', 3);

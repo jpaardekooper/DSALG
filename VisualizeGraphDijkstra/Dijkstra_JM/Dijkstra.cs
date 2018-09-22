@@ -18,34 +18,14 @@ namespace Dijkstra_JM
 
         public Dijkstra(DirectedGraph graph)
         {
-            Graph = graph;            
+            Graph = graph;
         }
 
         public List<GraphNode> GetShortestPathDijikstra(GraphNode from, GraphNode to)
         {
             From = from;
             To = to;
-            
-            DijkstraSearch();
-            var shortestPath = new List<GraphNode>();
-            shortestPath.Add(To);
-            BuildShortestPath(shortestPath, To);
-            shortestPath.Reverse();
-            return shortestPath;
-        }
 
-        private void BuildShortestPath(List<GraphNode> list, GraphNode node)
-        {
-            if (node.NearestToStart == null)
-                return;
-            list.Add(node.NearestToStart);
-            ShortestPathLength += node.Connections.Single(x => x.ConnectedNode == node.NearestToStart).Length;
-            ShortestPathCost += node.Connections.Single(x => x.ConnectedNode == node.NearestToStart).Cost;
-            BuildShortestPath(list, node.NearestToStart);
-        }
-
-        private void DijkstraSearch()
-        {
             NodeVisits = 0;
             From.MinCostToStart = 0;
             var prioQueue = new List<GraphNode>();
@@ -56,25 +36,58 @@ namespace Dijkstra_JM
                 prioQueue = prioQueue.OrderBy(x => x.MinCostToStart.Value).ToList();
                 var node = prioQueue.First();
                 prioQueue.Remove(node);
-                foreach (var cnn in node.Connections.OrderBy(x => x.Cost))
+                foreach (var cnn in node.DirectedEdge.OrderBy(x => x.Value))
                 {
-                    var childNode = cnn.ConnectedNode;
+                    var childNode = cnn.Key;
                     if (childNode.Visited)
                         continue;
                     if (childNode.MinCostToStart == null ||
-                        node.MinCostToStart + cnn.Cost < childNode.MinCostToStart)
+                        node.MinCostToStart + cnn.Value < childNode.MinCostToStart)
                     {
-                        childNode.MinCostToStart = node.MinCostToStart + cnn.Cost;
+                        childNode.MinCostToStart = node.MinCostToStart + cnn.Value;
                         childNode.NearestToStart = node;
                         if (!prioQueue.Contains(childNode))
                             prioQueue.Add(childNode);
                     }
                 }
                 node.Visited = true;
-                if (node == End)
-                    return;
+                if (node == To)
+                    break;
             } while (prioQueue.Any());
+
+
+            var shortestPath = new List<GraphNode>();
+            shortestPath.Add(To);
+            BuildShortestPath(shortestPath, To);
+            shortestPath.Reverse();
+            return shortestPath;
         }
 
+        private GraphNode GetClosestNode(GraphNode node)
+        {
+            KeyValuePair<GraphNode, int> currentClossestNode = new KeyValuePair<GraphNode, int>(new GraphNode(), int.MaxValue);
+            GraphNode g = null;
+
+            foreach (var item in node.DirectedEdge)
+            {
+                if (item.Value < currentClossestNode.Value)
+                {
+                    currentClossestNode = item;
+                    g = item.Key;
+                }
+            }
+
+            return g;
+
+        }
+
+        private void BuildShortestPath(List<GraphNode> list, GraphNode node)
+        {
+            if (node.NearestToStart == null)
+                return;
+            list.Add(node.NearestToStart);
+            BuildShortestPath(list, node.NearestToStart);
+        }
+        
     }
 }

@@ -80,6 +80,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Dijkstra_JM\Dijkstra_JM.csproj">
+      <Project>{1f587731-b0a5-4dbc-9808-056296f877a3}</Project>
+      <Name>Dijkstra_JM</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Node\Node.csproj">
       <Project>{f56c09bd-48ec-4f48-a839-8c45dd06e1a4}</Project>
       <Name>Node</Name>

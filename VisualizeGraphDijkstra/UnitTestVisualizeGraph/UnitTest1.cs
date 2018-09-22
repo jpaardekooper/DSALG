@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Node;
+using Dijkstra_JM;
 
 namespace UnitTestVisualizeGraph
 {
@@ -46,36 +47,32 @@ namespace UnitTestVisualizeGraph
         public void GetShortestPath()
         {
             //arrange
-            DirectedGraph Richard = DirectedGraph.GetTestGraph(3);
+            DirectedGraph Richard = DirectedGraph.GetTestGraph(1);
+            Dijkstra d = new Dijkstra(Richard);
+
+            List<GraphNode> t = new List<GraphNode>();
+
+            GraphNode from = Richard.FindNode('F');
+            GraphNode to = Richard.FindNode('D');
+
+            t = d.GetShortestPathDijikstra(from, to);
 
             //act
 
+            string path = "";
 
-            List<char> Path = Richard.GetShortestPath('H', 'I');
-
-            Path.ToString();
+            foreach (var item in t)
+            {
+                path += item.Identifier;
+            }
+            
 
             //assert
-            Assert.AreEqual(Path, "HADGI");
+            Assert.AreEqual("FBD", path);
 
         }
 
-        [TestMethod]
-        public void SendMailData()
-        {
-            //arrange
-          
-            //act
-
-            //assert     
-
-        }
-
-        public interface ImailSender
-        {
-            bool SendMail(string to, string from, string body);
-        }
-
+        
 
     }
 }
