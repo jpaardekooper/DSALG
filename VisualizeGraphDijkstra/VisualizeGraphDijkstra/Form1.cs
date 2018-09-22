@@ -42,8 +42,8 @@ namespace VisualizeGraphDijkstra
 
             for (int row = 0; row < graph.NodeList.Count(); row++)
             {
-                int PositionX = rndLocGen.Next(1, 35) * 10;
-                int PositionY = rndLocGen.Next(1, 35) * 10;
+                int PositionX = rndLocGen.Next(1, 35) * 15;
+                int PositionY = rndLocGen.Next(1, 35) * 15;
 
                 polyPoints.Add(new Point(PositionX, PositionY));
                 polyPoints2.Add(new Point(PositionX, PositionY));
@@ -98,23 +98,23 @@ namespace VisualizeGraphDijkstra
 
             label.Text = "" + c;
             label.Left = number;
-            label.Top = distance;
-            label.Width = 15;
-            label.Height = 15;
+            label.Top = distance ;
+            label.Width = 10;
+            label.Height = 10;
             label.BringToFront();
 
             Node.Tag = c;
             Node.Width = 10;
             Node.Height = 10;
 
-            Node.Left = number;
+            Node.Left = number ;
             Node.Top = distance;
 
 
             Node.BackColor = Color.Red;
 
             ListOfPB.Add(Node);
-            //  this.Controls.Add(Node);
+            //this.Controls.Add(Node);
             this.Controls.Add(label);
         }
 
@@ -161,8 +161,32 @@ namespace VisualizeGraphDijkstra
                             if (ListOfPB[x].Tag.ToString() == h.Key.Identifier.ToString())
                             {
                                 gs.DrawLine(p1, new Point(ListOfPB[i].Location.X, ListOfPB[i].Location.Y), new Point(ListOfPB[x].Location.X, ListOfPB[x].Location.Y));
+                               
+                                Label distance = new Label();
+
+                                if(ListOfPB[i].Location.X < ListOfPB[x].Location.X)
+                                {
+                                    distance.Left = ListOfPB[x].Location.X - (ListOfPB[i].Location.X / 2 );
+                                }else
+                                {
+                                    distance.Left = ListOfPB[i].Location.X - (ListOfPB[x].Location.X / 2 );
+                                }
+                                if(ListOfPB[i].Location.Y < ListOfPB[x].Location.Y)
+                                {
+                                    distance.Top = ListOfPB[x].Location.Y - (ListOfPB[i].Location.Y /2 );
+                                }
+                                else
+                                {
+                                    distance.Top = ListOfPB[i].Location.Y - (ListOfPB[x].Location.Y /2 );
+                                }
+                         
+                               
+                                distance.Text = $"{h.Value}";
+                             //   this.Controls.Add(distance);
 
                                 Debug.WriteLine($"{item.Identifier}{h.Key.Identifier}{h.Value}" + " " + ListOfPB[i].Tag + " " + ListOfPB[x].Tag);
+                             
+                          
                             }
                         }
                     }  
