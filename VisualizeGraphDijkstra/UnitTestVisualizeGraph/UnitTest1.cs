@@ -48,20 +48,20 @@ namespace UnitTestVisualizeGraph
         {
             //arrange
             DirectedGraph Richard = DirectedGraph.GetTestGraph(1);
-            Dijkstra d = new Dijkstra(Richard);
+            Dijkstra Sigismund = new Dijkstra(Richard);
 
-            List<GraphNode> t = new List<GraphNode>();
+            List<GraphNode> Petra = new List<GraphNode>();
 
             GraphNode from = Richard.FindNode('F');
             GraphNode to = Richard.FindNode('D');
 
-            t = d.GetShortestPathDijikstra(from, to);
+            Petra = Sigismund.GetShortestPathDijikstra(from, to);
 
             //act
 
             string path = "";
 
-            foreach (var item in t)
+            foreach (var item in Petra)
             {
                 path += item.Identifier;
             }

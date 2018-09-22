@@ -15,38 +15,10 @@ namespace VisualizeGraphDijkstra
         /// </summary>
         [STAThread]
         static void Main()
-        {
-
-            DirectedGraph Richard = DirectedGraph.GetTestGraph(1);
-            Dijkstra d = new Dijkstra(Richard);
-
-            List<GraphNode> t = new List<GraphNode>();
-
-            GraphNode from = Richard.FindNode('H');
-            GraphNode to = Richard.FindNode('I');
-
-            t = d.GetShortestPathDijikstra(from, to);
-
-            //act
-
-            string path = "";
-
-            foreach (var item in t)
-            {
-                path += item.Identifier;
-            }
-
-
-
-
-
-
+        {         
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
-
-           
-
         }
     }
 }

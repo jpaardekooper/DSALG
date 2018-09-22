@@ -11,7 +11,7 @@ namespace Node
         public char Identifier { get; set; }
         public Dictionary<GraphNode, int> DirectedEdge { get; set; }
         public bool Visited { get; set; } = false;
-        public double? MinCostToStart { get; set; }
+        public double? BackTrackWeight { get; set; }
         public GraphNode NearestToStart { get; set; }
 
 
