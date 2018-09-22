@@ -165,10 +165,10 @@ namespace VisualizeGraphDijkstra
                                 Label distance = new Label();
 
                                 distance.Left = ListOfPB[x].Location.X / 2  + (ListOfPB[i].Location.X / 2);
-                                distance.Top = ListOfPB[x].Location.Y /2 + (ListOfPB[i].Location.Y / 2);
+                                distance.Top = ListOfPB[x].Location.Y /2 + (ListOfPB[i].Location.Y / 2) - 16;
 
-                                distance.Width = 15;
-                                distance.Height = 15;
+                                distance.Width = 12;
+                                distance.Height = 12;
 
                                 distance.Text = $"{h.Value}";
                                 this.Controls.Add(distance);
