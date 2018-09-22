@@ -35,7 +35,10 @@ namespace Dijkstra_JM
         private void BuildShortestPath(List<GraphNode> list, GraphNode node)
         {
             if (node.NearestToStart == null)
+            {
                 return;
+            }
+               
             list.Add(node.NearestToStart);
             BuildShortestPath(list, node.NearestToStart);
         }
