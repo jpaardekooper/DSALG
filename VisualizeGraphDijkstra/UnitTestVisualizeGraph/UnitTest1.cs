@@ -44,24 +44,24 @@ namespace UnitTestVisualizeGraph
         }
 
         [TestMethod]
-        public void GetShortestPath()
+        public void GetShortestPathTestGraph1()
         {
             //arrange
-            DirectedGraph Richard = DirectedGraph.GetTestGraph(1);
-            Dijkstra Sigismund = new Dijkstra(Richard);
+            DirectedGraph richard = DirectedGraph.GetTestGraph(1);
+            Dijkstra sigismund = new Dijkstra(richard);
 
-            List<GraphNode> Petra = new List<GraphNode>();
+            List<GraphNode> petra = new List<GraphNode>();
 
-            GraphNode from = Richard.FindNode('F');
-            GraphNode to = Richard.FindNode('D');
+            GraphNode from = richard.FindNode('F');
+            GraphNode to = richard.FindNode('D');
 
-            Petra = Sigismund.GetShortestPathDijikstra(from, to);
+            petra = sigismund.GetShortestPathDijikstra(from, to);
 
             //act
 
             string path = "";
 
-            foreach (var item in Petra)
+            foreach (GraphNode item in petra)
             {
                 path += item.Identifier;
             }
@@ -72,7 +72,62 @@ namespace UnitTestVisualizeGraph
 
         }
 
-        
+        [TestMethod]
+        public void GetShortestPathTestGraph2()
+        {
+            //arrange
+            DirectedGraph angel = DirectedGraph.GetTestGraph(2);
+            Dijkstra sigismund = new Dijkstra(angel);
 
+            List<GraphNode> olga = new List<GraphNode>();
+
+            GraphNode from = angel.FindNode('H');
+            GraphNode to = angel.FindNode('I');
+
+            olga = sigismund.GetShortestPathDijikstra(from, to);
+
+            //act
+
+            string path = "";
+
+            foreach (GraphNode item in olga)
+            {
+                path += item.Identifier;
+            }
+
+
+            //assert
+            Assert.AreEqual("HADFGI", path);
+
+        }
+
+        [TestMethod]
+        public void GetShortestPathTestGraph3()
+        {
+            //arrange
+            DirectedGraph frederique = DirectedGraph.GetTestGraph(3);
+            Dijkstra sigismund = new Dijkstra(frederique);
+
+            List<GraphNode> hilda = new List<GraphNode>();
+
+            GraphNode from = frederique.FindNode('H');
+            GraphNode to = frederique.FindNode('I');
+
+            hilda = sigismund.GetShortestPathDijikstra(from, to);
+
+            //act
+
+            string path = "";
+
+            foreach (GraphNode item in hilda)
+            {
+                path += item.Identifier;
+            }
+
+
+            //assert
+            Assert.AreEqual("HADI", path);
+
+        }
     }
 }
