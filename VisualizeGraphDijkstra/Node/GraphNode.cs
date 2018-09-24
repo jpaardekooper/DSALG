@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -140,28 +141,28 @@ namespace Node
             
         }
 
-
         /// <summary>
-        /// Does Requested Node Exist
+        /// Does Requested Nodes Exist
         /// </summary>
         /// <returns></returns>
-        private bool DRNE(char identifier)
+        public bool DRNE(char[] identifiers)
         {
-            char tempId = NodeList.Last().Identifier;
-
-            if (identifier > tempId || identifier < 65)
+            foreach (var item in NodeList)
             {
-                return true;
+                if (item.Identifier > NodeList.Last().Identifier || item.Identifier < 65)
+                {
+                    Debug.WriteLine($"The requested node {item.Identifier} does not exist");
+                    return false;
+                }
             }
-
-            return false;
+            
+            return true;
         }
 
         private bool DoesPathExistFunction(GraphNode from, GraphNode to)
         {
-            if (DRNE(from.Identifier) && DRNE(to.Identifier))
+            if (!DRNE(new char[] {from.Identifier, to.Identifier }))
             {
-                Console.WriteLine("1 or more of the requested nodes do not exist");
                 return false;
             }
 
@@ -205,9 +206,8 @@ namespace Node
 
         private void RemoveDirectedEdgeFunction(GraphNode from, GraphNode to, int weight)
         {
-            if (DRNE(from.Identifier) && DRNE(to.Identifier))
+            if (!DRNE(new char[] { from.Identifier, to.Identifier }))
             {
-                Console.WriteLine("1 or more of the requested nodes do not exist");
                 return;
             }
 
@@ -219,9 +219,8 @@ namespace Node
 
         private void AddDirectedEdgeFunction(GraphNode from, GraphNode to, int weight)
         {
-            if (DRNE(from.Identifier) && DRNE(to.Identifier))
+            if (!DRNE(new char[] { from.Identifier, to.Identifier }))
             {
-                Console.WriteLine("1 or more of the requested nodes do not exist");
                 return;
             }
 
@@ -236,9 +235,8 @@ namespace Node
 
         private void RemoveNodeFunction(char identifier)
         {
-            if (DRNE(identifier))
+            if (!DRNE(new char[] { identifier }))
             {
-                Console.WriteLine("the requested node does not exist");
                 return;
             }
 
