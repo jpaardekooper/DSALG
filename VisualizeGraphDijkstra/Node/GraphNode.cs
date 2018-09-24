@@ -48,26 +48,7 @@ namespace Node
                 NodeList = new List<GraphNode>();
             }
         }
-       
-        public static DirectedGraph GetRandomGraph(int amountOfNodes)
-        {
-            Random rng = new Random();
-
-            DirectedGraph graph = new DirectedGraph();
-
-            for (int i = 0; i < amountOfNodes; i++)
-            {
-                graph.AddNode(new GraphNode());
-            }
-
-            for (int i = 0; i < amountOfNodes * 3; i++)
-            {
-                graph.AddDirectedEdge((char)rng.Next(65, 90), (char)rng.Next(65, 90), rng.Next(1, 25));
-            }
-
-            return graph;
-        }
-
+               
         public void AddNode(GraphNode newNode)
         {
             if (NodeList.Any())
@@ -162,23 +143,7 @@ namespace Node
                 FindNode(from).DirectedEdge.Remove(FindNode(to));
             }
         }
-
-        private void AddDirectedEdgeFunction(GraphNode from, GraphNode to, int weight)
-        {
-            if (!DRNE(new char[] { from.Identifier, to.Identifier }))
-            {
-                return;
-            }
-
-            // no dubble edges
-            if (from.DirectedEdge.ContainsKey(to))
-            {
-                return;
-            }
-
-            from.DirectedEdge.Add(to, weight);
-        }
-        
+                        
         public GraphNode FindNode(char NodeId)
         {
             return NodeList.Find(x => x.Identifier == NodeId);
@@ -269,6 +234,24 @@ namespace Node
             return graph;
         }
 
+        public static DirectedGraph GetRandomGraph(int amountOfNodes)
+        {
+            Random rng = new Random();
+
+            DirectedGraph graph = new DirectedGraph();
+
+            for (int i = 0; i < amountOfNodes; i++)
+            {
+                graph.AddNode(new GraphNode());
+            }
+
+            for (int i = 0; i < amountOfNodes * 3; i++)
+            {
+                graph.AddDirectedEdge((char)rng.Next(65, 90), (char)rng.Next(65, 90), rng.Next(1, 25));
+            }
+
+            return graph;
+        }
     }
 
 }
