@@ -22,7 +22,7 @@ namespace VisualizeGraphDijkstra
         List<Point> polyPoints = new List<Point>();
         List<Point> polyPoints2 = new List<Point>();
 
-        DirectedGraph graph = DirectedGraph.GetTestGraph(2);
+        DirectedGraph graph = GetTestData.GetTestGraph(2);
 
 
         Random rndLocGen = new Random();

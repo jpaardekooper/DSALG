@@ -34,6 +34,9 @@ namespace Node
 
     }
 
+    /// <summary>
+    /// Directed graph build from nodes and weighted edges
+    /// </summary>
     public class DirectedGraph
     {
         public List<GraphNode> NodeList;
@@ -45,17 +48,7 @@ namespace Node
                 NodeList = new List<GraphNode>();
             }
         }
-
-        public static DirectedGraph GetTestGraph(int verion)
-        {
-            if (verion == 1) return TestGraph1();
-            else if (verion == 2) return TestGraph2();
-            else if (verion == 3) return TestGraph3();
-
-
-            return null;
-        }
-
+       
         public static DirectedGraph GetRandomGraph(int amountOfNodes)
         {
             Random rng = new Random();
@@ -93,22 +86,32 @@ namespace Node
             NodeList.Add(newNode);
         }
 
-        public void RemoveNode(char NodeIdentifier) => RemoveNodeFunction(NodeIdentifier);
+        public void RemoveNode(char identifier)
+        {
+            if (!DRNE(new char[] { identifier }))
+            {
+                return;
+            }
 
-        public void RemoveNode(GraphNode node) => RemoveNodeFunction(node.Identifier);
-
-        public void AddDirectedEdge(GraphNode from, GraphNode to, int weight) => AddDirectedEdgeFunction(from, to, weight);
+            NodeList.Remove(FindNode(identifier));
+        }
 
         public void AddDirectedEdge(char from, char to, int weight)
         {
-            AddDirectedEdgeFunction(FindNode(from), FindNode(to), weight);
-        
+            if (!DRNE(new char[] { from, to }))
+            {
+                return;
+            }
+
+            // no dubble edges
+            if (FindNode(from).DirectedEdge.ContainsKey(FindNode(to)))
+            {
+                return;
+            }
+
+            FindNode(from).DirectedEdge.Add(FindNode(to), weight);
         }
-
-        public void RemoveDirectedEdge(GraphNode from, GraphNode to, int weight) => RemoveDirectedEdgeFunction(from, to, weight);
-
-        public void RemoveDirectedEdge(char from, char to, int weight) => RemoveDirectedEdgeFunction(FindNode(from), FindNode(to), weight);
-
+               
         public string PrintAllNodes()
         {
             string nodeRepresentation = "";
@@ -146,62 +149,17 @@ namespace Node
             
             return true;
         }
-
-        private bool DoesPathExistFunction(GraphNode from, GraphNode to)
+        
+        public void RemoveDirectedEdgeFunction(char from, char to, int weight)
         {
-            if (!DRNE(new char[] {from.Identifier, to.Identifier }))
-            {
-                return false;
-            }
-
-
-            List<GraphNode> visited = new List<GraphNode>();
-
-            if (from.DirectedEdge.ContainsKey(to))
-            {
-                return true;
-            }
-
-
-            Queue<GraphNode> queue = new Queue<GraphNode>();
-            queue.Enqueue(from);
-
-            while (queue.Count > 0)
-            {
-                GraphNode Current = queue.Dequeue();
-
-                if (visited.Contains(Current))
-                    continue;
-
-                visited.Add(Current);
-
-                foreach (GraphNode neighbor in Current.DirectedEdge.Keys)
-                {
-                    if (!visited.Contains(neighbor))
-                    {
-                        queue.Enqueue(neighbor);
-                    }
-                    if (neighbor.Equals(to))
-                    {
-                        return true;
-                    }
-                }
-
-            }
-
-            return false;
-        }
-
-        private void RemoveDirectedEdgeFunction(GraphNode from, GraphNode to, int weight)
-        {
-            if (!DRNE(new char[] { from.Identifier, to.Identifier }))
+            if (!DRNE(new char[] { from, to }))
             {
                 return;
             }
 
-            if (from.DirectedEdge[to].Equals(weight))
+            if (FindNode(from).DirectedEdge[FindNode(to)].Equals(weight))
             {
-                from.DirectedEdge.Remove(to);
+                FindNode(from).DirectedEdge.Remove(FindNode(to));
             }
         }
 
@@ -220,20 +178,22 @@ namespace Node
 
             from.DirectedEdge.Add(to, weight);
         }
-
-        private void RemoveNodeFunction(char identifier)
-        {
-            if (!DRNE(new char[] { identifier }))
-            {
-                return;
-            }
-
-            NodeList.Remove(FindNode(identifier));
-        }
-
+        
         public GraphNode FindNode(char NodeId)
         {
             return NodeList.Find(x => x.Identifier == NodeId);
+        }
+    }
+
+    public class GetTestData
+    {
+        public static DirectedGraph GetTestGraph(int graphVersion)
+        {
+            if (graphVersion == 1) return TestGraph1();
+            else if (graphVersion == 2) return TestGraph2();
+            else if (graphVersion == 3) return TestGraph3();
+            
+            return null;
         }
 
         public static DirectedGraph TestGraph1()
@@ -256,8 +216,7 @@ namespace Node
 
             return graph;
         }
-
-
+        
         private static DirectedGraph TestGraph2()
         {
             DirectedGraph graph = new DirectedGraph();
