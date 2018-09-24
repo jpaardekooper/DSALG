@@ -32,7 +32,7 @@ namespace VisualizeGraphDijkstra
             InitializeComponent();
 
             Console.WriteLine("New Graph project");
-       
+
 
             graph.PrintAllNodes();
             graph.PrintAllNodeEdges();
@@ -71,7 +71,7 @@ namespace VisualizeGraphDijkstra
 
                 }
             }
-                
+
 
             //ar bm = new Bitmap(600, 600);
             //var g = Graphics.FromImage(bm);
@@ -81,7 +81,7 @@ namespace VisualizeGraphDijkstra
             for (int count = 0; count < graph.NodeList.Count(); count++)
             {
                 var p = points[r.Next(299)];
-               // g.FillEllipse(brush, new Rectangle(290 + 19 * p.X, 290 + 19 * p.Y, 10, 10));
+                // g.FillEllipse(brush, new Rectangle(290 + 19 * p.X, 290 + 19 * p.Y, 10, 10));
                 DrawPictureBoxToForm(290 + 19 * p.X, 290 + 19 * p.Y, 65 + count, count);
             }
             //const string filename = "Constrained Random Circle.png";
@@ -98,16 +98,16 @@ namespace VisualizeGraphDijkstra
 
             label.Text = "" + c;
             label.Left = number;
-            label.Top = distance ;
-            label.Width = 10;
-            label.Height = 10;
+            label.Top = distance;
+            label.Width = 15;
+            label.Height = 15;
             label.BringToFront();
 
             Node.Tag = c;
-            Node.Width = 10;
-            Node.Height = 10;
+            Node.Width = 15;
+            Node.Height = 15;
 
-            Node.Left = number ;
+            Node.Left = number;
             Node.Top = distance;
 
 
@@ -145,57 +145,46 @@ namespace VisualizeGraphDijkstra
 
             //Draw lines
             List<Vertex> allShit = new List<Vertex>();
-       
-            
+
+
             foreach (var item in graph.NodeList)
-            { 
+            {
                 foreach (var h in item.DirectedEdge)
                 {
                     // a -> b lengte 8
                     allShit.Add(new Vertex(graph.FindNode(item.Identifier), h.Key, h.Value));
-                   
-                    if (item.Identifier.ToString() == ListOfPB[i].Tag.ToString() )
+
+                    if (item.Identifier.ToString() == ListOfPB[i].Tag.ToString())
                     {
                         for (int x = 0; x < ListOfPB.Count(); x++)
                         {
                             if (ListOfPB[x].Tag.ToString() == h.Key.Identifier.ToString())
                             {
                                 gs.DrawLine(p1, new Point(ListOfPB[i].Location.X, ListOfPB[i].Location.Y), new Point(ListOfPB[x].Location.X, ListOfPB[x].Location.Y));
-                               
+
                                 Label distance = new Label();
 
-                                if(ListOfPB[i].Location.X < ListOfPB[x].Location.X)
-                                {
-                                    distance.Left = ListOfPB[x].Location.X - (ListOfPB[i].Location.X / 2 );
-                                }else
-                                {
-                                    distance.Left = ListOfPB[i].Location.X - (ListOfPB[x].Location.X / 2 );
-                                }
-                                if(ListOfPB[i].Location.Y < ListOfPB[x].Location.Y)
-                                {
-                                    distance.Top = ListOfPB[x].Location.Y - (ListOfPB[i].Location.Y /2 );
-                                }
-                                else
-                                {
-                                    distance.Top = ListOfPB[i].Location.Y - (ListOfPB[x].Location.Y /2 );
-                                }
-                         
-                               
+                                distance.Left = ListOfPB[x].Location.X / 2  + (ListOfPB[i].Location.X / 2);
+                                distance.Top = ListOfPB[x].Location.Y /2 + (ListOfPB[i].Location.Y / 2) - 16;
+
+                                distance.Width = 12;
+                                distance.Height = 12;
+
                                 distance.Text = $"{h.Value}";
-                             //   this.Controls.Add(distance);
+                                this.Controls.Add(distance);
 
                                 Debug.WriteLine($"{item.Identifier}{h.Key.Identifier}{h.Value}" + " " + ListOfPB[i].Tag + " " + ListOfPB[x].Tag);
-                             
-                          
+
+
                             }
                         }
-                    }  
+                    }
                 }
                 i++;
             }
-           
+
         }
-       
+
 
         class Vertex
         {
@@ -211,7 +200,7 @@ namespace VisualizeGraphDijkstra
             }
         }
 
-            
+
     }
 }
 
