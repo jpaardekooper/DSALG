@@ -10,7 +10,7 @@ namespace UnitTestVisualizeGraph
     public class DirectedGraphTests
     {
         [TestMethod]
-        public void createGraphAddNodeCheckIfNodeExists()
+        public void CreateGraphAddNodeCheckIfNodeExists()
         {
             //act
             DirectedGraph pedro = new DirectedGraph();
