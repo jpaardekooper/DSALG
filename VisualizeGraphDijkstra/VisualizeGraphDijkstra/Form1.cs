@@ -22,7 +22,7 @@ namespace VisualizeGraphDijkstra
         List<Point> polyPoints = new List<Point>();
         List<Point> polyPoints2 = new List<Point>();
 
-        DirectedGraph graph = DirectedGraph.GetTestGraph(2);
+        DirectedGraph graph = GetTestData.GetTestGraph(2);
 
 
         public Form1()
@@ -36,8 +36,12 @@ namespace VisualizeGraphDijkstra
             graph.PrintAllNodeEdges();
             CreateNodesMap();
 
+<<<<<<< HEAD
             Console.WriteLine(graph.DoesPathExist('E', 'F'));     
         }
+=======
+            
+>>>>>>> 0ff103f7bb283a6d39cff4864d65aca816bb125e
 
         /// <summary>
         /// Creating the map of the Nodes we define a circle and all nodes need to be outside of the circle

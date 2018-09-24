@@ -15,6 +15,7 @@ namespace UnitTestVisualizeGraph
             //act
             DirectedGraph pedro = new DirectedGraph();
 
+
             //arrange
             pedro.AddNode(new GraphNode());
 
@@ -47,7 +48,7 @@ namespace UnitTestVisualizeGraph
         public void GetShortestPathTestGraph1()
         {
             //arrange
-            DirectedGraph richard = DirectedGraph.GetTestGraph(1);
+            DirectedGraph richard = GetTestData.GetTestGraph(1);
             Dijkstra sigismund = new Dijkstra(richard);
 
             List<GraphNode> petra = new List<GraphNode>();
@@ -76,7 +77,7 @@ namespace UnitTestVisualizeGraph
         public void GetShortestPathTestGraph2()
         {
             //arrange
-            DirectedGraph angel = DirectedGraph.GetTestGraph(2);
+            DirectedGraph angel = GetTestData.GetTestGraph(2);
             Dijkstra sigismund = new Dijkstra(angel);
 
             List<GraphNode> olga = new List<GraphNode>();
@@ -105,7 +106,7 @@ namespace UnitTestVisualizeGraph
         public void GetShortestPathTestGraph3()
         {
             //arrange
-            DirectedGraph frederique = DirectedGraph.GetTestGraph(3);
+            DirectedGraph frederique = GetTestData.GetTestGraph(3);
             Dijkstra sigismund = new Dijkstra(frederique);
 
             List<GraphNode> hilda = new List<GraphNode>();
@@ -130,4 +131,7 @@ namespace UnitTestVisualizeGraph
 
         }
     }
+
+    
+
 }
