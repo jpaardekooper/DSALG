@@ -82,14 +82,14 @@ namespace VisualizeGraphDijkstra
             {
                 var p = points[r.Next(299)];
                 // g.FillEllipse(brush, new Rectangle(290 + 19 * p.X, 290 + 19 * p.Y, 10, 10));
-                DrawPictureBoxToForm(290 + 19 * p.X, 290 + 19 * p.Y, 65 + count, count);
+                DrawPictureBoxToForm(290 + 19 * p.X, 290 + 19 * p.Y, 65 + count);
             }
             //const string filename = "Constrained Random Circle.png";
             //bm.Save(filename);
             //Process.Start(filename);
         }
 
-        public void DrawPictureBoxToForm(int number, int distance, int i, int x)
+        public void DrawPictureBoxToForm(int x, int y, int i)
         {
             char c = Convert.ToChar(i);
 
@@ -97,24 +97,28 @@ namespace VisualizeGraphDijkstra
             Label label = new Label();
 
             label.Text = "" + c;
-            label.Left = number;
-            label.Top = distance;
+            label.Left = x;
+            label.Top = y;
             label.Width = 15;
             label.Height = 15;
             label.BringToFront();
 
             Node.Tag = c;
-            Node.Width = 15;
-            Node.Height = 15;
+            Node.Width = 5;
+            Node.Height = 5;
 
-            Node.Left = number;
-            Node.Top = distance;
+            Node.Left = x;
+            Node.Top = y;
 
 
             Node.BackColor = Color.Red;
 
             ListOfPB.Add(Node);
-            //this.Controls.Add(Node);
+            //
+            if (Node.Tag.Equals('H') || Node.Tag.Equals('I'))
+            {
+                this.Controls.Add(Node);
+            }
             this.Controls.Add(label);
         }
 
@@ -129,31 +133,20 @@ namespace VisualizeGraphDijkstra
             int i = 0;
 
             //Create brush object   
-            Brush br1 = new SolidBrush(Color.Black);
-            Brush br2 = new SolidBrush(Color.Red);
-            Brush br3 = new SolidBrush(Color.Pink);
-            Brush br4 = new SolidBrush(Color.Yellow);
-            Brush br5 = new SolidBrush(Color.Purple);
-            Brush br6 = new SolidBrush(Color.Orange);
-            Brush br7 = new SolidBrush(Color.Green);
-            Brush br8 = new SolidBrush(Color.Green);
+            Brush br1 = new SolidBrush(Color.Black);      
 
             //Create pen objects
-            Pen p1 = new Pen(br1);
-            Pen p2 = new Pen(br2);
+            Pen p1 = new Pen(br1); 
 
 
-            //Draw lines
-            List<Vertex> allShit = new List<Vertex>();
+            //Draw lines 
 
 
             foreach (var item in graph.NodeList)
             {
                 foreach (var h in item.DirectedEdge)
                 {
-                    // a -> b lengte 8
-                    allShit.Add(new Vertex(graph.FindNode(item.Identifier), h.Key, h.Value));
-
+                  
                     if (item.Identifier.ToString() == ListOfPB[i].Tag.ToString())
                     {
                         for (int x = 0; x < ListOfPB.Count(); x++)
