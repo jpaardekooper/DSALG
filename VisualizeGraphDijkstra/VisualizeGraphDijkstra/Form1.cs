@@ -35,13 +35,7 @@ namespace VisualizeGraphDijkstra
             graph.PrintAllNodes();
             graph.PrintAllNodeEdges();
             CreateNodesMap();
-
-<<<<<<< HEAD
-            Console.WriteLine(graph.DoesPathExist('E', 'F'));     
         }
-=======
-            
->>>>>>> 0ff103f7bb283a6d39cff4864d65aca816bb125e
 
         /// <summary>
         /// Creating the map of the Nodes we define a circle and all nodes need to be outside of the circle
@@ -153,7 +147,7 @@ namespace VisualizeGraphDijkstra
 
                                 AddDistanceLabels(ListOfPB[x].Location.X / 2 + (ListOfPB[i].Location.X / 2), ListOfPB[x].Location.Y / 2 + (ListOfPB[i].Location.Y / 2), $"{h.Value}");
 
-                                Debug.WriteLine($"{item.Identifier}{h.Key.Identifier}{h.Value}" + " " + ListOfPB[i].Tag + " " + ListOfPB[x].Tag);
+                               // Debug.WriteLine($"{item.Identifier}{h.Key.Identifier}{h.Value}" + " " + ListOfPB[i].Tag + " " + ListOfPB[x].Tag);
                                 
                             }
                         }
