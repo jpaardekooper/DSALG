@@ -25,8 +25,6 @@ namespace VisualizeGraphDijkstra
         DirectedGraph graph = DirectedGraph.GetTestGraph(2);
 
 
-        Random rndLocGen = new Random();
-
         public Form1()
         {
             InitializeComponent();
@@ -36,25 +34,25 @@ namespace VisualizeGraphDijkstra
 
             graph.PrintAllNodes();
             graph.PrintAllNodeEdges();
+            CreateNodesMap();
 
-            Console.WriteLine(graph.DoesPathExist('E', 'F'));
+            Console.WriteLine(graph.DoesPathExist('E', 'F'));     
+        }
 
+        /// <summary>
+        /// Creating the map of the Nodes we define a circle and all nodes need to be outside of the circle
+        /// </summary>
+        public void CreateNodesMap()
+        {
 
             for (int row = 0; row < graph.NodeList.Count(); row++)
             {
-                int PositionX = rndLocGen.Next(1, 35) * 15;
-                int PositionY = rndLocGen.Next(1, 35) * 15;
+                int PositionX = rng.Next(1, 35) * 15;
+                int PositionY = rng.Next(1, 35) * 15;
 
                 polyPoints.Add(new Point(PositionX, PositionY));
                 polyPoints2.Add(new Point(PositionX, PositionY));
             }
-
-
-            //for (int z = 0; z < graph.NodeList.Count(); z++)
-            //{
-            //    DrawPictureBoxToForm(polyPoints[z], polyPoints2[z], 65 + z, z);
-            //}
-
 
             var points = new Point[300];
             int i = 0;
@@ -68,34 +66,23 @@ namespace VisualizeGraphDijkstra
                     {
                         points[i++] = new Point(x, y);
                     }
-
                 }
             }
 
-
-            //ar bm = new Bitmap(600, 600);
-            //var g = Graphics.FromImage(bm);
-            //var brush = new SolidBrush(Color.Magenta);
-
-            var r = new System.Random();
+           
             for (int count = 0; count < graph.NodeList.Count(); count++)
             {
-                var p = points[r.Next(299)];
-                // g.FillEllipse(brush, new Rectangle(290 + 19 * p.X, 290 + 19 * p.Y, 10, 10));
+                var p = points[rng.Next(299)];              
                 DrawPictureBoxToForm(290 + 19 * p.X, 290 + 19 * p.Y, 65 + count);
             }
-            //const string filename = "Constrained Random Circle.png";
-            //bm.Save(filename);
-            //Process.Start(filename);
         }
 
         public void DrawPictureBoxToForm(int x, int y, int i)
         {
             char c = Convert.ToChar(i);
 
-            Node = new PictureBox();
+            //creating labels
             Label label = new Label();
-
             label.Text = "" + c;
             label.Left = x;
             label.Top = y;
@@ -103,22 +90,30 @@ namespace VisualizeGraphDijkstra
             label.Height = 15;
             label.BringToFront();
 
+            //creating picturebox
+            Node = new PictureBox();
             Node.Tag = c;
-            Node.Width = 5;
-            Node.Height = 5;
-
+            Node.Width = 10;
+            Node.Height = 10;
             Node.Left = x;
             Node.Top = y;
-
-
-            Node.BackColor = Color.Red;
+          
 
             ListOfPB.Add(Node);
-            //
-            if (Node.Tag.Equals('H') || Node.Tag.Equals('I'))
+     
+            //start Node is color green with the Tag of H
+            if (Node.Tag.Equals('H'))
             {
+                Node.BackColor = Color.Green;
                 this.Controls.Add(Node);
             }
+            //start Node is color red with the Tag of I
+            if (Node.Tag.Equals('I'))
+            {
+                Node.BackColor = Color.Red;
+                this.Controls.Add(Node);
+            }
+
             this.Controls.Add(label);
         }
 
@@ -126,11 +121,10 @@ namespace VisualizeGraphDijkstra
 
         private void Form1_Paint_1(object sender, PaintEventArgs e)
         {
+            int i = 0;
 
             //Create graphic object for the current form
-            Graphics gs = this.CreateGraphics();
-
-            int i = 0;
+            Graphics gs = this.CreateGraphics();            
 
             //Create brush object   
             Brush br1 = new SolidBrush(Color.Black);      
@@ -140,8 +134,6 @@ namespace VisualizeGraphDijkstra
 
 
             //Draw lines 
-
-
             foreach (var item in graph.NodeList)
             {
                 foreach (var h in item.DirectedEdge)
@@ -155,20 +147,10 @@ namespace VisualizeGraphDijkstra
                             {
                                 gs.DrawLine(p1, new Point(ListOfPB[i].Location.X, ListOfPB[i].Location.Y), new Point(ListOfPB[x].Location.X, ListOfPB[x].Location.Y));
 
-                                Label distance = new Label();
-
-                                distance.Left = ListOfPB[x].Location.X / 2  + (ListOfPB[i].Location.X / 2);
-                                distance.Top = ListOfPB[x].Location.Y /2 + (ListOfPB[i].Location.Y / 2) - 16;
-
-                                distance.Width = 12;
-                                distance.Height = 12;
-
-                                distance.Text = $"{h.Value}";
-                                this.Controls.Add(distance);
+                                AddDistanceLabels(ListOfPB[x].Location.X / 2 + (ListOfPB[i].Location.X / 2), ListOfPB[x].Location.Y / 2 + (ListOfPB[i].Location.Y / 2), $"{h.Value}");
 
                                 Debug.WriteLine($"{item.Identifier}{h.Key.Identifier}{h.Value}" + " " + ListOfPB[i].Tag + " " + ListOfPB[x].Tag);
-
-
+                                
                             }
                         }
                     }
@@ -176,6 +158,20 @@ namespace VisualizeGraphDijkstra
                 i++;
             }
 
+        }
+
+        public void AddDistanceLabels(int x, int y, string value)
+        {
+            Label distance = new Label();
+
+            distance.Left = x;
+            distance.Top = y - 16;
+
+            distance.Width = 12;
+            distance.Height = 12;
+
+            distance.Text = value;
+            this.Controls.Add(distance);
         }
 
 
@@ -192,8 +188,6 @@ namespace VisualizeGraphDijkstra
                 Distance = distance;
             }
         }
-
-
     }
 }
 
