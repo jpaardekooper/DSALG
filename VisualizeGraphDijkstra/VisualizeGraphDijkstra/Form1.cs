@@ -37,7 +37,7 @@ namespace VisualizeGraphDijkstra
             graph.PrintAllNodes();
             graph.PrintAllNodeEdges();
 
-            Console.WriteLine(graph.DoesPathExist('E', 'F'));
+            
 
 
             for (int row = 0; row < graph.NodeList.Count(); row++)

@@ -90,7 +90,51 @@ namespace Dijkstra_JM
 
             } while (toVisit.Any());
         }
+        
+        public bool DoesPathExistFunction(GraphNode from, GraphNode to)
+        {
+            if (!Graph.DRNE(new char[] { from.Identifier, to.Identifier }))
+            {
+                return false;
+            }
 
+
+            List<GraphNode> visited = new List<GraphNode>();
+
+            if (from.DirectedEdge.ContainsKey(to))
+            {
+                return true;
+            }
+
+
+            Queue<GraphNode> queue = new Queue<GraphNode>();
+            queue.Enqueue(from);
+
+            while (queue.Count > 0)
+            {
+                GraphNode Current = queue.Dequeue();
+
+                if (visited.Contains(Current))
+                    continue;
+
+                visited.Add(Current);
+
+                foreach (GraphNode neighbor in Current.DirectedEdge.Keys)
+                {
+                    if (!visited.Contains(neighbor))
+                    {
+                        queue.Enqueue(neighbor);
+                    }
+                    if (neighbor.Equals(to))
+                    {
+                        return true;
+                    }
+                }
+
+            }
+
+            return false;
+        }
 
     }
 

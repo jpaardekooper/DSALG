@@ -128,19 +128,7 @@ namespace Node
                 node.PrintAllEdgeds();
             }
         }
-
-        public bool DoesPathExist(GraphNode from, GraphNode to) => DoesPathExistFunction(from, to);
-
-        public bool DoesPathExist(char from, char to) => DoesPathExistFunction(FindNode(from), FindNode(to));
-
-        public List<char> GetShortestPath(char fromChar, char toChar)
-        {
-           
-             
-            return null;
-            
-        }
-
+                
         /// <summary>
         /// Does Requested Nodes Exist
         /// </summary>
