@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Chocola.ChocolaSpel">
+    <Position X="10.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAOAABCBAAgADAAIAAAgAAAAAAAIAEACAAABIAAA=</HashCode>
+      <FileName>ChocolaSpel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Chocola.ChocolaSpeler">
+    <Position X="5" Y="0.75" Width="1.5" />
+    <NestedTypes>
+      <Delegate Name="Chocola.ChocolaSpeler.ZetGedaanHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>ChocolaSpeler.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAAIAEAAEAAAABAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ChocolaSpeler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Chocola.ChocolaMainForm">
+    <Position X="8.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAYQgAAgCAACJQLIgCAAAICAAICAAAACCBAAAAAIAA=</HashCode>
+      <FileName>MainForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Chocola.MensSpeler">
+    <Position X="3.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MensSpeler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Chocola.Program" Collapsed="true">
+    <Position X="12" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Chocola.RandomSpeler">
+    <Position X="6.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>RandomSpeler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Chocola.Properties.Resources" Collapsed="true">
+    <Position X="14" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAAACAAIAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Chocola.Properties.Settings" Collapsed="true">
+    <Position X="14.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
