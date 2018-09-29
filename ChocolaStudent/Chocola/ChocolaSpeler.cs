@@ -7,7 +7,7 @@ using System.Drawing;
 
 namespace Chocola
 {
-    abstract class ChocolaSpeler
+    public abstract class ChocolaSpeler
     {
         public string Naam { get; protected set; }
         

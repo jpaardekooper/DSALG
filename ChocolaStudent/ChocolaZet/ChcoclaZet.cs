@@ -5,18 +5,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Chocola
+namespace ChocolaJ
 {
-    class RandomSpeler : ChocolaSpeler
+    public static class ChocolaJMSpeler
     {
-        Random rand = new Random();
-        public RandomSpeler()
+        public static Point Zet(bool[,] bord, int sizeX, int sizeY)
         {
-            Naam = "Random Speler";
-        }
-        public override void DoeChocolaZet(bool[,] bord, int sizeX, int sizeY)
-        {
+
+            Random rand = new Random();
+
             Point zet = new Point();
+            
             int maxY;
             int maxX;
 
@@ -35,16 +34,23 @@ namespace Chocola
                     break;
                 }
             }
-
-            do
+            
+            if (!bord[1,0])
             {
-                zet.X = rand.Next(maxX + 1);
-                zet.Y = rand.Next(maxY + 1);
-            } while (!bord[zet.Y, zet.X]);
-            //Console.WriteLine("Ik zet: (" + zet.X + ", " + zet.Y + ")");
+                zet = new Point(1, 0);
+            }
+            else if (!bord[0,1])
+            {
+                zet = new Point(0, 1);
+            }
 
-            HandleZet(zet);
+            
 
+
+
+
+
+            return zet;
         }
     }
 }
