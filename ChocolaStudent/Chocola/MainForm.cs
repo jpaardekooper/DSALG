@@ -91,6 +91,7 @@ namespace Chocola
         {
             int sizeX;
             int sizeY;
+
             if (full.Checked)
             {
                 sizeX = 20;
