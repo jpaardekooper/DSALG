@@ -12,7 +12,7 @@ namespace Chocola
 {
     class ChocolaSpel
     {
-        private const int DELAY = 250;
+        private const int DELAY = 500;
         private int sizeX;
         private int sizeY;
 

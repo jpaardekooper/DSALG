@@ -43,12 +43,11 @@ namespace ChocolaJ
             {
                 zet = new Point(0, 1);
             }
-
-            
-
-
-
-
+            else
+            {
+                zet.X = rand.Next(maxX);
+                zet.Y = rand.Next(maxY);
+            }
 
             return zet;
         }
