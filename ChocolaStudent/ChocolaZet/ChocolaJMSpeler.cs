@@ -35,11 +35,11 @@ namespace ChocolaJ
                 }
             }
             
-            if (!bord[1,0])
+            if (bord[1,0] && !bord[0, 1])
             {
                 zet = new Point(1, 0);
             }
-            else if (!bord[0,1])
+            else if (bord[0,1] && !bord[1, 0])
             {
                 zet = new Point(0, 1);
             }
