@@ -9,14 +9,16 @@ namespace Dentist
 {
     class Scheduler
     {
+
         public const int WAIT_TIME = 1;
         public const int STARVATION_10 = 10;
         public const int STARVATION_20 = 20;
-        public const bool LOGDETAIL = false; 
+        public const bool LOGDETAIL = false;
         public const bool LOGSYNOPS = false;
 
         private int[,] generateList(int num)
         {
+
             const int MAXDURATION = 8;
             const int PERCLONG = 25;
             const int PERCMEDIUM = 65;

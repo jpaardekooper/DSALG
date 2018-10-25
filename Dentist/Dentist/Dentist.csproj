@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Patient.cs" />
     <Compile Include="Picker.cs" />
+    <Compile Include="PickerFaster.cs" />
     <Compile Include="PickerTim.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
