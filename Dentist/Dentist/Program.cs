@@ -31,18 +31,18 @@ namespace Dentist
             Console.WriteLine(picker.GeefNamen());
             score1 = wachtrij.doline("../../../kort.txt", picker);
             Console.WriteLine("De korte wachtrij scoorde {0:N2}", score1);
-            //score2 = wachtrij.doline("../../../lang.txt", picker);
-            //Console.WriteLine("De lange wachtrij scoorde {0:N2}", score2);
-            //score3 = wachtrij.doline("../../../omgekeerd.txt", picker);
-            //Console.WriteLine("De omgekeerde wachtrij scoorde {0:N2}", score3);
-            //score4 = wachtrij.doline("../../../eigentest.txt", picker);
-            //Console.WriteLine("De zelfgemaakte wachtrij scoorde {0:N2}", score4);
-            //score5 = wachtrij.doline("../../../langmakkelijk.txt", picker);
-            //Console.WriteLine("De langmakkelijk wachtrij scoorde {0:N2}", score5);
-            //score6 = wachtrij.doline("../../../langmoeilijk.txt", picker);
-            //Console.WriteLine("De langmoeilijke wachtrij scoorde {0:N2}", score6);
-            //gemiddeld = (score1 + score2 + score3 + score4 + score5 + score6) / 6.0;
-            //Console.WriteLine("Gemiddelde score: {0:N2}", gemiddeld);
+            score2 = wachtrij.doline("../../../lang.txt", picker);
+            Console.WriteLine("De lange wachtrij scoorde {0:N2}", score2);
+            score3 = wachtrij.doline("../../../omgekeerd.txt", picker);
+            Console.WriteLine("De omgekeerde wachtrij scoorde {0:N2}", score3);
+            score4 = wachtrij.doline("../../../eigentest.txt", picker);
+            Console.WriteLine("De zelfgemaakte wachtrij scoorde {0:N2}", score4);
+            score5 = wachtrij.doline("../../../langmakkelijk.txt", picker);
+            Console.WriteLine("De langmakkelijk wachtrij scoorde {0:N2}", score5);
+            score6 = wachtrij.doline("../../../langmoeilijk.txt", picker);
+            Console.WriteLine("De langmoeilijke wachtrij scoorde {0:N2}", score6);
+            gemiddeld = (score1 + score2 + score3 + score4 + score5 + score6) / 6.0;
+            Console.WriteLine("Gemiddelde score: {0:N2}", gemiddeld);
             Console.WriteLine("*****\n");
 
             watch.Stop();
@@ -55,29 +55,24 @@ namespace Dentist
             Console.WriteLine(picker2.GeefNamen());
             score1 = wachtrij.doline("../../../kort.txt", picker2);
             Console.WriteLine("De korte wachtrij scoorde {0:N2}", score1);
-            //score2 = wachtrij.doline("../../../lang.txt", picker2);
-            //Console.WriteLine("De lange wachtrij scoorde {0:N2}", score2);
-            //score3 = wachtrij.doline("../../../omgekeerd.txt", picker2);
-            //Console.WriteLine("De omgekeerde wachtrij scoorde {0:N2}", score3);
-            //score4 = wachtrij.doline("../../../eigentest.txt", picker2);
-            //Console.WriteLine("De zelfgemaakte wachtrij scoorde {0:N2}", score4);
-            //score5 = wachtrij.doline("../../../langmakkelijk.txt", picker2);
-            //Console.WriteLine("De langmakkelijk wachtrij scoorde {0:N2}", score5);
-            //score6 = wachtrij.doline("../../../langmoeilijk.txt", picker2);
-            //Console.WriteLine("De langmoeilijke wachtrij scoorde {0:N2}", score6);
-            //gemiddeld2 = (score1 + score2 + score3 + score4 + score5 + score6) / 6.0;
-            //Console.WriteLine("Gemiddelde score: {0:N2}", gemiddeld2);
+            score2 = wachtrij.doline("../../../lang.txt", picker2);
+            Console.WriteLine("De lange wachtrij scoorde {0:N2}", score2);
+            score3 = wachtrij.doline("../../../omgekeerd.txt", picker2);
+            Console.WriteLine("De omgekeerde wachtrij scoorde {0:N2}", score3);
+            score4 = wachtrij.doline("../../../eigentest.txt", picker2);
+            Console.WriteLine("De zelfgemaakte wachtrij scoorde {0:N2}", score4);
+            score5 = wachtrij.doline("../../../langmakkelijk.txt", picker2);
+            Console.WriteLine("De langmakkelijk wachtrij scoorde {0:N2}", score5);
+            score6 = wachtrij.doline("../../../langmoeilijk.txt", picker2);
+            Console.WriteLine("De langmoeilijke wachtrij scoorde {0:N2}", score6);
+            gemiddeld2 = (score1 + score2 + score3 + score4 + score5 + score6) / 6.0;
+            Console.WriteLine("Gemiddelde score: {0:N2}", gemiddeld2);
             Console.WriteLine("*****\n");
 
             watch2.Stop();
             var elapsedMs2 = watch2.ElapsedMilliseconds;
             Console.WriteLine("het duurde in totaal:" + elapsedMs2 + "ms");
-
-            for (int i = 0; i < 20001; i++)
-            {
-                Console.WriteLine(1);
-                Console.WriteLine(0);               
-            }
+         
             Console.ReadKey();
         }
     }
