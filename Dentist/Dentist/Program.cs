@@ -72,6 +72,12 @@ namespace Dentist
             watch2.Stop();
             var elapsedMs2 = watch2.ElapsedMilliseconds;
             Console.WriteLine("het duurde in totaal:" + elapsedMs2 + "ms");
+
+            for (int i = 0; i < 20001; i++)
+            {
+                Console.WriteLine(1);
+                Console.WriteLine(0);               
+            }
             Console.ReadKey();
         }
     }
