@@ -8,7 +8,9 @@ namespace Dentist
   
     class PickerFaster : Picker
     {
-        Dictionary<Patient, int> f = new Dictionary<Patient, int>();
+        Dictionary<Patient, int> GlorifiedWaitList = new Dictionary<Patient, int>();
+
+        public int lastClock;
 
         public string GeefNamen()
         {
@@ -23,31 +25,37 @@ namespace Dentist
         /// <returns></returns>
         public Patient selectPatient(List<Patient> room, int clock)
         {           
+
+
             foreach (var item in room)
             {
-                if (!f.ContainsKey(item))
+                if (!GlorifiedWaitList.ContainsKey(item))
                 {
-                    f.Add(item, 0);
+                    GlorifiedWaitList.Add(item, 0);
                 }
                 else
                 {
-                    f[item]++;
+                    GlorifiedWaitList[item] += clock - lastClock;
                 }
             }
 
-            int ShortestDuration = room.OrderBy(x => x.Duration).ThenBy(x => x.Arrival).First().Duration;
+            lastClock = clock;
 
-            List<Patient> InDangerOfPenalty = f.Where(x => x.Value + ShortestDuration > 10).Select(x => x.Key).ToList();
+            int ShortestDuration = GlorifiedWaitList.OrderBy(x => x.Key.Duration).Select(x => x.Key).First().Duration;
 
-            if (InDangerOfPenalty.Any())
+            Dictionary<Patient, int> InDangerOfPenalty = GlorifiedWaitList.Where(x => x.Value + ShortestDuration >= 10) as Dictionary<Patient, int>;
+            
+            if (InDangerOfPenalty != null && InDangerOfPenalty.Any())
             {
-                f.Remove(InDangerOfPenalty.OrderBy(x => x.Duration).ThenBy(x => x.Arrival).First());
-                return InDangerOfPenalty.OrderBy(x => x.Duration).ThenBy(x => x.Arrival).First();
+                Patient temp = InDangerOfPenalty.OrderBy(x => x.Value).ThenBy(x => x.Key.Arrival).First().Key;
+                GlorifiedWaitList.Remove(temp);
+                return temp;
             }
             else
             {
-                f.Remove(room.OrderBy(x => x.Duration).ThenBy(x => x.Arrival).First());
-                return room.OrderBy(x => x.Duration).ThenBy(x => x.Arrival).First();
+                Patient temp = room.OrderBy(x => x.Duration).ThenBy(x => x.Arrival).First();
+                GlorifiedWaitList.Remove(temp);
+                return temp;
             }           
         }
     }

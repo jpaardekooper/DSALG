@@ -15,7 +15,7 @@ namespace Dentist
 
         public Patient selectPatient(List<Patient> room, int clock)
         {
-            return room.First();
+            return room.OrderBy(x => x.Duration).ThenByDescending(x => x.Arrival).First();
         }
     }
 }
