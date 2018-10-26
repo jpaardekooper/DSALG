@@ -168,12 +168,7 @@ namespace Chocola
             }
 
             return zet;
-        }
-
-        private Point FirstEvenZet()
-        {
-            return new Point(0, 0);
-        }
+        }  
 
         private Point FirstUnevenZet()
         {
