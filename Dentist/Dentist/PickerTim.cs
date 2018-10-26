@@ -10,7 +10,7 @@ namespace Dentist
     {
         public string GeefNamen()
         {
-            return "Tim Cocx";
+            return "Glory aan david";
         }
 
         public Patient selectPatient(List<Patient> room, int clock)
