@@ -42,29 +42,15 @@ namespace Dentist
                     GlorifiedWaitList[item] += clock - lastClock;
                 }
             }
-            
+
+            lastClock = clock;
+
             int ShortestDuration = GlorifiedWaitList.OrderBy(x => x.Key.Duration).Select(x => x.Key).First().Duration;
+            
+            Dictionary<Patient, int> InDangerOfPenalty = GlorifiedWaitList.Where(x => x.Value + ShortestDuration > 10).ToDictionary(x => x.Key, x => x.Value);
 
-            Dictionary<Patient, int> InDangerOfPenalty = new Dictionary<Patient, int>();
-            Dictionary<Patient, int> closeToDanger = new Dictionary<Patient, int>();
+            Dictionary<Patient, int>  closeToDanger = GlorifiedWaitList.Where(x => x.Value + (gem / count * 3) > 10).ToDictionary(x => x.Key, x => x.Value);
 
-            if (ShortestDuration > 10)
-            {
-                InDangerOfPenalty = GlorifiedWaitList.Where(x => x.Value + ShortestDuration > 20).ToDictionary(x => x.Key, x => x.Value);
-            }
-            else
-            {
-                InDangerOfPenalty = GlorifiedWaitList.Where(x => x.Value + ShortestDuration > 10).ToDictionary(x => x.Key, x => x.Value);
-            }
-
-            if (gem / count > 10)
-            {
-                closeToDanger = GlorifiedWaitList.Where(x => x.Value + (gem / count * 3) > 20).ToDictionary(x => x.Key, x => x.Value);
-            }
-            else
-            {
-                closeToDanger = GlorifiedWaitList.Where(x => x.Value + (gem / count * 3) > 10).ToDictionary(x => x.Key, x => x.Value);
-            }
 
             if (InDangerOfPenalty.Any())
             {
@@ -80,7 +66,7 @@ namespace Dentist
                     GlorifiedWaitList.Remove(temp);
                     return temp;
                 }
-                
+
             }
             else
             {
