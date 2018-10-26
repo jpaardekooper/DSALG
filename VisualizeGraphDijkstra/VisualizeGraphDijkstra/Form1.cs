@@ -23,7 +23,7 @@ namespace VisualizeGraphDijkstra
         List<Point> polyPoints2 = new List<Point>();
 
         DirectedGraph graph = GetTestData.GetTestGraph(2);
-
+        GraphNode information = new GraphNode();
 
         public Form1()
         {
@@ -35,6 +35,8 @@ namespace VisualizeGraphDijkstra
             graph.PrintAllNodes();
             graph.PrintAllNodeEdges();
             CreateNodesMap();
+            
+            richTextBox1.Text = graph.PrintAllNodes();
         }
 
         /// <summary>
@@ -170,21 +172,6 @@ namespace VisualizeGraphDijkstra
 
             distance.Text = value;
             this.Controls.Add(distance);
-        }
-
-
-        class Vertex
-        {
-            public GraphNode From { get; set; }
-            public GraphNode To { get; set; }
-            public int Distance { get; set; }
-
-            public Vertex(GraphNode from, GraphNode to, int distance)
-            {
-                From = from;
-                To = to;
-                Distance = distance;
-            }
         }
     }
 }

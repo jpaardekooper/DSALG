@@ -30,7 +30,7 @@ namespace Node
             {
                 Console.WriteLine($"Connected from = {Identifier}, to = {keyValuePair.Key.Identifier}, weight = {keyValuePair.Value}");
             }
-        }
+        }      
 
     }
 
