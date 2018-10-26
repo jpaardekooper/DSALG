@@ -13,8 +13,8 @@ namespace Dentist
         public const int WAIT_TIME = 1;
         public const int STARVATION_10 = 10;
         public const int STARVATION_20 = 20;
-        public const bool LOGDETAIL = false;
-        public const bool LOGSYNOPS = false;
+        public const bool LOGDETAIL = true;
+        public const bool LOGSYNOPS = true;
 
         private int[,] generateList(int num)
         {
