@@ -8,10 +8,7 @@ namespace Dentist
   
     class PickerFaster : Picker
     {
-
-
-        private Dictionary<Patient, int> InTreatment { get; set; } = new Dictionary<Patient, int>();
-        private Dictionary<Patient, int> InRoom { get; set; } = new Dictionary<Patient, int>();
+        Dictionary<Patient, int> f = new Dictionary<Patient, int>();
 
         public string GeefNamen()
         {
@@ -25,25 +22,33 @@ namespace Dentist
         /// <param name="clock"></param>
         /// <returns></returns>
         public Patient selectPatient(List<Patient> room, int clock)
-        {
-            Patient toRoom = null;
-
-            foreach (var Patiant in room)
+        {           
+            foreach (var item in room)
             {
-                if (!InRoom.ContainsKey(Patiant))
+                if (!f.ContainsKey(item))
                 {
-                    InRoom.Add(Patiant, clock);
+                    f.Add(item, 0);
                 }
                 else
                 {
-                    InRoom[Patiant]++;
+                    f[item]++;
                 }
             }
 
+            int ShortestDuration = room.OrderBy(x => x.Duration).ThenBy(x => x.Arrival).First().Duration;
 
+            List<Patient> InDangerOfPenalty = f.Where(x => x.Value + ShortestDuration > 10).Select(x => x.Key).ToList();
 
-            InTreatment.Add(toRoom, clock);
-            return toRoom;
+            if (InDangerOfPenalty.Any())
+            {
+                f.Remove(InDangerOfPenalty.OrderBy(x => x.Duration).ThenBy(x => x.Arrival).First());
+                return InDangerOfPenalty.OrderBy(x => x.Duration).ThenBy(x => x.Arrival).First();
+            }
+            else
+            {
+                f.Remove(room.OrderBy(x => x.Duration).ThenBy(x => x.Arrival).First());
+                return room.OrderBy(x => x.Duration).ThenBy(x => x.Arrival).First();
+            }           
         }
     }
 }
