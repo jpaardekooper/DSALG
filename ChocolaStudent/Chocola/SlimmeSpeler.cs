@@ -62,7 +62,7 @@ namespace Chocola
 
             if (EvenBoard && IsFirstPlayer == true)
             {
-                HandleZet(FirstEvenZet());
+                HandleZet(SecondEvenZet());
             }
             else if (EvenBoard && IsFirstPlayer == false)
             {
@@ -140,11 +140,11 @@ namespace Chocola
                 zet = new Point(0, 2);
             }
 
-            if (MaxY == 1 && MaxX > 2)
+            if (MaxY == 1 && MaxX >= 2)
             {
                 zet = new Point(2, 0);
             }
-            else if (MaxX == 1 && MaxY > 2)
+            else if (MaxX == 1 && MaxY >= 2)
             {
                 zet = new Point(0, 2);
             }
@@ -172,8 +172,6 @@ namespace Chocola
 
         private Point FirstEvenZet()
         {
-
-
             return new Point(0, 0);
         }
 
