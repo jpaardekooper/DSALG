@@ -5,8 +5,14 @@ using System.Text;
 
 namespace Dentist
 {
+  
     class PickerFaster : Picker
     {
+
+
+        private Dictionary<Patient, int> InTreatment { get; set; } = new Dictionary<Patient, int>();
+        private Dictionary<Patient, int> InRoom { get; set; } = new Dictionary<Patient, int>();
+
         public string GeefNamen()
         {
             return "Jasper en Marnix";
@@ -19,8 +25,25 @@ namespace Dentist
         /// <param name="clock"></param>
         /// <returns></returns>
         public Patient selectPatient(List<Patient> room, int clock)
-        {              
-            return room.OrderBy(x => x.Duration).ThenByDescending(x => x.Number).First();
+        {
+            Patient toRoom = null;
+
+            foreach (var Patiant in room)
+            {
+                if (!InRoom.ContainsKey(Patiant))
+                {
+                    InRoom.Add(Patiant, clock);
+                }
+                else
+                {
+                    InRoom[Patiant]++;
+                }
+            }
+
+
+
+            InTreatment.Add(toRoom, clock);
+            return toRoom;
         }
     }
 }
