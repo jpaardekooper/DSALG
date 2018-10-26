@@ -33,10 +33,14 @@ namespace VisualizeGraphDijkstra
 
 
             graph.PrintAllNodes();
-            graph.PrintAllNodeEdges();
+           graph.PrintAllNodeEdges();
             CreateNodesMap();
-            
-            richTextBox1.Text = graph.PrintAllNodes();
+
+            foreach(string a in GraphNode.test)
+            {
+                textBox1.Text += a + Environment.NewLine;
+            }
+                  
         }
 
         /// <summary>

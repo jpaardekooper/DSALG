@@ -15,6 +15,8 @@ namespace Node
         public double? BackTrackWeight { get; set; }
         public GraphNode NearestToStart { get; set; }
 
+        public static List<string> test = new List<string>();
+
 
         public GraphNode()
         {
@@ -28,7 +30,10 @@ namespace Node
         {
             foreach (KeyValuePair<GraphNode, int> keyValuePair in DirectedEdge)
             {
+                test.Add($"Connected from = {Identifier}, to = {keyValuePair.Key.Identifier}, weight = {keyValuePair.Value}");     
+
                 Console.WriteLine($"Connected from = {Identifier}, to = {keyValuePair.Key.Identifier}, weight = {keyValuePair.Value}");
+           
             }
         }      
 
