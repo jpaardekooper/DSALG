@@ -274,11 +274,11 @@ namespace Chocola
             }
 
             // CH04
-            if (MaxY == 3 && MaxX == 2 && Bord[0, 3])
+            if (MaxY == 3 && MaxX == 2 && Bord[3, 0])
             {
                 zet = new Point(0, 3);
             }
-            else if (MaxX == 3 && MaxY == 2 && Bord[3, 0])
+            else if (MaxX == 3 && MaxY == 2 && Bord[0, 3])
             {
                 zet = new Point(3, 0);
             }
