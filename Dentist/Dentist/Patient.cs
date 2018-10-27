@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Dentist
 {
-    class Patient
+    public class Patient
     {
         public int Number { get; set; }
         public int Arrival { get; set; }

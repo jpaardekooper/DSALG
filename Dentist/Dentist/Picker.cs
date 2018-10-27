@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Dentist
 {
-    interface Picker
+    public interface Picker
     {
         string GeefNamen();
         Patient selectPatient(List<Patient> room, int clock);
