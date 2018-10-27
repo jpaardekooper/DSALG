@@ -238,6 +238,8 @@ namespace VisualizeGraphDijkstra
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
+        /// 
+        #region
         private void Form1_Paint_1(object sender, PaintEventArgs e)
         {
             int i = 0;
@@ -365,7 +367,16 @@ namespace VisualizeGraphDijkstra
 
 
         }
+        #endregion
 
+        /// <summary>
+        /// creating distance labels from Node X to node Y with the correct amount of weight
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <param name="value"></param>
+        /// 
+        #region
         private void AddDistanceLabels(int x, int y, string value)
         {
             Label distance = new Label();
@@ -379,6 +390,7 @@ namespace VisualizeGraphDijkstra
             distance.Text = value;
             this.Controls.Add(distance);
         }
+        #endregion
 
         /// <summary>
         /// on click will show the data of graph 1
@@ -386,6 +398,8 @@ namespace VisualizeGraphDijkstra
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
+        /// 
+        #region
         private void button1_Click(object sender, EventArgs e)
         {
             GraphNode.NodesConnectedTo.Clear();
@@ -405,8 +419,9 @@ namespace VisualizeGraphDijkstra
             CreatePointAndLabelForGraphOne();
             getTextBoxData();
             this.Invalidate();
-
         }
+        #endregion
+
 
         /// <summary>
         /// on click will show the data of graph 2
@@ -414,6 +429,8 @@ namespace VisualizeGraphDijkstra
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
+        /// 
+        #region
         private void graphtwo_Click(object sender, EventArgs e)
         {
             GraphNode.NodesConnectedTo.Clear();
@@ -434,6 +451,7 @@ namespace VisualizeGraphDijkstra
             getTextBoxData();
             this.Invalidate();
         }
+        #endregion
 
         /// <summary>
         /// on click will show the data for graph 3
@@ -441,6 +459,8 @@ namespace VisualizeGraphDijkstra
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
+        /// 
+        #region
         private void graphthree_Click(object sender, EventArgs e)
         {
             GraphNode.NodesConnectedTo.Clear();
@@ -460,10 +480,12 @@ namespace VisualizeGraphDijkstra
             getTextBoxData();
             this.Invalidate();
         }
+        #endregion
 
         /// <summary>
         /// Really sneaky way to remove the labels and pictureboxes that are still on the screen
         /// </summary>
+        #region
         private void _removeLabelsFromScreen()
         {
             for (int i = 0; i < 300; i++)
@@ -482,9 +504,13 @@ namespace VisualizeGraphDijkstra
             }
          
         }
+        #endregion
+
         /// <summary>
         /// getting the data from the Graphnode List to put it on the screen
         /// </summary>
+        /// 
+        #region
         private void getTextBoxData()
         {
             textBox1.Clear();
@@ -493,12 +519,15 @@ namespace VisualizeGraphDijkstra
                 textBox1.Text += a + Environment.NewLine;
             }
         }
+        #endregion
 
         /// <summary>
         /// Creating a random graph up to 26 characters
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
+        /// 
+        #region
         private void randomData_Click(object sender, EventArgs e)
         {           
            
@@ -521,6 +550,7 @@ namespace VisualizeGraphDijkstra
             getTextBoxData();
             this.Invalidate();
         }
+        #endregion
 
         /// <summary>
         /// Creating a dynamically Poligon that will create points for the nodes
