@@ -103,7 +103,7 @@ namespace VisualizeGraphDijkstra
             graph2.Add(new Point(50, 100)); //h
             //end node
             graph2.Add(new Point(380, 240)); //i
-    
+
 
             for (int i = 0; i < graph2.Count(); i++)
             {
@@ -130,7 +130,7 @@ namespace VisualizeGraphDijkstra
             graph3.Add(new Point(50, 100)); //h
             //end node
             graph3.Add(new Point(130, 365)); //i
-            
+
             for (int i = 0; i < graph3.Count(); i++)
             {
                 label3.Add(graph3[i]);
@@ -167,8 +167,8 @@ namespace VisualizeGraphDijkstra
             Node.Top = y;
 
             ListForStartAndEndNodes.Add(Node);
-         
-            if(graph_two)
+
+            if (graph_two)
             {
                 //start Node is color green with the Tag of H
                 if (Node.Tag.Equals('H'))
@@ -193,7 +193,7 @@ namespace VisualizeGraphDijkstra
                 if (Node.Tag.Equals('H'))
                 {
                     Node.BackColor = Color.Black;
-              //      label.Left = x + 15; 
+                    //      label.Left = x + 15; 
                     Node.Size = new Size(20, 20);
                     this.Controls.Add(Node);
                 }
@@ -202,7 +202,7 @@ namespace VisualizeGraphDijkstra
                 {
                     Node.BackColor = Color.Red;
                     Node.Size = new Size(20, 20);
-               //    label.Top = y - 15;
+                    //    label.Top = y - 15;
                     this.Controls.Add(Node);
                 }
             }
@@ -212,7 +212,7 @@ namespace VisualizeGraphDijkstra
                 if (Node.Tag.Equals('F'))
                 {
                     Node.BackColor = Color.Black;
-                  //  label.Left = x + 25; 
+                    //  label.Left = x + 25; 
                     Node.Size = new Size(20, 20);
                     this.Controls.Add(Node);
                 }
@@ -221,10 +221,10 @@ namespace VisualizeGraphDijkstra
                 {
                     Node.BackColor = Color.Red;
                     Node.Size = new Size(20, 20);
-              //      label.Top = y - 25;
+                    //      label.Top = y - 25;
                     this.Controls.Add(Node);
                 }
-            }          
+            }
 
             this.Controls.Add(label);
         }
@@ -397,8 +397,7 @@ namespace VisualizeGraphDijkstra
         /// and removes all data on the current screen
         /// </summary>
         /// <param name="sender"></param>
-        /// <param name="e"></param>
-        /// 
+        /// <param name="e"></param>       
         #region
         private void button1_Click(object sender, EventArgs e)
         {
@@ -406,7 +405,7 @@ namespace VisualizeGraphDijkstra
             Datagraph1 = GetTestData.GetTestGraph(1);
             Datagraph1.PrintAllNodes();
             Datagraph1.PrintAllNodeEdges();
-      
+
             graph_one = true;
             graph_two = false;
             graph_three = false;
@@ -422,22 +421,20 @@ namespace VisualizeGraphDijkstra
         }
         #endregion
 
-
         /// <summary>
         /// on click will show the data of graph 2
         /// and removes all data on the current screen
         /// </summary>
         /// <param name="sender"></param>
-        /// <param name="e"></param>
-        /// 
-        #region
+        /// <param name="e"></param>       
         private void graphtwo_Click(object sender, EventArgs e)
+        #region
         {
             GraphNode.NodesConnectedTo.Clear();
             Datagraph2 = GetTestData.GetTestGraph(2);
             Datagraph2.PrintAllNodes();
             Datagraph2.PrintAllNodeEdges();
-           
+
             graph_one = false;
             graph_two = true;
             graph_three = false;
@@ -445,7 +442,7 @@ namespace VisualizeGraphDijkstra
 
             ListForStartAndEndNodes.Clear();
 
-            _removeLabelsFromScreen();         
+            _removeLabelsFromScreen();
 
             CreatePointAndLabelForGraphTwo();
             getTextBoxData();
@@ -458,10 +455,9 @@ namespace VisualizeGraphDijkstra
         /// and removes all data on the current screen
         /// </summary>
         /// <param name="sender"></param>
-        /// <param name="e"></param>
-        /// 
-        #region
+        /// <param name="e"></param>         
         private void graphthree_Click(object sender, EventArgs e)
+        #region
         {
             GraphNode.NodesConnectedTo.Clear();
             Datagraph3 = GetTestData.GetTestGraph(3);
@@ -475,7 +471,7 @@ namespace VisualizeGraphDijkstra
             ListForStartAndEndNodes.Clear();
 
             _removeLabelsFromScreen();
-         
+
             CreatePointAndLabelForGraphThree();
             getTextBoxData();
             this.Invalidate();
@@ -485,8 +481,8 @@ namespace VisualizeGraphDijkstra
         /// <summary>
         /// Really sneaky way to remove the labels and pictureboxes that are still on the screen
         /// </summary>
-        #region
         private void _removeLabelsFromScreen()
+        #region
         {
             for (int i = 0; i < 300; i++)
             {
@@ -502,7 +498,7 @@ namespace VisualizeGraphDijkstra
                     }
                 }
             }
-         
+
         }
         #endregion
 
@@ -510,8 +506,8 @@ namespace VisualizeGraphDijkstra
         /// getting the data from the Graphnode List to put it on the screen
         /// </summary>
         /// 
-        #region
         private void getTextBoxData()
+        #region
         {
             textBox1.Clear();
             foreach (string a in GraphNode.NodesConnectedTo)
@@ -525,12 +521,11 @@ namespace VisualizeGraphDijkstra
         /// Creating a random graph up to 26 characters
         /// </summary>
         /// <param name="sender"></param>
-        /// <param name="e"></param>
-        /// 
-        #region
+        /// <param name="e"></param>         
         private void randomData_Click(object sender, EventArgs e)
-        {           
-           
+        #region
+        {
+
             GraphNode.NodesConnectedTo.Clear();
             DataRandom = GetTestData.GetRandomGraph(27);
             DataRandom.PrintAllNodes();
