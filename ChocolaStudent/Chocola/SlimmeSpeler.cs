@@ -67,7 +67,8 @@ namespace Chocola
         public Point FirstPlayer()
         {
             Point zet = new Point(0,0);
-            
+
+            #region CHE01
             if (Bord[1, 1])
             {
                 if (MaxX % 2 == 0 && MaxY % 2 == 0)
@@ -81,7 +82,6 @@ namespace Chocola
                         else
                         {
                             zet = new Point(MaxX - 1, 0);
-
                         }
                     }
                     else
@@ -93,7 +93,6 @@ namespace Chocola
                         else
                         {
                             zet = new Point(0, MaxY - 1);
-
                         }
                     }
                 }
@@ -105,8 +104,7 @@ namespace Chocola
             else
             {
                 if (MaxX > MaxY)
-                {
-                    // Situation CH01
+                {                   
                     if ((MaxX + MaxY) % 2 == 0)
                     {
                         zet = new Point(MaxX - 1, 0);
@@ -118,7 +116,6 @@ namespace Chocola
                 }
                 else
                 {
-                    // Situation CH02
                     if ((MaxX + MaxY) % 2 == 0)
                     {
                         zet = new Point(0, MaxY - 1);
@@ -129,8 +126,9 @@ namespace Chocola
                     }
                 }
             }
+            #endregion
 
-
+            #region CHE02
             if (MaxX == 2 && MaxY == 4)
             {
                 if (Bord[2, 2])
@@ -146,7 +144,7 @@ namespace Chocola
                     if (Bord[3, 1])
                     {
                         zet = new Point(1, 3);
-                    }                
+                    }
                     else if (Bord[4, 1])
                     {
                         zet = new Point(1, 4);
@@ -162,12 +160,12 @@ namespace Chocola
                 }
 
             }
-
             if (MaxX > 2)
             {
                 zet = new Point(3, 0);
             }
-
+            #endregion
+            
             return zet;
         }
 
@@ -175,7 +173,7 @@ namespace Chocola
         {
             Point zet = new Point(0,0);
 
-            //If 1,1 is not taken on an even bord take 1,1 for a win
+            #region CHE01
             if (Bord[1, 1])
             {
                 if (MaxX % 2 == 0 && MaxY % 2 == 0)
@@ -214,7 +212,6 @@ namespace Chocola
             {
                 if (MaxX > MaxY)
                 {
-                    // Situation CH01
                     if ((MaxX + MaxY) % 2 == 0)
                     {
                         zet = new Point(MaxX - 1, 0);
@@ -226,7 +223,6 @@ namespace Chocola
                 }
                 else
                 {
-                    // Situation CH02
                     if ((MaxX + MaxY) % 2 == 0)
                     {
                         zet = new Point(0, MaxY - 1);
@@ -237,7 +233,9 @@ namespace Chocola
                     }
                 }
             }
+            #endregion
 
+            #region CHE02
             if (MaxX == 2 && MaxY == 4)
             {
                 if (Bord[2, 2])
@@ -266,14 +264,11 @@ namespace Chocola
                     {
                         zet = new Point(1, 1);
                     }
-                }
-
-
-
-
+                }               
             }
-
-            // CH04
+            #endregion
+            
+            #region CHE03
             if (MaxY == 3 && MaxX == 2 && Bord[3, 0])
             {
                 zet = new Point(0, 3);
@@ -282,10 +277,9 @@ namespace Chocola
             {
                 zet = new Point(3, 0);
             }
+            #endregion
 
-
-
-            // CH05
+            #region CHE04
             if (MaxX == 4 && MaxY == 4)
             {
                 if (Bord[1, 1])
@@ -294,10 +288,12 @@ namespace Chocola
                 }
                 else
                 {
-                    zet = new Point(0, 3);
+                    zet = new Point(0, 4);
                 }
             }
+            #endregion
 
+            #region CHE05
             if (Bord[1, 0] && MaxY > 1 && MaxX == 1)
             {
                 zet = new Point(0, 2);
@@ -306,19 +302,20 @@ namespace Chocola
             {
                 zet = new Point(2, 0);
             }
+            #endregion
 
-
-
+            #region CHE06
             // Winning move vertical
-            if (Bord[1, 0] && !Bord[0, 1] && MaxY == 1 && MaxX == 1)
+            if (Bord[1, 0] && !Bord[0, 1])
             {
                 zet = new Point(0, 1);
             }
             // Winning move horizontal
-            if (Bord[0, 1] && !Bord[1, 0] && MaxY == 1 && MaxX == 1)
+            if (Bord[0, 1] && !Bord[1, 0])
             {
                 zet = new Point(1, 0);
             }
+            #endregion
             
             return zet;
         }
