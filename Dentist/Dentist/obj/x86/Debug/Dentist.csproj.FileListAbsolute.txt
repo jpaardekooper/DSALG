@@ -1,0 +1,16 @@
+H:\Mijn Documenten\Visual Studio 2010\Projects\Dentist\Dentist\bin\Debug\Dentist.exe
+H:\Mijn Documenten\Visual Studio 2010\Projects\Dentist\Dentist\bin\Debug\Dentist.pdb
+H:\Mijn Documenten\Visual Studio 2010\Projects\Dentist\Dentist\obj\x86\Debug\Dentist.exe
+H:\Mijn Documenten\Visual Studio 2010\Projects\Dentist\Dentist\obj\x86\Debug\Dentist.pdb
+C:\Users\P_jaz\Desktop\Dentist\Dentist\bin\Debug\Dentist.exe
+C:\Users\P_jaz\Desktop\Dentist\Dentist\bin\Debug\Dentist.pdb
+C:\Users\P_jaz\Desktop\Dentist\Dentist\obj\x86\Debug\Dentist.csprojAssemblyReference.cache
+C:\Users\P_jaz\Desktop\Dentist\Dentist\obj\x86\Debug\Dentist.csproj.CoreCompileInputs.cache
+C:\Users\P_jaz\Desktop\Dentist\Dentist\obj\x86\Debug\Dentist.exe
+C:\Users\P_jaz\Desktop\Dentist\Dentist\obj\x86\Debug\Dentist.pdb
+C:\Users\P_jaz\source\repos\DSALG\Dentist\Dentist\bin\Debug\Dentist.exe
+C:\Users\P_jaz\source\repos\DSALG\Dentist\Dentist\bin\Debug\Dentist.pdb
+C:\Users\P_jaz\source\repos\DSALG\Dentist\Dentist\obj\x86\Debug\Dentist.csprojAssemblyReference.cache
+C:\Users\P_jaz\source\repos\DSALG\Dentist\Dentist\obj\x86\Debug\Dentist.csproj.CoreCompileInputs.cache
+C:\Users\P_jaz\source\repos\DSALG\Dentist\Dentist\obj\x86\Debug\Dentist.exe
+C:\Users\P_jaz\source\repos\DSALG\Dentist\Dentist\obj\x86\Debug\Dentist.pdb

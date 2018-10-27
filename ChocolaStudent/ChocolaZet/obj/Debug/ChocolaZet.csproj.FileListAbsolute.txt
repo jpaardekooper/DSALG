@@ -1,0 +1,6 @@
+C:\Users\P_jaz\source\repos\DSALG\ChocolaStudent\ChocolaZet\bin\Debug\ChocolaZet.dll
+C:\Users\P_jaz\source\repos\DSALG\ChocolaStudent\ChocolaZet\bin\Debug\ChocolaZet.pdb
+C:\Users\P_jaz\source\repos\DSALG\ChocolaStudent\ChocolaZet\obj\Debug\ChocolaZet.csprojAssemblyReference.cache
+C:\Users\P_jaz\source\repos\DSALG\ChocolaStudent\ChocolaZet\obj\Debug\ChocolaZet.csproj.CoreCompileInputs.cache
+C:\Users\P_jaz\source\repos\DSALG\ChocolaStudent\ChocolaZet\obj\Debug\ChocolaZet.dll
+C:\Users\P_jaz\source\repos\DSALG\ChocolaStudent\ChocolaZet\obj\Debug\ChocolaZet.pdb

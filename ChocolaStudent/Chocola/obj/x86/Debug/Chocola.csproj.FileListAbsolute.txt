@@ -1,0 +1,12 @@
+C:\Users\P_jaz\source\repos\DSALG\ChocolaStudent\Chocola\bin\Debug\Chocola.exe
+C:\Users\P_jaz\source\repos\DSALG\ChocolaStudent\Chocola\bin\Debug\Chocola.pdb
+C:\Users\P_jaz\source\repos\DSALG\ChocolaStudent\Chocola\bin\Debug\ChocolaZet.dll
+C:\Users\P_jaz\source\repos\DSALG\ChocolaStudent\Chocola\bin\Debug\ChocolaZet.pdb
+C:\Users\P_jaz\source\repos\DSALG\ChocolaStudent\Chocola\obj\x86\Debug\Chocola.csprojAssemblyReference.cache
+C:\Users\P_jaz\source\repos\DSALG\ChocolaStudent\Chocola\obj\x86\Debug\Chocola.ChocolaMainForm.resources
+C:\Users\P_jaz\source\repos\DSALG\ChocolaStudent\Chocola\obj\x86\Debug\Chocola.Properties.Resources.resources
+C:\Users\P_jaz\source\repos\DSALG\ChocolaStudent\Chocola\obj\x86\Debug\Chocola.csproj.GenerateResource.cache
+C:\Users\P_jaz\source\repos\DSALG\ChocolaStudent\Chocola\obj\x86\Debug\Chocola.csproj.CoreCompileInputs.cache
+C:\Users\P_jaz\source\repos\DSALG\ChocolaStudent\Chocola\obj\x86\Debug\Chocola.csproj.CopyComplete
+C:\Users\P_jaz\source\repos\DSALG\ChocolaStudent\Chocola\obj\x86\Debug\Chocola.exe
+C:\Users\P_jaz\source\repos\DSALG\ChocolaStudent\Chocola\obj\x86\Debug\Chocola.pdb
