@@ -82,6 +82,7 @@ namespace Chocola
             VoegSpelerToe(new MensSpeler());
             VoegSpelerToe(new RandomSpeler());
             VoegSpelerToe(new SlimmeSpeler());
+            VoegSpelerToe(new AlgoritmeSpeler());
             
             speler1.SelectedIndex = 0;
             speler2.SelectedIndex = 1;

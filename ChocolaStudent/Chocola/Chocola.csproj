@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AlgoritmeSpeler.cs" />
     <Compile Include="ChocolaSpeler.cs" />
     <Compile Include="ChocolaSpel.cs" />
     <Compile Include="MainForm.cs">
