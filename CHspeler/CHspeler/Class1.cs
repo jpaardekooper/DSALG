@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Drawing;
-using ChocolaJ;
+using Chocola;
 
-namespace Chocola
+namespace CHSPEL
 {
-    class SlimmeSpeler : ChocolaSpeler
+    public class SlimmeSpeler : ChocolaSpeler
     {
         private bool? IsFirstPlayer { get; set; } = null;
         private int MaxY { get; set; }
@@ -66,7 +66,7 @@ namespace Chocola
 
         public Point FirstPlayer()
         {
-            Point zet = new Point(0,0);
+            Point zet = new Point(0, 0);
 
             #region CHE01
             if (Bord[1, 1])
@@ -104,7 +104,7 @@ namespace Chocola
             else
             {
                 if (MaxX > MaxY)
-                {                   
+                {
                     if ((MaxX + MaxY) % 2 == 0)
                     {
                         zet = new Point(MaxX - 1, 0);
@@ -165,13 +165,13 @@ namespace Chocola
                 zet = new Point(3, 0);
             }
             #endregion
-            
+
             return zet;
         }
 
         public Point SecondPlayer()
         {
-            Point zet = new Point(0,0);
+            Point zet = new Point(0, 0);
 
             #region CHE01
             if (Bord[1, 1])
@@ -264,10 +264,10 @@ namespace Chocola
                     {
                         zet = new Point(1, 1);
                     }
-                }               
+                }
             }
             #endregion
-            
+
             #region CHE03
             if (MaxY == 3 && MaxX == 2 && Bord[3, 0])
             {
@@ -316,7 +316,7 @@ namespace Chocola
                 zet = new Point(1, 0);
             }
             #endregion
-            
+
             return zet;
         }
 
