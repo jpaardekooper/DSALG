@@ -34,9 +34,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CHspeler">
-      <HintPath>..\..\..\..\..\..\source\repos\CHspeler\CHspeler\bin\Debug\CHspeler.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -93,6 +90,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\chocoOp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\CHspeler\CHspeler\CHspeler.csproj">
+      <Project>{79c4bdc1-c9d5-4ba3-b443-b8f7412ff6f2}</Project>
+      <Name>CHspeler</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
