@@ -166,6 +166,11 @@ namespace CHSPEL
             }
             #endregion
 
+            if (!Bord[0, 1] && !Bord[1, 0])
+            {
+                zet = new Point(0, 0);
+            }
+
             return zet;
         }
 
@@ -316,6 +321,11 @@ namespace CHSPEL
                 zet = new Point(1, 0);
             }
             #endregion
+
+            if (!Bord[0,1] && !Bord[1,0])
+            {
+                zet = new Point(0, 0);
+            }
 
             return zet;
         }
