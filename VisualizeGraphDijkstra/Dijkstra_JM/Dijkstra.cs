@@ -16,11 +16,18 @@ namespace Dijkstra_JM
             Graph = graph;
         }
 
+        /// <summary>
+        /// Creates a list of nodes that is the shortest path it could find
+        /// </summary>
+        /// <param name="from"></param>
+        /// <param name="to"></param>
+        /// <returns></returns>
         public List<GraphNode> GetShortestPathDijikstra(GraphNode from, GraphNode to)
         {
-
+            // setting the dijkstra variables
             SetDijkstraSearchValues(from, to);
 
+            // building the path
             var shortestPath = new List<GraphNode>
             {
                 to
@@ -31,7 +38,13 @@ namespace Dijkstra_JM
 
             return shortestPath;
         }
-        
+
+        /// <summary>
+        /// Builds the shortest path based on the node that is neaest to start
+        /// this is a recursive method that keeps buidling till its done and returns the list
+        /// </summary>
+        /// <param name="list"></param>
+        /// <param name="node"></param>
         private void BuildShortestPath(List<GraphNode> list, GraphNode node)
         {
             if (node.NearestToStart == null)
@@ -42,7 +55,13 @@ namespace Dijkstra_JM
             list.Add(node.NearestToStart);
             BuildShortestPath(list, node.NearestToStart);
         }
-        
+
+        /// <summary>
+        /// Searching for the shortest path
+        /// Big O natation: O(n)
+        /// </summary>
+        /// <param name="from"></param>
+        /// <param name="to"></param>
         private void SetDijkstraSearchValues(GraphNode from, GraphNode to)
         {
             from.BackTrackWeight = 0;
@@ -52,6 +71,8 @@ namespace Dijkstra_JM
                 from
             };
 
+            // looping till it finds its destatnation
+            // and looked trugh the paths if a shorter one is achavible
             do
             {
                 toVisit = toVisit.OrderBy(x => x.BackTrackWeight.Value).ToList();
@@ -60,29 +81,36 @@ namespace Dijkstra_JM
 
                 toVisit.Remove(current);
 
+                // Trying all the edges to find the shortest one
                 foreach (var edge in current.DirectedEdge.OrderBy(x => x.Value))
                 {
                     GraphNode childNode = edge.Key;
 
+                    // Skip viseted nodes
                     if (childNode.Visited)
                     {
                         continue;
                     }
                     if (childNode.BackTrackWeight == null ||
-                        current.BackTrackWeight + edge.Value < childNode.BackTrackWeight)
+                        current.BackTrackWeight + edge.Value < childNode.BackTrackWeight) // checking if the edge is backtrackcost is less then it was
                     {
+                        // setting the new closests node
                         childNode.BackTrackWeight = current.BackTrackWeight + edge.Value;
                         childNode.NearestToStart = current;
+                        // looking for a shorter path back
                         if (!toVisit.Contains(childNode))
                         {
+                            // adding a new to visit node
                             toVisit.Add(childNode);
                         }
 
                     }
                 }
 
+                // setting the current node as visited
                 current.Visited = true;
 
+                // if the current no is the destination it will end
                 if (current == to)
                 {
                     break;
@@ -90,52 +118,7 @@ namespace Dijkstra_JM
 
             } while (toVisit.Any());
         }
-        
-        public bool DoesPathExistFunction(GraphNode from, GraphNode to)
-        {
-            if (!Graph.DRNE(new char[] { from.Identifier, to.Identifier }))
-            {
-                return false;
-            }
-
-
-            List<GraphNode> visited = new List<GraphNode>();
-
-            if (from.DirectedEdge.ContainsKey(to))
-            {
-                return true;
-            }
-
-
-            Queue<GraphNode> queue = new Queue<GraphNode>();
-            queue.Enqueue(from);
-
-            while (queue.Count > 0)
-            {
-                GraphNode Current = queue.Dequeue();
-
-                if (visited.Contains(Current))
-                    continue;
-
-                visited.Add(Current);
-
-                foreach (GraphNode neighbor in Current.DirectedEdge.Keys)
-                {
-                    if (!visited.Contains(neighbor))
-                    {
-                        queue.Enqueue(neighbor);
-                    }
-                    if (neighbor.Equals(to))
-                    {
-                        return true;
-                    }
-                }
-
-            }
-
-            return false;
-        }
-
+                
     }
 
     
